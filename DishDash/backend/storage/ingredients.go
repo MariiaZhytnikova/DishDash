@@ -1,15 +1,19 @@
 package storage
 
-import "DishDash/backend/models"
-
-const ingredientsFile = "ingredients.json"
+import (
+	"encoding/json"
+	"os"
+	"DishDash/backend/models"
+)
 
 func LoadIngredients() ([]models.Ingredient, error) {
 	var list []models.Ingredient
-	err := loadJSON(ingredientsFile, &list)
-	return list, err
+	if err := loadJSON("ingredients.json", &list); err != nil {
+		return nil, err
+	}
+	return list, nil
 }
 
 func SaveIngredients(list []models.Ingredient) error {
-	return saveJSON(ingredientsFile, list)
+	return saveJSON("ingredients.json", list)
 }
