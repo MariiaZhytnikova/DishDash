@@ -71,3 +71,20 @@ export default defineConfig([
   },
 ])
 ```
+
+```bash
+
+npm install styled-components
+npm install -D @types/styled-components
+npm install react-router-dom
+npm install @tanstack/react-query
+npm install react-hook-form
+
+
+
+npm install -D vitest jsdom
+npm install -D @testing-library/react @testing-library/user-event
+npm install -D @testing-library/jest-dom
+npm install -D msw     -> not installed
+npm install -D msw     -> not installed
+```
