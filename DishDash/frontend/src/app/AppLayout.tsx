@@ -1,5 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { status } from "../api/api";
 
 const Shell = styled.div`
   height: 100vh;
@@ -11,6 +13,8 @@ const Sidebar = styled.aside`
   padding: 16px;
   border-right: 1px solid ${({ theme }) => theme.colors.border};
   background: ${({ theme }) => theme.colors.panel};
+  display: flex;
+  flex-direction: column;
 `;
 
 const Brand = styled.div`
@@ -22,6 +26,7 @@ const Brand = styled.div`
 const Nav = styled.nav`
   display: grid;
   gap: 8px;
+
 `;
 
 const Item = styled(NavLink)`
@@ -32,7 +37,7 @@ const Item = styled(NavLink)`
 
   &.active {
     color: ${({ theme }) => theme.colors.text};
-    background: rgba(59, 130, 246, 0.18);
+    background: rgba(57, 228, 19, 0.18);
     border: 1px solid rgba(59, 130, 246, 0.35);
   }
 
@@ -41,11 +46,55 @@ const Item = styled(NavLink)`
   }
 `;
 
+const StatusIndicator = styled.div<{ ok: boolean }>`
+  font-size: 14px;
+  color: ${({ ok }) => (ok ? "#16a34a" : "#dc2626")};
+  padding-top: 16px;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+     background: ${({ ok }) => (ok ? "#16a34a" : "#dc2626")};
+  }
+`;
+
 const Main = styled.main`
   padding: 20px 24px;
 `;
 
 export function AppLayout() {
+   const [statusState, setStatusState] = useState<{ text: string; ok: boolean } | null>(null);
+
+  useEffect(() => {
+       let cancelled = false;
+
+    const fetchStatus = async () => {
+      try {
+        const data = await status();
+        if (!cancelled) {
+          setStatusState({ text: data.status ?? "ok", ok: true });
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setStatusState({ text: "offline", ok: false });
+        }
+      }
+    };
+
+    fetchStatus();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <Shell>
       <Sidebar>
@@ -55,6 +104,10 @@ export function AppLayout() {
           <Item to="/recipes">Recipes</Item>
           <Item to="/shopping-list">Shopping List</Item>
         </Nav>
+        {/* {statusMsg && <StatusIndicator>Backend: {statusMsg}</StatusIndicator>} */}
+		 <StatusIndicator ok={statusState?.ok ?? false}>
+          Backend: {statusState ? statusState.text : "checking..."}
+        </StatusIndicator>
       </Sidebar>
 
       <Main>
