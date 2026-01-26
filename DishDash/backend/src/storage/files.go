@@ -22,18 +22,15 @@ func DataFile(name string) (string, error) {
 	return filepath.Join(dir, name), nil
 }
 
-func loadJSON(filename string, v any) error {
-	dir, err := DataDir()
-	if err != nil {
-		return err
+func loadJSON(path string, v any) error {
+	// create file if missing
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		if err := os.WriteFile(path, []byte("[]"), 0644); err != nil {
+			return err
+		}
 	}
-
-	path := filepath.Join(dir, filename)
 
 	data, err := os.ReadFile(path)
-	if os.IsNotExist(err) {
-		return nil
-	}
 	if err != nil {
 		return err
 	}
@@ -41,18 +38,10 @@ func loadJSON(filename string, v any) error {
 	return json.Unmarshal(data, v)
 }
 
-func saveJSON(filename string, v any) error {
-	dir, err := DataDir()
-	if err != nil {
-		return err
-	}
-
-	path := filepath.Join(dir, filename)
-
+func saveJSON(path string, v any) error {
 	data, err := json.MarshalIndent(v, "", "  ")
 	if err != nil {
 		return err
 	}
-
 	return os.WriteFile(path, data, 0644)
 }
