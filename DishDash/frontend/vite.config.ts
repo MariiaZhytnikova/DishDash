@@ -4,6 +4,12 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      "/search": "http://localhost:8080",
+      "/fridge": "http://localhost:8080",
+    },
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
