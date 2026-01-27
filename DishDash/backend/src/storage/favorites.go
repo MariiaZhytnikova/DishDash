@@ -1,18 +1,63 @@
 package storage
 
-import "DishDash/src/models"
+import (
+	"DishDash/src/models"
+)
 
-func LoadFavorites() ([]models.Favorite, error) {
-	var list []models.Favorite
-	err := loadJSON("favorites.json", &list)
-	return list, err
+func FavoritesPath() (string, error) {
+	return DataFile("favorites.json")
 }
 
-func AddFavorite(f models.Favorite) error {
-	list, err := LoadFavorites()
+func LoadFavorites() ([]models.Favorite, error) {
+	path, err := FavoritesPath()
+	if err != nil {
+		return nil, err
+	}
+
+	var favs []models.Favorite
+	if err := loadJSON(path, &favs); err != nil {
+		return nil, err
+	}
+	return favs, nil
+}
+
+func SaveFavorites(favs []models.Favorite) error {
+	path, err := FavoritesPath()
 	if err != nil {
 		return err
 	}
-	list = append(list, f)
-	return saveJSON("favorites.json", list)
+	return saveJSON(path, favs)
+}
+
+func AddFavorite(fav models.Favorite) error {
+	favs, err := LoadFavorites()
+	if err != nil {
+		return err
+	}
+
+	// Prevent duplicates
+	for _, f := range favs {
+		if f.ID == fav.ID {
+			return nil
+		}
+	}
+
+	favs = append(favs, fav)
+	return SaveFavorites(favs)
+}
+
+func RemoveFavorite(id int) error {
+    favs, err := LoadFavorites()
+    if err != nil {
+        return err
+    }
+
+    newFavs := []models.Favorite{}
+    for _, f := range favs {
+        if f.ID != id {
+            newFavs = append(newFavs, f)
+        }
+    }
+
+    return SaveFavorites(newFavs)
 }

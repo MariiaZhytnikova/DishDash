@@ -4,6 +4,7 @@ import (
 	"errors"
 
 	"DishDash/src/models"
+	"DishDash/src/utils"
 )
 
 func AddIngredient(ing models.Ingredient) error {
@@ -12,9 +13,17 @@ func AddIngredient(ing models.Ingredient) error {
 		return err
 	}
 
+	for i, f := range list {
+		if utils.Normalize(f.Name) == utils.Normalize(ing.Name) && f.Unit == ing.Unit {
+			list[i].Quantity += ing.Quantity
+			return SaveFridge(list)
+		}
+	}
+
 	list = append(list, ing)
 	return SaveFridge(list)
 }
+
 
 func RemoveIngredient(ing models.Ingredient) error {
 	list, err := LoadFridge()

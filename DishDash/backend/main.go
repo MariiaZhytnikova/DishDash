@@ -14,6 +14,10 @@ func main() {
 	mux.HandleFunc("/health", api.HealthHandler)
 	mux.HandleFunc("/fridge/add", api.AddIngredientHandler)
 	mux.HandleFunc("/fridge/remove", api.RemoveIngredientHandler)
+	mux.HandleFunc("/search", api.SearchHandler)
+	mux.HandleFunc("/favorites/add", api.AddFavoriteHandler)
+	mux.HandleFunc("/favorites/remove", api.RemoveFavoriteHandler)
+	mux.HandleFunc("/favorites", api.ListFavoritesHandler)
 
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"http://localhost:5173"},
