@@ -100,3 +100,10 @@ Example:
 ⭐ Export PDF
 
 - export menu & shopping list
+
+
+
+### Credentials
+All photos taken from:
+
+https://www.pexels.com/
