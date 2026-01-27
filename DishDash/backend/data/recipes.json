@@ -1,0 +1,2255 @@
+[
+  {
+	"id": 1,
+	"name": "Classic Apple Pie",
+	"mealType": "dessert",
+	"mainType": "pie",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "apple", "quantity": 6, "unit": "pcs"},
+	  {"name": "sugar", "quantity": 1, "unit": "cup"},
+	  {"name": "cinnamon", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Prepare apples", "Make pie crust", "Assemble pie", "Bake"],
+	"description": "## Prepare apples\nPeel, core and slice the apples.\n\n## Make pie crust\nRoll out pie dough and place in dish.\n\n## Assemble pie\nAdd apples and sugar mixture.\n\n## Bake\nBake until golden.",
+	"time": 60,
+	"imageUrl": ""
+  },
+  {
+	"id": 2,
+	"name": "Chocolate Brownies",
+	"mealType": "dessert",
+	"mainType": "baked",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "dark chocolate", "quantity": 200, "unit": "g"},
+	  {"name": "butter", "quantity": 100, "unit": "g"},
+	  {"name": "sugar", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Prepare batter", "Bake", "Cool and cut"],
+	"description": "## Prepare batter\nMelt chocolate and butter, then mix with sugar and eggs.\n\n## Bake\nBake until set.\n\n## Cool and cut\nLet cool before cutting into squares.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 3,
+	"name": "Vegan Chocolate Mousse",
+	"mealType": "dessert",
+	"mainType": "mousse",
+	"country": "France",
+	"dietType": ["vegan"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "dark chocolate", "quantity": 200, "unit": "g"},
+	  {"name": "coconut cream", "quantity": 1, "unit": "cup"},
+	  {"name": "maple syrup", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Melt chocolate", "Mix ingredients", "Chill"],
+	"description": "## Melt chocolate\nMelt chocolate in a bowl over simmering water.\n\n## Mix ingredients\nWhisk in coconut cream and maple syrup.\n\n## Chill\nChill until firm.",
+	"time": 20,
+	"imageUrl": ""
+  },
+  {
+	"id": 4,
+	"name": "Gluten-Free Lemon Bars",
+	"mealType": "dessert",
+	"mainType": "bars",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "gluten-free flour", "quantity": 1, "unit": "cup"},
+	  {"name": "lemon", "quantity": 2, "unit": "pcs"},
+	  {"name": "sugar", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Prepare crust", "Make lemon filling", "Bake"],
+	"description": "## Prepare crust\nMix gluten-free flour with butter and bake.\n\n## Make lemon filling\nMix lemon juice, sugar, eggs.\n\n## Bake\nPour filling over crust and bake.",
+	"time": 45,
+	"imageUrl": ""
+  },
+  {
+	"id": 5,
+	"name": "Vegan Banana Ice Cream",
+	"mealType": "dessert",
+	"mainType": "ice cream",
+	"country": "USA",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "banana", "quantity": 3, "unit": "pcs"},
+	  {"name": "cocoa powder", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Freeze bananas", "Blend", "Freeze again"],
+	"description": "## Freeze bananas\nFreeze sliced bananas.\n\n## Blend\nBlend with cocoa powder until smooth.\n\n## Freeze again\nFreeze for 1 hour.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 6,
+	"name": "High-Protein Greek Yogurt Parfait",
+	"mealType": "dessert",
+	"mainType": "parfait",
+	"country": "Greece",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "greek yogurt", "quantity": 1, "unit": "cup"},
+	  {"name": "berries", "quantity": 1, "unit": "cup"},
+	  {"name": "honey", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Layer ingredients", "Serve chilled"],
+	"description": "## Layer ingredients\nLayer yogurt, berries, and honey.\n\n## Serve chilled\nServe immediately.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 7,
+	"name": "Vegetarian Tiramisu",
+	"mealType": "dessert",
+	"mainType": "no-bake",
+	"country": "Italy",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "mascarpone", "quantity": 250, "unit": "g"},
+	  {"name": "coffee", "quantity": 1, "unit": "cup"},
+	  {"name": "ladyfingers", "quantity": 200, "unit": "g"}
+	],
+	"steps": ["Prepare cream", "Layer ingredients", "Chill"],
+	"description": "## Prepare cream\nMix mascarpone with sugar and eggs.\n\n## Layer ingredients\nLayer ladyfingers soaked in coffee with cream.\n\n## Chill\nChill overnight.",
+	"time": 20,
+	"imageUrl": ""
+  },
+  {
+	"id": 8,
+	"name": "Keto Chocolate Fat Bombs",
+	"mealType": "dessert",
+	"mainType": "snack",
+	"country": "USA",
+	"dietType": ["keto", "low-carb"],
+	"restrictions": ["low-sugar", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "coconut oil", "quantity": 1, "unit": "cup"},
+	  {"name": "cocoa powder", "quantity": 3, "unit": "tbsp"},
+	  {"name": "stevia", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Mix ingredients", "Freeze"],
+	"description": "## Mix ingredients\nMix coconut oil, cocoa powder, and stevia.\n\n## Freeze\nPour into molds and freeze.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 9,
+	"name": "Vegan Oat Cookies",
+	"mealType": "dessert",
+	"mainType": "cookies",
+	"country": "USA",
+	"dietType": ["vegan"],
+	"restrictions": ["gluten-free", "dairy-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "oats", "quantity": 2, "unit": "cups"},
+	  {"name": "banana", "quantity": 2, "unit": "pcs"},
+	  {"name": "cinnamon", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Mix ingredients", "Bake"],
+	"description": "## Mix ingredients\nMix oats, mashed banana, and cinnamon.\n\n## Bake\nBake until golden.",
+	"time": 20,
+	"imageUrl": ""
+  },
+  {
+	"id": 10,
+	"name": "Low-Carb Cheesecake",
+	"mealType": "dessert",
+	"mainType": "cheesecake",
+	"country": "USA",
+	"dietType": ["low-carb"],
+	"restrictions": ["gluten-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "cream cheese", "quantity": 300, "unit": "g"},
+	  {"name": "eggs", "quantity": 3, "unit": "pcs"},
+	  {"name": "almond flour", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Prepare crust", "Make filling", "Bake"],
+	"description": "## Prepare crust\nMix almond flour with butter.\n\n## Make filling\nMix cream cheese with eggs.\n\n## Bake\nBake until set.",
+	"time": 50,
+	"imageUrl": ""
+  },
+  {
+	"id": 11,
+	"name": "Vegan Strawberry Sorbet",
+	"mealType": "dessert",
+	"mainType": "sorbet",
+	"country": "France",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "strawberries", "quantity": 2, "unit": "cups"},
+	  {"name": "lemon juice", "quantity": 1, "unit": "tbsp"},
+	  {"name": "stevia", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Blend ingredients", "Freeze"],
+	"description": "## Blend ingredients\nBlend strawberries with lemon juice and sweetener.\n\n## Freeze\nFreeze until firm.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 12,
+	"name": "Vegetarian Rice Pudding",
+	"mealType": "dessert",
+	"mainType": "pudding",
+	"country": "India",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "rice", "quantity": 1, "unit": "cup"},
+	  {"name": "milk", "quantity": 2, "unit": "cups"},
+	  {"name": "sugar", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cook rice", "Add milk", "Simmer"],
+	"description": "## Cook rice\nCook rice in water until soft.\n\n## Add milk\nAdd milk and sugar.\n\n## Simmer\nSimmer until thick.",
+	"time": 45,
+	"imageUrl": ""
+  },
+  {
+	"id": 13,
+	"name": "High-Protein Chocolate Pudding",
+	"mealType": "dessert",
+	"mainType": "pudding",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "protein powder", "quantity": 2, "unit": "scoops"},
+	  {"name": "milk", "quantity": 1, "unit": "cup"},
+	  {"name": "cocoa powder", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Mix ingredients", "Chill"],
+	"description": "## Mix ingredients\nMix protein powder, milk, and cocoa powder.\n\n## Chill\nChill until thick.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 14,
+	"name": "Vegetarian Blueberry Muffins",
+	"mealType": "dessert",
+	"mainType": "muffins",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "flour", "quantity": 2, "unit": "cups"},
+	  {"name": "blueberries", "quantity": 1, "unit": "cup"},
+	  {"name": "sugar", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Mix batter", "Bake"],
+	"description": "## Mix batter\nMix flour, sugar, eggs, and blueberries.\n\n## Bake\nBake until golden.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 15,
+	"name": "Vegan Coconut Macaroons",
+	"mealType": "dessert",
+	"mainType": "cookies",
+	"country": "France",
+	"dietType": ["vegan"],
+	"restrictions": ["gluten-free", "dairy-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "shredded coconut", "quantity": 2, "unit": "cups"},
+	  {"name": "maple syrup", "quantity": 1, "unit": "cup"},
+	  {"name": "vanilla", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Mix ingredients", "Bake"],
+	"description": "## Mix ingredients\nMix coconut, maple syrup, and vanilla.\n\n## Bake\nBake until golden.",
+	"time": 20,
+	"imageUrl": ""
+  },
+  {
+	"id": 16,
+	"name": "Vegetarian Chocolate Panna Cotta",
+	"mealType": "dessert",
+	"mainType": "panna cotta",
+	"country": "Italy",
+	"dietType": ["vegetarian"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "cream", "quantity": 1, "unit": "cup"},
+	  {"name": "gelatin", "quantity": 1, "unit": "tbsp"},
+	  {"name": "chocolate", "quantity": 100, "unit": "g"}
+	],
+	"steps": ["Heat cream", "Add gelatin", "Chill"],
+	"description": "## Heat cream\nHeat cream and dissolve gelatin.\n\n## Add gelatin\nAdd chocolate and mix.\n\n## Chill\nChill until set.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 17,
+	"name": "Vegan Chocolate Chip Cookies",
+	"mealType": "dessert",
+	"mainType": "cookies",
+	"country": "USA",
+	"dietType": ["vegan"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "flour", "quantity": 2, "unit": "cups"},
+	  {"name": "coconut oil", "quantity": 1, "unit": "cup"},
+	  {"name": "chocolate chips", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Mix batter", "Bake"],
+	"description": "## Mix batter\nMix flour, coconut oil, and chocolate chips.\n\n## Bake\nBake until golden.",
+	"time": 18,
+	"imageUrl": ""
+  },
+  {
+	"id": 18,
+	"name": "Low-Carb Peanut Butter Cups",
+	"mealType": "dessert",
+	"mainType": "snack",
+	"country": "USA",
+	"dietType": ["low-carb"],
+	"restrictions": ["low-sugar"],
+	"ingredients": [
+	  {"name": "peanut butter", "quantity": 1, "unit": "cup"},
+	  {"name": "dark chocolate", "quantity": 200, "unit": "g"},
+	  {"name": "stevia", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Melt chocolate", "Add filling", "Freeze"],
+	"description": "## Melt chocolate\nMelt chocolate.\n\n## Add filling\nAdd peanut butter filling.\n\n## Freeze\nFreeze until solid.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 19,
+	"name": "Vegetarian Fruit Salad",
+	"mealType": "dessert",
+	"mainType": "salad",
+	"country": "USA",
+	"dietType": ["vegetarian", "low-carb"],
+	"restrictions": ["low-sugar", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "apple", "quantity": 1, "unit": "pcs"},
+	  {"name": "berries", "quantity": 1, "unit": "cup"},
+	  {"name": "lemon juice", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Chop fruits", "Mix and serve"],
+	"description": "## Chop fruits\nChop fruits into bite-sized pieces.\n\n## Mix and serve\nMix with lemon juice and serve.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 20,
+	"name": "Vegan Chia Pudding",
+	"mealType": "dessert",
+	"mainType": "pudding",
+	"country": "USA",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["gluten-free", "dairy-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chia seeds", "quantity": 3, "unit": "tbsp"},
+	  {"name": "almond milk", "quantity": 1, "unit": "cup"},
+	  {"name": "vanilla", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Mix ingredients", "Chill"],
+	"description": "## Mix ingredients\nMix chia seeds with almond milk and vanilla.\n\n## Chill\nChill overnight until thick.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 21,
+	"name": "Oatmeal with Peanut Butter",
+	"mealType": "breakfast",
+	"mainType": "oatmeal",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["gluten-free"],
+	"ingredients": [
+	  {"name": "oats", "quantity": 1, "unit": "cup"},
+	  {"name": "milk", "quantity": 1, "unit": "cup"},
+	  {"name": "peanut butter", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Cook oats", "Add peanut butter"],
+	"description": "## Cook oats\nCook oats in milk until soft.\n\n## Add peanut butter\nStir in peanut butter and serve.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 22,
+	"name": "High-Protein Cottage Cheese Toast",
+	"mealType": "breakfast",
+	"mainType": "toast",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["peanut-free"],
+	"ingredients": [
+	  {"name": "bread", "quantity": 2, "unit": "slices"},
+	  {"name": "cottage cheese", "quantity": 1, "unit": "cup"},
+	  {"name": "tomato", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Toast bread", "Spread cottage cheese", "Add tomato"],
+	"description": "## Toast bread\nToast bread until golden.\n\n## Spread cottage cheese\nSpread cottage cheese on toast.\n\n## Add tomato\nAdd sliced tomato and serve.",
+	"time": 8,
+	"imageUrl": ""
+  },
+  {
+	"id": 23,
+	"name": "Vegan Avocado Smoothie",
+	"mealType": "breakfast",
+	"mainType": "drink",
+	"country": "Mexico",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "avocado", "quantity": 1, "unit": "pcs"},
+	  {"name": "spinach", "quantity": 1, "unit": "cup"},
+	  {"name": "water", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Blend", "Serve"],
+	"description": "## Blend\nBlend avocado, spinach, and water until smooth.\n\n## Serve\nServe immediately.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 24,
+	"name": "Vegetarian Veggie Omelette",
+	"mealType": "breakfast",
+	"mainType": "omelette",
+	"country": "France",
+	"dietType": ["vegetarian", "high-protein"],
+	"restrictions": ["gluten-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "eggs", "quantity": 2, "unit": "pcs"},
+	  {"name": "bell pepper", "quantity": 1, "unit": "pcs"},
+	  {"name": "spinach", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Whisk eggs", "Cook with veggies"],
+	"description": "## Whisk eggs\nWhisk eggs in a bowl.\n\n## Cook with veggies\nCook bell pepper and spinach, then add eggs and fold.",
+	"time": 12,
+	"imageUrl": ""
+  },
+  {
+	"id": 25,
+	"name": "Vegan Banana Oat Smoothie",
+	"mealType": "breakfast",
+	"mainType": "drink",
+	"country": "USA",
+	"dietType": ["vegan"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "banana", "quantity": 1, "unit": "pcs"},
+	  {"name": "oats", "quantity": 1, "unit": "cup"},
+	  {"name": "water", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Blend", "Serve"],
+	"description": "## Blend\nBlend banana, oats, and water until smooth.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 26,
+	"name": "Low-Sugar Egg White Omelette",
+	"mealType": "breakfast",
+	"mainType": "omelette",
+	"country": "USA",
+	"dietType": ["low-carb", "high-protein"],
+	"restrictions": ["gluten-free", "peanut-free", "low-sugar"],
+	"ingredients": [
+	  {"name": "egg whites", "quantity": 3, "unit": "pcs"},
+	  {"name": "spinach", "quantity": 1, "unit": "cup"},
+	  {"name": "mushrooms", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cook egg whites", "Add veggies"],
+	"description": "## Cook egg whites\nCook egg whites in a pan.\n\n## Add veggies\nAdd spinach and mushrooms and cook until done.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 27,
+	"name": "Vegetarian Breakfast Quinoa Bowl",
+	"mealType": "breakfast",
+	"mainType": "bowl",
+	"country": "Peru",
+	"dietType": ["vegetarian", "high-protein"],
+	"restrictions": ["gluten-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "quinoa", "quantity": 1, "unit": "cup"},
+	  {"name": "berries", "quantity": 1, "unit": "cup"},
+	  {"name": "honey", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Cook quinoa", "Add berries"],
+	"description": "## Cook quinoa\nCook quinoa until fluffy.\n\n## Add berries\nAdd berries and honey and serve.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 28,
+	"name": "Vegan Apple Cinnamon Oatmeal",
+	"mealType": "breakfast",
+	"mainType": "oatmeal",
+	"country": "USA",
+	"dietType": ["vegan"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "oats", "quantity": 1, "unit": "cup"},
+	  {"name": "apple", "quantity": 1, "unit": "pcs"},
+	  {"name": "cinnamon", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Cook oats", "Add apple", "Add cinnamon"],
+	"description": "## Cook oats\nCook oats in water until soft.\n\n## Add apple\nAdd chopped apple.\n\n## Add cinnamon\nAdd cinnamon and serve.",
+	"time": 12,
+	"imageUrl": ""
+  },
+  {
+	"id": 29,
+	"name": "Vegetarian Protein Smoothie",
+	"mealType": "breakfast",
+	"mainType": "drink",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "protein powder", "quantity": 1, "unit": "scoop"},
+	  {"name": "banana", "quantity": 1, "unit": "pcs"},
+	  {"name": "milk", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Blend", "Serve"],
+	"description": "## Blend\nBlend protein powder, banana, and milk.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 30,
+	"name": "Vegan Breakfast Tacos",
+	"mealType": "breakfast",
+	"mainType": "tacos",
+	"country": "Mexico",
+	"dietType": ["vegan"],
+	"restrictions": ["gluten-free", "dairy-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "tortillas", "quantity": 2, "unit": "pcs"},
+	  {"name": "tofu", "quantity": 200, "unit": "g"},
+	  {"name": "salsa", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cook tofu", "Fill tortillas", "Add salsa"],
+	"description": "## Cook tofu\nCook crumbled tofu with spices.\n\n## Fill tortillas\nFill tortillas with tofu.\n\n## Add salsa\nAdd salsa and serve.",
+	"time": 12,
+	"imageUrl": ""
+  },
+  {
+	"id": 31,
+	"name": "Vegetarian Pancakes with Berries",
+	"mealType": "breakfast",
+	"mainType": "pancakes",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "flour", "quantity": 1, "unit": "cup"},
+	  {"name": "milk", "quantity": 1, "unit": "cup"},
+	  {"name": "berries", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Mix batter", "Cook pancakes", "Add berries"],
+	"description": "## Mix batter\nMix flour and milk.\n\n## Cook pancakes\nCook pancakes until golden.\n\n## Add berries\nServe with berries on top.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 32,
+	"name": "Low-Carb Veggie Breakfast Bowl",
+	"mealType": "breakfast",
+	"mainType": "bowl",
+	"country": "USA",
+	"dietType": ["low-carb"],
+	"restrictions": ["gluten-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "spinach", "quantity": 1, "unit": "cup"},
+	  {"name": "mushrooms", "quantity": 1, "unit": "cup"},
+	  {"name": "eggs", "quantity": 2, "unit": "pcs"}
+	],
+	"steps": ["Cook veggies", "Add eggs"],
+	"description": "## Cook veggies\nCook spinach and mushrooms.\n\n## Add eggs\nAdd eggs and cook until done.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 33,
+	"name": "Vegan Breakfast Porridge",
+	"mealType": "breakfast",
+	"mainType": "porridge",
+	"country": "UK",
+	"dietType": ["vegan"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "oats", "quantity": 1, "unit": "cup"},
+	  {"name": "water", "quantity": 1, "unit": "cup"},
+	  {"name": "banana", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Cook oats", "Add banana"],
+	"description": "## Cook oats\nCook oats in water until thick.\n\n## Add banana\nAdd sliced banana and serve.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 34,
+	"name": "Vegetarian Bagel with Cream Cheese",
+	"mealType": "breakfast",
+	"mainType": "bagel",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["peanut-free"],
+	"ingredients": [
+	  {"name": "bagel", "quantity": 1, "unit": "pcs"},
+	  {"name": "cream cheese", "quantity": 2, "unit": "tbsp"},
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Toast bagel", "Spread cream cheese", "Add cucumber"],
+	"description": "## Toast bagel\nToast bagel until warm.\n\n## Spread cream cheese\nSpread cream cheese on bagel.\n\n## Add cucumber\nAdd sliced cucumber and serve.",
+	"time": 8,
+	"imageUrl": ""
+  },
+  {
+	"id": 35,
+	"name": "Vegan Berry Oat Smoothie",
+	"mealType": "breakfast",
+	"mainType": "drink",
+	"country": "USA",
+	"dietType": ["vegan"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "berries", "quantity": 1, "unit": "cup"},
+	  {"name": "oats", "quantity": 1, "unit": "cup"},
+	  {"name": "water", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Blend", "Serve"],
+	"description": "## Blend\nBlend berries, oats, and water.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 36,
+	"name": "Low-Sugar Greek Yogurt with Nuts",
+	"mealType": "breakfast",
+	"mainType": "bowl",
+	"country": "Greece",
+	"dietType": ["high-protein"],
+	"restrictions": ["low-sugar", "gluten-free"],
+	"ingredients": [
+	  {"name": "greek yogurt", "quantity": 1, "unit": "cup"},
+	  {"name": "walnuts", "quantity": 1, "unit": "tbsp"},
+	  {"name": "berries", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Mix ingredients", "Serve"],
+	"description": "## Mix ingredients\nMix Greek yogurt, walnuts, and berries.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 37,
+	"name": "Vegetarian Breakfast Quesadilla",
+	"mealType": "breakfast",
+	"mainType": "quesadilla",
+	"country": "Mexico",
+	"dietType": ["vegetarian", "high-protein"],
+	"restrictions": ["peanut-free"],
+	"ingredients": [
+	  {"name": "tortilla", "quantity": 1, "unit": "pcs"},
+	  {"name": "eggs", "quantity": 2, "unit": "pcs"},
+	  {"name": "cheese", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cook eggs", "Assemble", "Cook quesadilla"],
+	"description": "## Cook eggs\nCook scrambled eggs.\n\n## Assemble\nAdd eggs and cheese into tortilla.\n\n## Cook quesadilla\nCook until crispy.",
+	"time": 12,
+	"imageUrl": ""
+  },
+  {
+	"id": 38,
+	"name": "Vegan Coconut Yogurt Bowl",
+	"mealType": "breakfast",
+	"mainType": "bowl",
+	"country": "Thailand",
+	"dietType": ["vegan"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "coconut yogurt", "quantity": 1, "unit": "cup"},
+	  {"name": "berries", "quantity": 1, "unit": "cup"},
+	  {"name": "chia seeds", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Mix ingredients", "Serve"],
+	"description": "## Mix ingredients\nMix coconut yogurt, berries, and chia seeds.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 39,
+	"name": "Vegetarian Apple Cinnamon Toast",
+	"mealType": "breakfast",
+	"mainType": "toast",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "bread", "quantity": 2, "unit": "slices"},
+	  {"name": "apple", "quantity": 1, "unit": "pcs"},
+	  {"name": "cinnamon", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Toast bread", "Add apple", "Sprinkle cinnamon"],
+	"description": "## Toast bread\nToast bread until golden.\n\n## Add apple\nAdd sliced apple.\n\n## Sprinkle cinnamon\nSprinkle cinnamon and serve.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 40,
+	"name": "Low-Carb Protein Shake",
+	"mealType": "breakfast",
+	"mainType": "drink",
+	"country": "USA",
+	"dietType": ["low-carb", "high-protein"],
+	"restrictions": ["gluten-free", "peanut-free", "low-sugar"],
+	"ingredients": [
+	  {"name": "protein powder", "quantity": 1, "unit": "scoop"},
+	  {"name": "water", "quantity": 1, "unit": "cup"},
+	  {"name": "ice", "quantity": 5, "unit": "pcs"}
+	],
+	"steps": ["Blend", "Serve"],
+	"description": "## Blend\nBlend protein powder, water and ice until smooth.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+   },
+   {
+	"id": 41,
+	"name": "Tomato Basil Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Italy",
+	"dietType": ["vegetarian", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free", "soy-free"],
+	"ingredients": [
+	  {"name": "tomatoes", "quantity": 6, "unit": "pcs"},
+	  {"name": "basil", "quantity": 1, "unit": "bunch"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "garlic", "quantity": 2, "unit": "cloves"},
+	  {"name": "vegetable broth", "quantity": 4, "unit": "cups"}
+	],
+	"steps": ["Prep vegetables", "Cook", "Blend"],
+	"description": "## Prep vegetables\nChop tomatoes, onion and garlic.\n\n## Cook\nSauté onion and garlic, add tomatoes and broth, simmer 20 minutes.\n\n## Blend\nBlend until smooth and add basil.",
+	"time": 30,
+	"imageUrl": ""
+  },
+  {
+	"id": 42,
+	"name": "Chicken Noodle Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chicken breast", "quantity": 2, "unit": "pcs"},
+	  {"name": "carrots", "quantity": 2, "unit": "pcs"},
+	  {"name": "celery", "quantity": 2, "unit": "stalks"},
+	  {"name": "egg noodles", "quantity": 2, "unit": "cups"},
+	  {"name": "chicken broth", "quantity": 6, "unit": "cups"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Cook chicken", "Add vegetables", "Add noodles"],
+	"description": "## Cook chicken\nBoil chicken in broth until cooked, shred.\n\n## Add vegetables\nAdd carrots, celery, onion and simmer 15 minutes.\n\n## Add noodles\nAdd noodles and cook until tender.",
+	"time": 45,
+	"imageUrl": ""
+  },
+  {
+	"id": 43,
+	"name": "Miso Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Japan",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "miso paste", "quantity": 3, "unit": "tbsp"},
+	  {"name": "tofu", "quantity": 200, "unit": "g"},
+	  {"name": "seaweed", "quantity": 1, "unit": "handful"},
+	  {"name": "water", "quantity": 4, "unit": "cups"},
+	  {"name": "green onions", "quantity": 2, "unit": "pcs"}
+	],
+	"steps": ["Heat water", "Add miso", "Add tofu"],
+	"description": "## Heat water\nBring water to warm temperature (not boiling).\n\n## Add miso\nStir miso paste until dissolved.\n\n## Add tofu\nAdd tofu and seaweed, simmer 5 minutes and garnish with green onions.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 44,
+	"name": "Butternut Squash Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "France",
+	"dietType": ["vegetarian", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "butternut squash", "quantity": 1, "unit": "pcs"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "vegetable broth", "quantity": 4, "unit": "cups"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"},
+	  {"name": "salt", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Roast squash", "Cook", "Blend"],
+	"description": "## Roast squash\nRoast squash cubes with olive oil until soft.\n\n## Cook\nSauté onion, add roasted squash and broth.\n\n## Blend\nBlend until smooth and season with salt.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 45,
+	"name": "Lentil Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Turkey",
+	"dietType": ["vegan", "high-protein"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "red lentils", "quantity": 1, "unit": "cup"},
+	  {"name": "carrots", "quantity": 2, "unit": "pcs"},
+	  {"name": "tomato paste", "quantity": 2, "unit": "tbsp"},
+	  {"name": "vegetable broth", "quantity": 5, "unit": "cups"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Sauté", "Add lentils", "Simmer"],
+	"description": "## Sauté\nSauté onion and carrots.\n\n## Add lentils\nAdd lentils, tomato paste, and broth.\n\n## Simmer\nSimmer 20 minutes until lentils are soft.",
+	"time": 35,
+	"imageUrl": ""
+  },
+  {
+	"id": 46,
+	"name": "Chicken Tortilla Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Mexico",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chicken breast", "quantity": 2, "unit": "pcs"},
+	  {"name": "corn", "quantity": 1, "unit": "cup"},
+	  {"name": "black beans", "quantity": 1, "unit": "cup"},
+	  {"name": "tomato broth", "quantity": 4, "unit": "cups"},
+	  {"name": "tortilla strips", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cook chicken", "Add ingredients", "Serve"],
+	"description": "## Cook chicken\nCook chicken in broth, shred.\n\n## Add ingredients\nAdd corn, beans, and tomato broth.\n\n## Serve\nTop with tortilla strips.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 47,
+	"name": "Minestrone Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Italy",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "zucchini", "quantity": 1, "unit": "pcs"},
+	  {"name": "carrots", "quantity": 2, "unit": "pcs"},
+	  {"name": "beans", "quantity": 1, "unit": "cup"},
+	  {"name": "pasta", "quantity": 1, "unit": "cup"},
+	  {"name": "vegetable broth", "quantity": 6, "unit": "cups"}
+	],
+	"steps": ["Cook vegetables", "Add broth", "Add pasta"],
+	"description": "## Cook vegetables\nCook zucchini and carrots.\n\n## Add broth\nAdd broth and beans.\n\n## Add pasta\nAdd pasta and cook until tender.",
+	"time": 45,
+	"imageUrl": ""
+  },
+  {
+	"id": 48,
+	"name": "Pumpkin Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "USA",
+	"dietType": ["vegetarian", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "pumpkin puree", "quantity": 2, "unit": "cups"},
+	  {"name": "vegetable broth", "quantity": 4, "unit": "cups"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "cinnamon", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Cook", "Blend"],
+	"description": "## Cook\nSauté onion, add pumpkin puree and broth.\n\n## Blend\nBlend until smooth and add cinnamon.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 49,
+	"name": "French Onion Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "France",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "onions", "quantity": 4, "unit": "pcs"},
+	  {"name": "butter", "quantity": 2, "unit": "tbsp"},
+	  {"name": "beef broth", "quantity": 4, "unit": "cups"},
+	  {"name": "bread", "quantity": 4, "unit": "slices"},
+	  {"name": "cheese", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Caramelize onions", "Add broth", "Bake with cheese"],
+	"description": "## Caramelize onions\nCook onions in butter until golden.\n\n## Add broth\nAdd beef broth and simmer.\n\n## Bake with cheese\nTop with bread and cheese, bake until melted.",
+	"time": 60,
+	"imageUrl": ""
+  },
+  {
+	"id": 50,
+	"name": "Beef Pho",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Vietnam",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "beef bones", "quantity": 1, "unit": "kg"},
+	  {"name": "rice noodles", "quantity": 2, "unit": "cups"},
+	  {"name": "ginger", "quantity": 1, "unit": "inch"},
+	  {"name": "star anise", "quantity": 2, "unit": "pcs"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Make broth", "Cook noodles", "Serve"],
+	"description": "## Make broth\nBoil beef bones with spices for 3 hours.\n\n## Cook noodles\nCook rice noodles separately.\n\n## Serve\nAdd noodles and sliced beef to broth.",
+	"time": 240,
+	"imageUrl": ""
+  },
+  {
+	"id": 51,
+	"name": "Tom Kha Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Thailand",
+	"dietType": ["gluten-free", "low-carb"],
+	"restrictions": ["dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "coconut milk", "quantity": 2, "unit": "cups"},
+	  {"name": "lemongrass", "quantity": 2, "unit": "stalks"},
+	  {"name": "mushrooms", "quantity": 1, "unit": "cup"},
+	  {"name": "lime juice", "quantity": 2, "unit": "tbsp"},
+	  {"name": "chicken", "quantity": 200, "unit": "g"}
+	],
+	"steps": ["Boil", "Add ingredients", "Simmer"],
+	"description": "## Boil\nBring coconut milk to a boil with lemongrass.\n\n## Add ingredients\nAdd mushrooms and chicken.\n\n## Simmer\nSimmer 10 minutes, add lime juice.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 52,
+	"name": "Gazpacho",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Spain",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "tomatoes", "quantity": 6, "unit": "pcs"},
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"},
+	  {"name": "bell pepper", "quantity": 1, "unit": "pcs"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"},
+	  {"name": "garlic", "quantity": 1, "unit": "clove"}
+	],
+	"steps": ["Blend", "Chill"],
+	"description": "## Blend\nBlend all vegetables with olive oil.\n\n## Chill\nChill for 2 hours before serving.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 53,
+	"name": "Clam Chowder",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "clams", "quantity": 2, "unit": "cups"},
+	  {"name": "potatoes", "quantity": 2, "unit": "pcs"},
+	  {"name": "cream", "quantity": 1, "unit": "cup"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "bacon", "quantity": 2, "unit": "strips"}
+	],
+	"steps": ["Cook bacon", "Add ingredients", "Simmer"],
+	"description": "## Cook bacon\nCook bacon until crispy.\n\n## Add ingredients\nAdd clams, potatoes, onion, and cream.\n\n## Simmer\nSimmer 20 minutes.",
+	"time": 45,
+	"imageUrl": ""
+  },
+  {
+	"id": 54,
+	"name": "Egg Drop Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "China",
+	"dietType": ["low-carb", "high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chicken broth", "quantity": 4, "unit": "cups"},
+	  {"name": "eggs", "quantity": 2, "unit": "pcs"},
+	  {"name": "green onions", "quantity": 1, "unit": "bunch"},
+	  {"name": "cornstarch", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Boil broth", "Add eggs", "Add green onions"],
+	"description": "## Boil broth\nBring broth to boil.\n\n## Add eggs\nSlowly pour beaten eggs while stirring.\n\n## Add green onions\nAdd green onions and cornstarch slurry.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 55,
+	"name": "Cabbage Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Russia",
+	"dietType": ["vegetarian", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "cabbage", "quantity": 1, "unit": "head"},
+	  {"name": "carrots", "quantity": 2, "unit": "pcs"},
+	  {"name": "potatoes", "quantity": 2, "unit": "pcs"},
+	  {"name": "vegetable broth", "quantity": 5, "unit": "cups"},
+	  {"name": "tomato paste", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Cook vegetables", "Add broth", "Simmer"],
+	"description": "## Cook vegetables\nCook cabbage, carrots, and potatoes.\n\n## Add broth\nAdd vegetable broth and tomato paste.\n\n## Simmer\nSimmer 30 minutes.",
+	"time": 45,
+	"imageUrl": ""
+  },
+  {
+	"id": 56,
+	"name": "Corn Chowder",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "corn", "quantity": 2, "unit": "cups"},
+	  {"name": "potatoes", "quantity": 2, "unit": "pcs"},
+	  {"name": "cream", "quantity": 1, "unit": "cup"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "vegetable broth", "quantity": 4, "unit": "cups"}
+	],
+	"steps": ["Cook vegetables", "Add broth", "Add cream"],
+	"description": "## Cook vegetables\nCook potatoes and onions.\n\n## Add broth\nAdd vegetable broth and corn.\n\n## Add cream\nAdd cream and simmer 15 minutes.",
+	"time": 35,
+	"imageUrl": ""
+  },
+  {
+	"id": 57,
+	"name": "Pho Chay (Vegan Pho)",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Vietnam",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "rice noodles", "quantity": 2, "unit": "cups"},
+	  {"name": "vegetable broth", "quantity": 6, "unit": "cups"},
+	  {"name": "mushrooms", "quantity": 1, "unit": "cup"},
+	  {"name": "ginger", "quantity": 1, "unit": "inch"},
+	  {"name": "bean sprouts", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Make broth", "Cook noodles", "Serve"],
+	"description": "## Make broth\nBoil vegetable broth with ginger and spices.\n\n## Cook noodles\nCook rice noodles separately.\n\n## Serve\nAdd noodles and mushrooms to broth, top with bean sprouts.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 58,
+	"name": "Greek Avgolemono Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Greece",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chicken broth", "quantity": 6, "unit": "cups"},
+	  {"name": "rice", "quantity": 1, "unit": "cup"},
+	  {"name": "eggs", "quantity": 2, "unit": "pcs"},
+	  {"name": "lemon juice", "quantity": 2, "unit": "tbsp"},
+	  {"name": "chicken", "quantity": 200, "unit": "g"}
+	],
+	"steps": ["Cook rice", "Mix eggs and lemon", "Add to soup"],
+	"description": "## Cook rice\nCook rice in chicken broth.\n\n## Mix eggs and lemon\nWhisk eggs and lemon juice.\n\n## Add to soup\nSlowly add egg mixture to hot broth while stirring.",
+	"time": 35,
+	"imageUrl": ""
+  },
+  {
+	"id": 59,
+	"name": "Korean Kimchi Jjigae",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Korea",
+	"dietType": ["high-protein", "low-carb"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "kimchi", "quantity": 2, "unit": "cups"},
+	  {"name": "pork", "quantity": 200, "unit": "g"},
+	  {"name": "tofu", "quantity": 200, "unit": "g"},
+	  {"name": "gochujang", "quantity": 1, "unit": "tbsp"},
+	  {"name": "water", "quantity": 4, "unit": "cups"}
+	],
+	"steps": ["Cook pork", "Add kimchi", "Simmer"],
+	"description": "## Cook pork\nCook pork in a pot.\n\n## Add kimchi\nAdd kimchi and gochujang.\n\n## Simmer\nAdd water and tofu, simmer 15 minutes.",
+	"time": 30,
+	"imageUrl": ""
+  },
+  {
+	"id": 60,
+	"name": "Cream of Mushroom Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "France",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "mushrooms", "quantity": 2, "unit": "cups"},
+	  {"name": "cream", "quantity": 1, "unit": "cup"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "vegetable broth", "quantity": 4, "unit": "cups"},
+	  {"name": "butter", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Sauté mushrooms", "Add broth", "Blend"],
+	"description": "## Sauté mushrooms\nCook mushrooms and onions in butter.\n\n## Add broth\nAdd vegetable broth and simmer.\n\n## Blend\nBlend until smooth and add cream.",
+	"time": 35,
+	"imageUrl": ""
+  },
+  {
+	"id": 61,
+	"name": "Greek Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Greece",
+	"dietType": ["vegetarian", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"},
+	  {"name": "tomato", "quantity": 2, "unit": "pcs"},
+	  {"name": "feta cheese", "quantity": 100, "unit": "g"},
+	  {"name": "olives", "quantity": 1, "unit": "cup"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Chop vegetables", "Mix ingredients", "Serve"],
+	"description": "## Chop vegetables\nCut cucumber and tomato into pieces.\n\n## Mix ingredients\nMix vegetables with feta, olives, and olive oil.\n\n## Serve\nServe chilled.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 62,
+	"name": "Caesar Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "romaine lettuce", "quantity": 1, "unit": "head"},
+	  {"name": "parmesan", "quantity": 1, "unit": "cup"},
+	  {"name": "croutons", "quantity": 1, "unit": "cup"},
+	  {"name": "caesar dressing", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Chop lettuce", "Add toppings", "Mix"],
+	"description": "## Chop lettuce\nChop romaine lettuce.\n\n## Add toppings\nAdd parmesan and croutons.\n\n## Mix\nAdd dressing and toss.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 63,
+	"name": "Quinoa Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Peru",
+	"dietType": ["vegan", "high-protein"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "quinoa", "quantity": 1, "unit": "cup"},
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"},
+	  {"name": "tomato", "quantity": 2, "unit": "pcs"},
+	  {"name": "lemon juice", "quantity": 2, "unit": "tbsp"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Cook quinoa", "Chop vegetables", "Mix"],
+	"description": "## Cook quinoa\nCook quinoa until fluffy.\n\n## Chop vegetables\nChop cucumber and tomato.\n\n## Mix\nMix quinoa with vegetables, lemon juice, and olive oil.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 64,
+	"name": "Caprese Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Italy",
+	"dietType": ["vegetarian", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "tomato", "quantity": 2, "unit": "pcs"},
+	  {"name": "mozzarella", "quantity": 200, "unit": "g"},
+	  {"name": "basil", "quantity": 1, "unit": "bunch"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Slice ingredients", "Layer", "Drizzle oil"],
+	"description": "## Slice ingredients\nSlice tomato and mozzarella.\n\n## Layer\nLayer tomato, mozzarella, and basil.\n\n## Drizzle oil\nDrizzle olive oil and serve.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 65,
+	"name": "Cobb Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chicken breast", "quantity": 1, "unit": "pcs"},
+	  {"name": "avocado", "quantity": 1, "unit": "pcs"},
+	  {"name": "egg", "quantity": 2, "unit": "pcs"},
+	  {"name": "bacon", "quantity": 2, "unit": "strips"},
+	  {"name": "lettuce", "quantity": 1, "unit": "head"}
+	],
+	"steps": ["Cook ingredients", "Chop", "Mix"],
+	"description": "## Cook ingredients\nCook chicken, bacon and eggs.\n\n## Chop\nChop all ingredients.\n\n## Mix\nMix in a bowl and serve with dressing.",
+	"time": 30,
+	"imageUrl": ""
+  },
+  {
+	"id": 66,
+	"name": "Tabbouleh",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Lebanon",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "bulgur", "quantity": 1, "unit": "cup"},
+	  {"name": "parsley", "quantity": 1, "unit": "bunch"},
+	  {"name": "tomato", "quantity": 2, "unit": "pcs"},
+	  {"name": "lemon juice", "quantity": 2, "unit": "tbsp"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Soak bulgur", "Chop herbs", "Mix"],
+	"description": "## Soak bulgur\nSoak bulgur in water until soft.\n\n## Chop herbs\nChop parsley and tomatoes.\n\n## Mix\nMix everything with lemon juice and olive oil.",
+	"time": 20,
+	"imageUrl": ""
+  },
+  {
+	"id": 67,
+	"name": "Waldorf Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "apple", "quantity": 2, "unit": "pcs"},
+	  {"name": "celery", "quantity": 2, "unit": "stalks"},
+	  {"name": "grapes", "quantity": 1, "unit": "cup"},
+	  {"name": "yogurt", "quantity": 1, "unit": "cup"},
+	  {"name": "walnuts", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Chop ingredients", "Mix with yogurt", "Serve"],
+	"description": "## Chop ingredients\nChop apple, celery, and grapes.\n\n## Mix with yogurt\nMix with yogurt.\n\n## Serve\nServe chilled.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 68,
+	"name": "Chicken Avocado Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Mexico",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chicken breast", "quantity": 1, "unit": "pcs"},
+	  {"name": "avocado", "quantity": 1, "unit": "pcs"},
+	  {"name": "lettuce", "quantity": 1, "unit": "head"},
+	  {"name": "lime juice", "quantity": 2, "unit": "tbsp"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Cook chicken", "Chop", "Mix"],
+	"description": "## Cook chicken\nCook chicken and slice.\n\n## Chop\nChop lettuce and avocado.\n\n## Mix\nMix everything with lime juice and olive oil.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 69,
+	"name": "Asian Sesame Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "China",
+	"dietType": ["vegetarian", "low-fat"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "cabbage", "quantity": 1, "unit": "head"},
+	  {"name": "carrot", "quantity": 2, "unit": "pcs"},
+	  {"name": "sesame seeds", "quantity": 2, "unit": "tbsp"},
+	  {"name": "soy sauce", "quantity": 2, "unit": "tbsp"},
+	  {"name": "rice vinegar", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Shred vegetables", "Mix dressing", "Combine"],
+	"description": "## Shred vegetables\nShred cabbage and carrots.\n\n## Mix dressing\nMix soy sauce and rice vinegar.\n\n## Combine\nCombine vegetables with dressing and sesame seeds.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 70,
+	"name": "Nicoise Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "France",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "tuna", "quantity": 1, "unit": "can"},
+	  {"name": "eggs", "quantity": 2, "unit": "pcs"},
+	  {"name": "green beans", "quantity": 1, "unit": "cup"},
+	  {"name": "potatoes", "quantity": 2, "unit": "pcs"},
+	  {"name": "olives", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Boil potatoes", "Cook beans", "Mix"],
+	"description": "## Boil potatoes\nBoil potatoes until tender.\n\n## Cook beans\nCook green beans until crisp.\n\n## Mix\nMix all ingredients and serve with olive oil.",
+	"time": 30,
+	"imageUrl": ""
+  },
+  {
+	"id": 71,
+	"name": "Spinach Strawberry Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "USA",
+	"dietType": ["vegetarian"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "spinach", "quantity": 2, "unit": "cups"},
+	  {"name": "strawberries", "quantity": 1, "unit": "cup"},
+	  {"name": "feta cheese", "quantity": 1, "unit": "cup"},
+	  {"name": "balsamic vinegar", "quantity": 2, "unit": "tbsp"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Mix ingredients", "Serve"],
+	"description": "## Mix ingredients\nMix spinach, strawberries, and feta.\n\n## Serve\nDrizzle olive oil and balsamic vinegar.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 72,
+	"name": "Kale Caesar Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "USA",
+	"dietType": ["vegetarian", "low-carb"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "kale", "quantity": 2, "unit": "cups"},
+	  {"name": "parmesan", "quantity": 1, "unit": "cup"},
+	  {"name": "croutons", "quantity": 1, "unit": "cup"},
+	  {"name": "caesar dressing", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Massage kale", "Add toppings", "Mix"],
+	"description": "## Massage kale\nMassage kale with olive oil until soft.\n\n## Add toppings\nAdd parmesan and croutons.\n\n## Mix\nAdd dressing and toss.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 73,
+	"name": "Poke Bowl Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Hawaii",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "salmon", "quantity": 200, "unit": "g"},
+	  {"name": "rice", "quantity": 1, "unit": "cup"},
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"},
+	  {"name": "seaweed", "quantity": 1, "unit": "handful"},
+	  {"name": "soy sauce", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Cook rice", "Prepare fish", "Assemble bowl"],
+	"description": "## Cook rice\nCook rice until fluffy.\n\n## Prepare fish\nCut salmon into cubes and marinate with soy sauce.\n\n## Assemble bowl\nPlace rice, fish, cucumber and seaweed in a bowl.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 74,
+	"name": "Beetroot Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Russia",
+	"dietType": ["vegetarian", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "beetroot", "quantity": 2, "unit": "pcs"},
+	  {"name": "goat cheese", "quantity": 1, "unit": "cup"},
+	  {"name": "walnuts", "quantity": 1, "unit": "cup"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"},
+	  {"name": "lemon juice", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Cook beets", "Mix ingredients", "Serve"],
+	"description": "## Cook beets\nBoil beets until soft.\n\n## Mix ingredients\nMix beets with goat cheese and walnuts.\n\n## Serve\nAdd olive oil and lemon juice.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 75,
+	"name": "Avocado Mango Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Mexico",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "avocado", "quantity": 1, "unit": "pcs"},
+	  {"name": "mango", "quantity": 1, "unit": "pcs"},
+	  {"name": "lettuce", "quantity": 1, "unit": "head"},
+	  {"name": "lime juice", "quantity": 2, "unit": "tbsp"},
+	  {"name": "cilantro", "quantity": 1, "unit": "bunch"}
+	],
+	"steps": ["Chop ingredients", "Mix", "Serve"],
+	"description": "## Chop ingredients\nChop avocado and mango.\n\n## Mix\nMix with lettuce, lime juice, and cilantro.\n\n## Serve\nServe chilled.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 76,
+	"name": "Chickpea Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Middle East",
+	"dietType": ["vegan", "high-protein"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chickpeas", "quantity": 1, "unit": "cup"},
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"},
+	  {"name": "tomato", "quantity": 2, "unit": "pcs"},
+	  {"name": "lemon juice", "quantity": 2, "unit": "tbsp"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Rinse chickpeas", "Chop vegetables", "Mix"],
+	"description": "## Rinse chickpeas\nRinse and drain chickpeas.\n\n## Chop vegetables\nChop cucumber and tomato.\n\n## Mix\nMix everything with lemon juice and olive oil.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 77,
+	"name": "Cucumber Dill Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Russia",
+	"dietType": ["vegetarian", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "cucumber", "quantity": 2, "unit": "pcs"},
+	  {"name": "dill", "quantity": 1, "unit": "bunch"},
+	  {"name": "yogurt", "quantity": 1, "unit": "cup"},
+	  {"name": "lemon juice", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Slice cucumber", "Mix with yogurt", "Serve"],
+	"description": "## Slice cucumber\nSlice cucumber thinly.\n\n## Mix with yogurt\nMix cucumber with yogurt, dill, and lemon juice.\n\n## Serve\nServe chilled.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 78,
+	"name": "Thai Mango Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "Thailand",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "green mango", "quantity": 1, "unit": "pcs"},
+	  {"name": "carrot", "quantity": 1, "unit": "pcs"},
+	  {"name": "lime juice", "quantity": 2, "unit": "tbsp"},
+	  {"name": "cilantro", "quantity": 1, "unit": "bunch"},
+	  {"name": "chili", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Julienne mango", "Mix dressing", "Combine"],
+	"description": "## Julienne mango\nCut mango and carrot into thin strips.\n\n## Mix dressing\nMix lime juice and chili.\n\n## Combine\nCombine everything and garnish with cilantro.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 79,
+	"name": "Avocado Tuna Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "USA",
+	"dietType": ["high-protein", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "tuna", "quantity": 1, "unit": "can"},
+	  {"name": "avocado", "quantity": 1, "unit": "pcs"},
+	  {"name": "lettuce", "quantity": 1, "unit": "head"},
+	  {"name": "lemon juice", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Mix tuna and avocado", "Serve on lettuce"],
+	"description": "## Mix tuna and avocado\nMash avocado and mix with tuna.\n\n## Serve on lettuce\nServe on a bed of lettuce with lemon juice.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 80,
+	"name": "Roasted Veggie Salad",
+	"mealType": "lunch",
+	"mainType": "salad",
+	"country": "USA",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "zucchini", "quantity": 1, "unit": "pcs"},
+	  {"name": "bell pepper", "quantity": 1, "unit": "pcs"},
+	  {"name": "carrot", "quantity": 1, "unit": "pcs"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"},
+	  {"name": "lemon juice", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Roast veggies", "Mix", "Serve"],
+	"description": "## Roast veggies\nRoast vegetables with olive oil until tender.\n\n## Mix\nMix roasted veggies with lemon juice.\n\n## Serve\nServe warm or cold.",
+	"time": 30,
+	"imageUrl": ""
+  },
+   {
+	"id": 81,
+	"name": "Spaghetti Bolognese",
+	"mealType": "dinner",
+	"mainType": "pasta",
+	"country": "Italy",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "spaghetti", "quantity": 200, "unit": "g"},
+	  {"name": "ground beef", "quantity": 300, "unit": "g"},
+	  {"name": "tomato sauce", "quantity": 1, "unit": "cup"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "garlic", "quantity": 2, "unit": "cloves"}
+	],
+	"steps": ["Cook pasta", "Cook sauce", "Combine"],
+	"description": "## Cook pasta\nBoil spaghetti until al dente.\n\n## Cook sauce\nCook ground beef with onions and garlic, add tomato sauce.\n\n## Combine\nCombine pasta and sauce and serve.",
+	"time": 30,
+	"imageUrl": ""
+  },
+  {
+	"id": 82,
+	"name": "Chicken Stir Fry",
+	"mealType": "dinner",
+	"mainType": "stir-fry",
+	"country": "China",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chicken breast", "quantity": 300, "unit": "g"},
+	  {"name": "bell pepper", "quantity": 1, "unit": "pcs"},
+	  {"name": "broccoli", "quantity": 1, "unit": "cup"},
+	  {"name": "soy sauce", "quantity": 2, "unit": "tbsp"},
+	  {"name": "garlic", "quantity": 2, "unit": "cloves"}
+	],
+	"steps": ["Cook chicken", "Add veggies", "Add sauce"],
+	"description": "## Cook chicken\nCook chicken pieces in a pan.\n\n## Add veggies\nAdd bell pepper and broccoli.\n\n## Add sauce\nAdd soy sauce and cook until done.",
+	"time": 20,
+	"imageUrl": ""
+  },
+  {
+	"id": 83,
+	"name": "Vegetarian Chili",
+	"mealType": "dinner",
+	"mainType": "stew",
+	"country": "Mexico",
+	"dietType": ["vegetarian", "high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "kidney beans", "quantity": 2, "unit": "cups"},
+	  {"name": "tomato", "quantity": 2, "unit": "pcs"},
+	  {"name": "corn", "quantity": 1, "unit": "cup"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "chili powder", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Cook veggies", "Add beans", "Simmer"],
+	"description": "## Cook veggies\nCook onion and tomatoes.\n\n## Add beans\nAdd beans and corn.\n\n## Simmer\nSimmer with chili powder for 20 minutes.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 84,
+	"name": "Beef Tacos",
+	"mealType": "dinner",
+	"mainType": "tacos",
+	"country": "Mexico",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "taco shells", "quantity": 4, "unit": "pcs"},
+	  {"name": "ground beef", "quantity": 300, "unit": "g"},
+	  {"name": "lettuce", "quantity": 1, "unit": "cup"},
+	  {"name": "cheese", "quantity": 1, "unit": "cup"},
+	  {"name": "salsa", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cook beef", "Fill shells", "Add toppings"],
+	"description": "## Cook beef\nCook beef with taco seasoning.\n\n## Fill shells\nFill taco shells with beef.\n\n## Add toppings\nAdd lettuce, cheese, and salsa.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 85,
+	"name": "Vegan Buddha Bowl",
+	"mealType": "dinner",
+	"mainType": "bowl",
+	"country": "USA",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "quinoa", "quantity": 1, "unit": "cup"},
+	  {"name": "chickpeas", "quantity": 1, "unit": "cup"},
+	  {"name": "spinach", "quantity": 1, "unit": "cup"},
+	  {"name": "carrot", "quantity": 1, "unit": "pcs"},
+	  {"name": "avocado", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Cook quinoa", "Prep veggies", "Assemble bowl"],
+	"description": "## Cook quinoa\nCook quinoa until fluffy.\n\n## Prep veggies\nChop vegetables and roast chickpeas.\n\n## Assemble bowl\nPlace everything in a bowl and serve.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 86,
+	"name": "Salmon with Veggies",
+	"mealType": "dinner",
+	"mainType": "baked",
+	"country": "Norway",
+	"dietType": ["high-protein", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "salmon fillet", "quantity": 1, "unit": "pcs"},
+	  {"name": "broccoli", "quantity": 1, "unit": "cup"},
+	  {"name": "lemon", "quantity": 1, "unit": "pcs"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Bake salmon", "Roast veggies", "Serve"],
+	"description": "## Bake salmon\nBake salmon with lemon and olive oil.\n\n## Roast veggies\nRoast broccoli until tender.\n\n## Serve\nServe together.",
+	"time": 30,
+	"imageUrl": ""
+  },
+  {
+	"id": 87,
+	"name": "Chicken Curry",
+	"mealType": "dinner",
+	"mainType": "curry",
+	"country": "India",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chicken breast", "quantity": 300, "unit": "g"},
+	  {"name": "coconut milk", "quantity": 1, "unit": "cup"},
+	  {"name": "curry powder", "quantity": 2, "unit": "tbsp"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Cook chicken", "Add spices", "Simmer"],
+	"description": "## Cook chicken\nCook chicken pieces in a pan.\n\n## Add spices\nAdd curry powder and onion.\n\n## Simmer\nAdd coconut milk and simmer for 20 minutes.",
+	"time": 35,
+	"imageUrl": ""
+  },
+  {
+	"id": 88,
+	"name": "Vegetarian Lasagna",
+	"mealType": "dinner",
+	"mainType": "pasta",
+	"country": "Italy",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "lasagna sheets", "quantity": 8, "unit": "pcs"},
+	  {"name": "tomato sauce", "quantity": 2, "unit": "cups"},
+	  {"name": "ricotta", "quantity": 1, "unit": "cup"},
+	  {"name": "spinach", "quantity": 1, "unit": "cup"},
+	  {"name": "cheese", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Layer ingredients", "Bake"],
+	"description": "## Layer ingredients\nLayer lasagna sheets with sauce, ricotta, spinach, and cheese.\n\n## Bake\nBake until golden and bubbly.",
+	"time": 45,
+	"imageUrl": ""
+  },
+  {
+	"id": 89,
+	"name": "Beef Stroganoff",
+	"mealType": "dinner",
+	"mainType": "stew",
+	"country": "Russia",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "beef", "quantity": 300, "unit": "g"},
+	  {"name": "mushrooms", "quantity": 1, "unit": "cup"},
+	  {"name": "sour cream", "quantity": 1, "unit": "cup"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Cook beef", "Add mushrooms", "Add sour cream"],
+	"description": "## Cook beef\nCook beef strips until browned.\n\n## Add mushrooms\nAdd mushrooms and onion.\n\n## Add sour cream\nAdd sour cream and simmer for 10 minutes.",
+	"time": 35,
+	"imageUrl": ""
+  },
+  {
+	"id": 90,
+	"name": "Vegan Lentil Soup",
+	"mealType": "dinner",
+	"mainType": "soup",
+	"country": "Middle East",
+	"dietType": ["vegan", "high-protein"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "lentils", "quantity": 1, "unit": "cup"},
+	  {"name": "carrot", "quantity": 1, "unit": "pcs"},
+	  {"name": "onion", "quantity": 1, "unit": "pcs"},
+	  {"name": "vegetable broth", "quantity": 4, "unit": "cups"}
+	],
+	"steps": ["Cook vegetables", "Add lentils", "Simmer"],
+	"description": "## Cook vegetables\nCook onion and carrot.\n\n## Add lentils\nAdd lentils and broth.\n\n## Simmer\nSimmer until lentils are soft.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 91,
+	"name": "Shrimp Pasta",
+	"mealType": "dinner",
+	"mainType": "pasta",
+	"country": "Italy",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "pasta", "quantity": 200, "unit": "g"},
+	  {"name": "shrimp", "quantity": 200, "unit": "g"},
+	  {"name": "garlic", "quantity": 2, "unit": "cloves"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Cook pasta", "Cook shrimp", "Mix"],
+	"description": "## Cook pasta\nCook pasta until al dente.\n\n## Cook shrimp\nCook shrimp with garlic in olive oil.\n\n## Mix\nCombine pasta and shrimp and serve.",
+	"time": 20,
+	"imageUrl": ""
+  },
+  {
+	"id": 92,
+	"name": "Turkey Burger",
+	"mealType": "dinner",
+	"mainType": "burger",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "turkey mince", "quantity": 300, "unit": "g"},
+	  {"name": "burger bun", "quantity": 2, "unit": "pcs"},
+	  {"name": "lettuce", "quantity": 1, "unit": "cup"},
+	  {"name": "tomato", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Form patties", "Cook", "Assemble burger"],
+	"description": "## Form patties\nForm turkey mince into patties.\n\n## Cook\nCook patties until fully cooked.\n\n## Assemble burger\nPlace in bun with lettuce and tomato.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 93,
+	"name": "Veggie Fried Rice",
+	"mealType": "dinner",
+	"mainType": "rice",
+	"country": "China",
+	"dietType": ["vegan"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "rice", "quantity": 1, "unit": "cup"},
+	  {"name": "carrot", "quantity": 1, "unit": "pcs"},
+	  {"name": "peas", "quantity": 1, "unit": "cup"},
+	  {"name": "soy sauce", "quantity": 2, "unit": "tbsp"},
+	  {"name": "garlic", "quantity": 2, "unit": "cloves"}
+	],
+	"steps": ["Cook rice", "Stir fry veggies", "Mix"],
+	"description": "## Cook rice\nCook rice and let cool.\n\n## Stir fry veggies\nCook vegetables in a pan.\n\n## Mix\nAdd rice and soy sauce and stir fry.",
+	"time": 20,
+	"imageUrl": ""
+  },
+  {
+	"id": 94,
+	"name": "Mushroom Risotto",
+	"mealType": "dinner",
+	"mainType": "rice",
+	"country": "Italy",
+	"dietType": ["vegetarian"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "arborio rice", "quantity": 1, "unit": "cup"},
+	  {"name": "mushrooms", "quantity": 1, "unit": "cup"},
+	  {"name": "parmesan", "quantity": 1, "unit": "cup"},
+	  {"name": "vegetable broth", "quantity": 4, "unit": "cups"}
+	],
+	"steps": ["Cook mushrooms", "Add rice", "Add broth slowly"],
+	"description": "## Cook mushrooms\nCook mushrooms in a pan.\n\n## Add rice\nAdd rice and toast briefly.\n\n## Add broth slowly\nAdd broth gradually while stirring until creamy.",
+	"time": 35,
+	"imageUrl": ""
+  },
+  {
+	"id": 95,
+	"name": "Vegan Stuffed Peppers",
+	"mealType": "dinner",
+	"mainType": "baked",
+	"country": "Mexico",
+	"dietType": ["vegan", "high-protein"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "bell peppers", "quantity": 3, "unit": "pcs"},
+	  {"name": "quinoa", "quantity": 1, "unit": "cup"},
+	  {"name": "black beans", "quantity": 1, "unit": "cup"},
+	  {"name": "tomato sauce", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cook quinoa", "Mix filling", "Bake"],
+	"description": "## Cook quinoa\nCook quinoa until fluffy.\n\n## Mix filling\nMix quinoa with beans and tomato sauce.\n\n## Bake\nStuff peppers and bake for 20 minutes.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 96,
+	"name": "Pork Chop with Mashed Potatoes",
+	"mealType": "dinner",
+	"mainType": "meat",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "pork chop", "quantity": 1, "unit": "pcs"},
+	  {"name": "potatoes", "quantity": 2, "unit": "pcs"},
+	  {"name": "butter", "quantity": 2, "unit": "tbsp"},
+	  {"name": "milk", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cook pork", "Boil potatoes", "Mash potatoes"],
+	"description": "## Cook pork\nCook pork chop until done.\n\n## Boil potatoes\nBoil potatoes until soft.\n\n## Mash potatoes\nMash potatoes with butter and milk.",
+	"time": 40,
+	"imageUrl": ""
+  },
+  {
+	"id": 97,
+	"name": "Shrimp Tacos",
+	"mealType": "dinner",
+	"mainType": "tacos",
+	"country": "Mexico",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "tortillas", "quantity": 4, "unit": "pcs"},
+	  {"name": "shrimp", "quantity": 200, "unit": "g"},
+	  {"name": "cabbage", "quantity": 1, "unit": "cup"},
+	  {"name": "lime", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Cook shrimp", "Fill tortillas", "Add toppings"],
+	"description": "## Cook shrimp\nCook shrimp with spices.\n\n## Fill tortillas\nPlace shrimp in tortillas.\n\n## Add toppings\nAdd cabbage and lime juice.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 98,
+	"name": "Chicken Caesar Wrap",
+	"mealType": "dinner",
+	"mainType": "wrap",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "tortilla wrap", "quantity": 2, "unit": "pcs"},
+	  {"name": "chicken breast", "quantity": 200, "unit": "g"},
+	  {"name": "lettuce", "quantity": 1, "unit": "cup"},
+	  {"name": "caesar dressing", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Cook chicken", "Assemble wrap", "Serve"],
+	"description": "## Cook chicken\nCook chicken and slice.\n\n## Assemble wrap\nPlace chicken, lettuce, and dressing in wrap.\n\n## Serve\nRoll and serve.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 99,
+	"name": "Vegetarian Stuffed Zucchini",
+	"mealType": "dinner",
+	"mainType": "baked",
+	"country": "Italy",
+	"dietType": ["vegetarian", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "zucchini", "quantity": 2, "unit": "pcs"},
+	  {"name": "tomato sauce", "quantity": 1, "unit": "cup"},
+	  {"name": "cheese", "quantity": 1, "unit": "cup"},
+	  {"name": "spinach", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Hollow zucchini", "Fill", "Bake"],
+	"description": "## Hollow zucchini\nCut zucchini and remove center.\n\n## Fill\nFill with spinach and tomato sauce.\n\n## Bake\nTop with cheese and bake.",
+	"time": 35,
+	"imageUrl": ""
+  },
+  {
+	"id": 100,
+	"name": "Vegan Pasta Primavera",
+	"mealType": "dinner",
+	"mainType": "pasta",
+	"country": "Italy",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "pasta", "quantity": 200, "unit": "g"},
+	  {"name": "zucchini", "quantity": 1, "unit": "pcs"},
+	  {"name": "bell pepper", "quantity": 1, "unit": "pcs"},
+	  {"name": "tomato", "quantity": 2, "unit": "pcs"},
+	  {"name": "olive oil", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Cook pasta", "Sauté veggies", "Mix"],
+	"description": "## Cook pasta\nCook pasta until al dente.\n\n## Sauté veggies\nSauté vegetables in olive oil.\n\n## Mix\nMix pasta with veggies and serve.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 101,
+	"name": "Greek Yogurt with Honey",
+	"mealType": "snack",
+	"mainType": "yogurt",
+	"country": "Greece",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "Greek yogurt", "quantity": 1, "unit": "cup"},
+	  {"name": "honey", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Mix yogurt and honey", "Serve"],
+	"description": "## Mix yogurt and honey\nMix Greek yogurt with honey.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 102,
+	"name": "Apple Slices with Peanut Butter",
+	"mealType": "snack",
+	"mainType": "fruit",
+	"country": "USA",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "dairy-free"],
+	"ingredients": [
+	  {"name": "apple", "quantity": 1, "unit": "pcs"},
+	  {"name": "peanut butter", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Slice apple", "Spread peanut butter", "Serve"],
+	"description": "## Slice apple\nCut apple into slices.\n\n## Spread peanut butter\nSpread peanut butter on slices.\n\n## Serve\nServe immediately.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 103,
+	"name": "Carrot Sticks with Hummus",
+	"mealType": "snack",
+	"mainType": "veggie",
+	"country": "Middle East",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "carrot", "quantity": 2, "unit": "pcs"},
+	  {"name": "hummus", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Cut carrots", "Serve with hummus"],
+	"description": "## Cut carrots\nCut carrots into sticks.\n\n## Serve with hummus\nServe with hummus as dip.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 104,
+	"name": "Banana Oat Cookies",
+	"mealType": "snack",
+	"mainType": "cookies",
+	"country": "USA",
+	"dietType": ["vegan", "low-sugar"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "banana", "quantity": 1, "unit": "pcs"},
+	  {"name": "oats", "quantity": 1, "unit": "cup"},
+	  {"name": "cinnamon", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Mix ingredients", "Bake"],
+	"description": "## Mix ingredients\nMash banana and mix with oats and cinnamon.\n\n## Bake\nBake at 180°C for 10–12 minutes.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 105,
+	"name": "Mixed Nuts",
+	"mealType": "snack",
+	"mainType": "nuts",
+	"country": "Global",
+	"dietType": ["high-protein"],
+	"restrictions": ["gluten-free", "dairy-free"],
+	"ingredients": [
+	  {"name": "mixed nuts", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Serve"],
+	"description": "## Serve\nServe a handful of mixed nuts.",
+	"time": 1,
+	"imageUrl": ""
+  },
+  {
+	"id": 106,
+	"name": "Cottage Cheese with Berries",
+	"mealType": "snack",
+	"mainType": "dairy",
+	"country": "Russia",
+	"dietType": ["high-protein", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "cottage cheese", "quantity": 1, "unit": "cup"},
+	  {"name": "berries", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Mix cottage cheese and berries", "Serve"],
+	"description": "## Mix cottage cheese and berries\nMix cottage cheese with berries.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 107,
+	"name": "Rice Cakes with Avocado",
+	"mealType": "snack",
+	"mainType": "rice",
+	"country": "Japan",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "rice cakes", "quantity": 2, "unit": "pcs"},
+	  {"name": "avocado", "quantity": 1, "unit": "pcs"},
+	  {"name": "salt", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Spread avocado", "Add salt", "Serve"],
+	"description": "## Spread avocado\nMash avocado and spread on rice cakes.\n\n## Add salt\nAdd a pinch of salt.\n\n## Serve\nServe immediately.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 108,
+	"name": "Protein Smoothie",
+	"mealType": "snack",
+	"mainType": "drink",
+	"country": "USA",
+	"dietType": ["high-protein", "low-carb"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "protein powder", "quantity": 1, "unit": "scoop"},
+	  {"name": "water", "quantity": 1, "unit": "cup"},
+	  {"name": "ice", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Blend ingredients", "Serve"],
+	"description": "## Blend ingredients\nBlend protein powder with water and ice.\n\n## Serve\nServe chilled.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 109,
+	"name": "Edamame",
+	"mealType": "snack",
+	"mainType": "soy",
+	"country": "Japan",
+	"dietType": ["vegan", "high-protein"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "edamame", "quantity": 1, "unit": "cup"},
+	  {"name": "salt", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Boil edamame", "Add salt", "Serve"],
+	"description": "## Boil edamame\nBoil edamame for 5 minutes.\n\n## Add salt\nAdd salt and serve.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 110,
+	"name": "Oatmeal Energy Balls",
+	"mealType": "snack",
+	"mainType": "energy-balls",
+	"country": "USA",
+	"dietType": ["vegan", "low-sugar"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "oats", "quantity": 1, "unit": "cup"},
+	  {"name": "dates", "quantity": 1, "unit": "cup"},
+	  {"name": "cocoa powder", "quantity": 1, "unit": "tbsp"}
+	],
+	"steps": ["Blend ingredients", "Roll balls", "Chill"],
+	"description": "## Blend ingredients\nBlend oats, dates, and cocoa.\n\n## Roll balls\nRoll into small balls.\n\n## Chill\nChill for 1 hour.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 111,
+	"name": "Baked Sweet Potato Fries",
+	"mealType": "snack",
+	"mainType": "fries",
+	"country": "USA",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "sweet potato", "quantity": 1, "unit": "pcs"},
+	  {"name": "olive oil", "quantity": 1, "unit": "tbsp"},
+	  {"name": "salt", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Slice potato", "Bake", "Serve"],
+	"description": "## Slice potato\nCut sweet potato into fries.\n\n## Bake\nBake at 200°C for 20 minutes.\n\n## Serve\nServe with salt.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 112,
+	"name": "Cheese and Crackers",
+	"mealType": "snack",
+	"mainType": "cheese",
+	"country": "France",
+	"dietType": ["high-protein"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "cheese", "quantity": 50, "unit": "g"},
+	  {"name": "crackers", "quantity": 5, "unit": "pcs"}
+	],
+	"steps": ["Arrange cheese and crackers", "Serve"],
+	"description": "## Arrange cheese and crackers\nPlace cheese slices on crackers.\n\n## Serve\nServe immediately.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 113,
+	"name": "Cucumber Sandwiches",
+	"mealType": "snack",
+	"mainType": "sandwich",
+	"country": "UK",
+	"dietType": ["vegetarian", "low-carb"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "bread", "quantity": 2, "unit": "slices"},
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"},
+	  {"name": "cream cheese", "quantity": 2, "unit": "tbsp"}
+	],
+	"steps": ["Spread cream cheese", "Add cucumber", "Serve"],
+	"description": "## Spread cream cheese\nSpread cream cheese on bread.\n\n## Add cucumber\nAdd cucumber slices.\n\n## Serve\nCut into small sandwiches.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 114,
+	"name": "Roasted Chickpeas",
+	"mealType": "snack",
+	"mainType": "beans",
+	"country": "Middle East",
+	"dietType": ["vegan", "high-protein"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "chickpeas", "quantity": 1, "unit": "cup"},
+	  {"name": "olive oil", "quantity": 1, "unit": "tbsp"},
+	  {"name": "paprika", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Season chickpeas", "Bake", "Serve"],
+	"description": "## Season chickpeas\nToss chickpeas with oil and paprika.\n\n## Bake\nBake at 200°C for 20 minutes.\n\n## Serve\nServe crunchy.",
+	"time": 25,
+	"imageUrl": ""
+  },
+  {
+	"id": 115,
+	"name": "Avocado Toast",
+	"mealType": "snack",
+	"mainType": "toast",
+	"country": "USA",
+	"dietType": ["vegan", "low-carb"],
+	"restrictions": ["nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "bread", "quantity": 1, "unit": "slice"},
+	  {"name": "avocado", "quantity": 1, "unit": "pcs"},
+	  {"name": "salt", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Toast bread", "Spread avocado", "Serve"],
+	"description": "## Toast bread\nToast bread until golden.\n\n## Spread avocado\nMash avocado and spread.\n\n## Serve\nAdd salt and serve.",
+	"time": 5,
+	"imageUrl": ""
+  },
+  {
+	"id": 116,
+	"name": "Popcorn",
+	"mealType": "snack",
+	"mainType": "popcorn",
+	"country": "USA",
+	"dietType": ["low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "popcorn kernels", "quantity": 1, "unit": "cup"},
+	  {"name": "salt", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Pop kernels", "Add salt", "Serve"],
+	"description": "## Pop kernels\nPop popcorn kernels in a pot.\n\n## Add salt\nAdd salt to taste.\n\n## Serve\nServe warm.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 117,
+	"name": "Veggie Spring Rolls",
+	"mealType": "snack",
+	"mainType": "rolls",
+	"country": "Vietnam",
+	"dietType": ["vegan", "low-fat"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "rice paper", "quantity": 4, "unit": "pcs"},
+	  {"name": "lettuce", "quantity": 1, "unit": "cup"},
+	  {"name": "carrot", "quantity": 1, "unit": "pcs"},
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"}
+	],
+	"steps": ["Soak rice paper", "Add veggies", "Roll"],
+	"description": "## Soak rice paper\nSoak rice paper in warm water.\n\n## Add veggies\nAdd lettuce, carrot, and cucumber.\n\n## Roll\nRoll tightly and serve.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 118,
+	"name": "Chocolate Protein Bar",
+	"mealType": "snack",
+	"mainType": "bar",
+	"country": "USA",
+	"dietType": ["high-protein", "low-sugar"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "protein powder", "quantity": 1, "unit": "cup"},
+	  {"name": "cocoa powder", "quantity": 2, "unit": "tbsp"},
+	  {"name": "dates", "quantity": 1, "unit": "cup"}
+	],
+	"steps": ["Blend ingredients", "Press into bar", "Chill"],
+	"description": "## Blend ingredients\nBlend all ingredients until sticky.\n\n## Press into bar\nPress mixture into a tray.\n\n## Chill\nChill for 1 hour then cut into bars.",
+	"time": 15,
+	"imageUrl": ""
+  },
+  {
+	"id": 119,
+	"name": "Cucumber Yogurt Dip",
+	"mealType": "snack",
+	"mainType": "dip",
+	"country": "Greece",
+	"dietType": ["low-fat"],
+	"restrictions": ["gluten-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "Greek yogurt", "quantity": 1, "unit": "cup"},
+	  {"name": "cucumber", "quantity": 1, "unit": "pcs"},
+	  {"name": "garlic", "quantity": 1, "unit": "clove"}
+	],
+	"steps": ["Mix ingredients", "Chill", "Serve"],
+	"description": "## Mix ingredients\nMix yogurt with grated cucumber and garlic.\n\n## Chill\nChill for 30 minutes.\n\n## Serve\nServe with veggies.",
+	"time": 10,
+	"imageUrl": ""
+  },
+  {
+	"id": 120,
+	"name": "Baked Apple Chips",
+	"mealType": "snack",
+	"mainType": "chips",
+	"country": "USA",
+	"dietType": ["vegan", "low-sugar"],
+	"restrictions": ["gluten-free", "dairy-free", "nut-free", "peanut-free"],
+	"ingredients": [
+	  {"name": "apple", "quantity": 1, "unit": "pcs"},
+	  {"name": "cinnamon", "quantity": 1, "unit": "tsp"}
+	],
+	"steps": ["Slice apple", "Bake", "Cool"],
+	"description": "## Slice apple\nThinly slice apple.\n\n## Bake\nBake at 100°C for 2 hours.\n\n## Cool\nLet cool until crisp.",
+	"time": 130,
+	"imageUrl": ""
+  }
+]

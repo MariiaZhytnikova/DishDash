@@ -1,0 +1,19 @@
+{
+  "fresh": [
+    {
+      "name": "salt",
+      "quantity": 1,
+      "unit": "tsp"
+    }
+  ],
+  "pantry": [
+    {
+      "name": "oil",
+      "quantity": 300,
+      "unit": "ml"
+    }
+  ],
+  "rare": [
+
+  ]
+}
