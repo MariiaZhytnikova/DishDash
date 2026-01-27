@@ -10,8 +10,8 @@ import (
 )
 
 type SearchRequest struct {
-	Fridge   []models.Ingredient  `json:"fridge"`
-	Settings models.FilterSettings `json:"settings"`
+    Fridge   *models.Fridge       `json:"fridge,omitempty"`
+    Settings models.FilterSettings `json:"settings"`
 }
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
@@ -41,8 +41,11 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// load fridge (use request fridge if provided)
-	fridge := req.Fridge
-	if len(fridge) == 0 {
+	var fridge models.Fridge
+
+	if req.Fridge != nil {
+		fridge = *req.Fridge
+	} else {
 		fridge, err = storage.LoadFridge()
 		if err != nil {
 			http.Error(w, "failed to load fridge", http.StatusInternalServerError)

@@ -1,4 +1,4 @@
-package storage
+package utils
 
 import (
 	"encoding/json"
@@ -22,7 +22,7 @@ func DataFile(name string) (string, error) {
 	return filepath.Join(dir, name), nil
 }
 
-func loadJSON(path string, v any) error {
+func LoadJSON(path string, v any) error {
 	// create file if missing
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		if err := os.WriteFile(path, []byte("[]"), 0644); err != nil {
@@ -38,10 +38,22 @@ func loadJSON(path string, v any) error {
 	return json.Unmarshal(data, v)
 }
 
-func saveJSON(path string, v any) error {
+func SaveJSON(path string, v any) error {
 	data, err := json.MarshalIndent(v, "", "  ")
 	if err != nil {
 		return err
 	}
 	return os.WriteFile(path, data, 0644)
+}
+
+func FridgePath() (string, error) {
+	return DataFile("fridge.json")
+}
+
+func FavoritesPath() (string, error) {
+	return DataFile("favorites.json")
+}
+
+func RecipesPath() (string, error) {
+	return DataFile("recipes.json")
 }

@@ -6,6 +6,7 @@ import (
 	"DishDash/src/models"
 )
 
+
 func Normalize(s string) string {
 	s = strings.ToLower(strings.TrimSpace(s))
 	if strings.HasSuffix(s, "s") {
@@ -14,6 +15,16 @@ func Normalize(s string) string {
 	return s
 }
 
+func HasIngredientByName(list []models.Ingredient, name string) bool {
+	for _, f := range list {
+		if Normalize(f.Name) == Normalize(name) {
+			return true
+		}
+	}
+	return false
+}
+
+// check name + quantity
 func HasIngredient(fridge []models.Ingredient, ing models.Ingredient) bool {
 	for _, f := range fridge {
 		if Normalize(f.Name) == Normalize(ing.Name) &&
@@ -42,3 +53,4 @@ func Contains(list []string, item string) bool {
 	}
 	return false
 }
+

@@ -12,8 +12,11 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/health", api.HealthHandler)
-	mux.HandleFunc("/fridge/add", api.AddIngredientHandler)
-	mux.HandleFunc("/fridge/remove", api.RemoveIngredientHandler)
+	mux.HandleFunc("/recipes", api.GetRecipesHandler)
+	mux.HandleFunc("/fridge/add", api.AddPositionHandler)
+	mux.HandleFunc("/fridge/remove", api.DeletePositionHandler)
+	mux.HandleFunc("/fridge/increase", api.IncreaseHandler)
+	mux.HandleFunc("/fridge/decrease", api.DecreaseHandler)
 	mux.HandleFunc("/search", api.SearchHandler)
 	mux.HandleFunc("/favorites/add", api.AddFavoriteHandler)
 	mux.HandleFunc("/favorites/remove", api.RemoveFavoriteHandler)

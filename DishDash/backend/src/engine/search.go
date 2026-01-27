@@ -8,14 +8,18 @@ import (
 
 func SearchRecipes(
 	recipes []models.Recipe,
-	fridge []models.Ingredient,
+	fridge models.Fridge,
 	favorites []models.Favorite,
 	settings models.FilterSettings,
 ) []models.Suggestion {
-
 	filtered := FilterRecipes(recipes, settings)
 
-	return SuggestRecipes(filtered, fridge, favorites)
+	// merge all sections
+	all := append([]models.Ingredient{}, fridge.Fresh...)
+	all = append(all, fridge.Pantry...)
+	all = append(all, fridge.Rare...)
+
+	return SuggestRecipes(filtered, all, favorites)
 }
 
 func SearchByName(recipes []models.Recipe, q string) []models.Recipe {

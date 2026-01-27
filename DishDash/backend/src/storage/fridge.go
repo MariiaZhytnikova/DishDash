@@ -2,28 +2,53 @@ package storage
 
 import (
 	"DishDash/src/models"
+	"DishDash/src/utils"
 )
 
-func LoadFridge() ([]models.Ingredient, error) {
-	var list []models.Ingredient
-
-	path, err := DataFile("fridge.json")
+func LoadFridge() (models.Fridge, error) {
+	path, err := utils.FridgePath()
 	if err != nil {
-		return nil, err
+		return models.Fridge{}, err
 	}
 
-	if err := loadJSON(path, &list); err != nil {
-		return nil, err
-	}
-
-	return list, nil
+	fridge := models.Fridge{}
+	err = utils.LoadJSON(path, &fridge)
+	return fridge, err
 }
 
-func SaveFridge(list []models.Ingredient) error {
-	path, err := DataFile("fridge.json")
+func SaveFridge(fridge models.Fridge) error {
+	path, err := utils.FridgePath()
 	if err != nil {
 		return err
 	}
-	return saveJSON(path, list)
+	return utils.SaveJSON(path, fridge)
 }
 
+func GetSection(name string) string {
+	fridge, err := LoadFridge()
+	if err != nil {
+		return "rare"
+	}
+
+	name = utils.Normalize(name)
+
+	for _, ing := range fridge.Fresh {
+		if utils.Normalize(ing.Name) == name {
+			return "fresh"
+		}
+	}
+
+	for _, ing := range fridge.Pantry {
+		if utils.Normalize(ing.Name) == name {
+			return "pantry"
+		}
+	}
+
+	for _, ing := range fridge.Rare {
+		if utils.Normalize(ing.Name) == name {
+			return "rare"
+		}
+	}
+
+	return "rare"
+}

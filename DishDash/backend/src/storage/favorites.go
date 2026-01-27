@@ -2,31 +2,28 @@ package storage
 
 import (
 	"DishDash/src/models"
+	"DishDash/src/utils"
 )
 
-func FavoritesPath() (string, error) {
-	return DataFile("favorites.json")
-}
-
 func LoadFavorites() ([]models.Favorite, error) {
-	path, err := FavoritesPath()
+	path, err := utils.FavoritesPath()
 	if err != nil {
 		return nil, err
 	}
 
 	var favs []models.Favorite
-	if err := loadJSON(path, &favs); err != nil {
+	if err := utils.LoadJSON(path, &favs); err != nil {
 		return nil, err
 	}
 	return favs, nil
 }
 
 func SaveFavorites(favs []models.Favorite) error {
-	path, err := FavoritesPath()
+	path, err := utils.FavoritesPath()
 	if err != nil {
 		return err
 	}
-	return saveJSON(path, favs)
+	return utils.SaveJSON(path, favs)
 }
 
 func AddFavorite(fav models.Favorite) error {
