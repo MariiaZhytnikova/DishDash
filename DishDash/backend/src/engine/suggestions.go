@@ -38,7 +38,7 @@ func SuggestRecipes(
 
 		finalScore := matchScore
 		if fav {
-			finalScore += 0.2
+			finalScore += 0.3
 		}
 		if finalScore > 1 {
 			finalScore = 1

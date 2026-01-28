@@ -44,17 +44,17 @@ func AddFavorite(fav models.Favorite) error {
 }
 
 func RemoveFavorite(id int) error {
-    favs, err := LoadFavorites()
-    if err != nil {
-        return err
-    }
+	favs, err := LoadFavorites()
+	if err != nil {
+		return err
+	}
 
-    newFavs := []models.Favorite{}
-    for _, f := range favs {
-        if f.ID != id {
-            newFavs = append(newFavs, f)
-        }
-    }
+	newFavs := []models.Favorite{}
+	for _, f := range favs {
+		if f.ID != id {
+			newFavs = append(newFavs, f)
+		}
+	}
 
-    return SaveFavorites(newFavs)
+	return SaveFavorites(newFavs)
 }
