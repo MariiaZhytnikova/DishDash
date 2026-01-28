@@ -57,3 +57,7 @@ func FavoritesPath() (string, error) {
 func RecipesPath() (string, error) {
 	return DataFile("recipes.json")
 }
+
+func ShoppingPath() (string, error) {
+	return DataFile("shopping.json")
+}
