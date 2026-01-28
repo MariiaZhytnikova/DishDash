@@ -6,10 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/health": "http://localhost:8080",
-      "/search": "http://localhost:8080",
-      "/fridge": "http://localhost:8080",
-      // /recipes and /favourites are frontend routes, not proxied 
+      "/api": {
+        target: "http://localhost:8080",
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
     },
   },
   resolve: {

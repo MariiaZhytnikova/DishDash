@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { searchRecipes } from "../api/api";
+import { getRecipes, searchRecipes } from "../api/api";
 import { RecipeCard } from "../components/RecipeCard";
 import type { SearchResult } from "../types/search";
+import type { Recipe } from "../types/recipe";
 
 const Grid = styled.div`
   display: grid;
@@ -10,37 +11,113 @@ const Grid = styled.div`
   gap: 16px;
 `;
 
+const SearchContainer = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+`;
+
+const SearchInput = styled.input`
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    border-color: #4caf50;
+  }
+`;
+
+const SearchButton = styled.button`
+  padding: 8px 24px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #45a049;
+  }
+`;
+
 export function Recipes() {
-  const [data, setData] = useState<SearchResult[]>([]);
+  console.log("Recipes component rendered");
+  
+  const [data, setData] = useState<Recipe[] | SearchResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
-useEffect(() => {
-  (async () => {
-    console.log("Recipes mounted → calling /search");
+  // Load all recipes on page mount
+  useEffect(() => {
+    (async () => {
+      
+      try {
+        setError(null);
+        const res = await getRecipes();
+        setData(res);
+      } catch (e) {
+        console.error("Load recipes error:", e);
+        setError((e as Error).message ?? "Unknown error");
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
+
+  // Handle search
+  const handleSearch = async () => {
+    console.log("handleSearch called with query:", searchQuery);
+    
+    if (!searchQuery.trim()) {
+      return;
+    }
+
+    setLoading(true);
     try {
       setError(null);
-
-      const res = await searchRecipes();
-      console.log("RAW /search parsed JSON:", res);
-      console.log("Is array?", Array.isArray(res));
-      console.log("??????searchRecipes() returned:", res[0]);
-      console.log("length:", res.length);
-
+      const res = await searchRecipes({ settings: { query: searchQuery } });
+      console.log("Search results:", res);
       setData(res);
-      console.log("!!!!!first recipe:", data?.[0]);
     } catch (e) {
       console.error("Search error:", e);
       setError((e as Error).message ?? "Unknown error");
     } finally {
       setLoading(false);
     }
-  })();
-}, []);
+  };
 
-   return (
+  // Allow search on Enter key
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  return (
     <div>
       <h1>Recipes</h1>
+
+      <SearchContainer>
+        <SearchInput
+          type="text"
+          placeholder="Search recipes..."
+          value={searchQuery}
+          onChange={(e) => {
+            console.log("Input changed:", e.target.value);
+            setSearchQuery(e.target.value);
+          }}
+          onKeyDown={handleKeyDown}
+        />
+        <SearchButton onClick={() => {
+          console.log("Search button clicked");
+          handleSearch();
+        }}>Search</SearchButton>
+      </SearchContainer>
 
       {loading && <p>Loading...</p>}
       {error && <p role="alert">Error: {error}</p>}
@@ -49,12 +126,15 @@ useEffect(() => {
 
       {!loading && !error && data.length > 0 && (
         <Grid>
-          {data.map((result, index) => (
-            <RecipeCard
-              key={`${result.Recipe.id}-${index}`}
-              recipe={result.Recipe}
-            />
-          ))}
+          {data.map((item, index) => {
+            const recipe = 'Recipe' in item ? item.Recipe : item;
+            return (
+              <RecipeCard
+                key={`${recipe.id}-${index}`}
+                recipe={recipe}
+              />
+            );
+          })}
         </Grid>
       )}
     </div>
