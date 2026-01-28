@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"net/http"
+	"io"
 
 	"DishDash/src/storage"
 	"DishDash/src/models"
@@ -30,12 +31,18 @@ func AddToShoppingHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	data, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "invalid request body", http.StatusBadRequest)
+		return
+	}
+
 	// try decoding as a list first
 	var ingredients []models.Ingredient
-	if err := json.NewDecoder(r.Body).Decode(&ingredients); err != nil {
-		// if not a list, try single ingredient
+	if err := json.Unmarshal(data, &ingredients); err != nil {
+		// try single ingredient
 		var single models.Ingredient
-		if err := json.NewDecoder(r.Body).Decode(&single); err != nil {
+		if err := json.Unmarshal(data, &single); err != nil {
 			http.Error(w, "invalid request body", http.StatusBadRequest)
 			return
 		}
