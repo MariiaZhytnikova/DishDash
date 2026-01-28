@@ -26,27 +26,51 @@ const Header = styled.div`
 const MealTypeTag = styled.span<{ $bgColor: string; $textColor: string }>`
   background: ${props => props.$bgColor};
   color: ${props => props.$textColor};
-  padding: 6px 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+`;
+const DietTypeTag = styled.span<{ $bgColor: string; $textColor: string }>`
+  background: ${props => props.$bgColor};
+  color: ${props => props.$textColor};
+  padding: 4px 10px;
   border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
 `;
 
-const DeleteButton = styled.button`
-  background: transparent;
-  border: none;
-  color: #ef4444;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  
-  &:hover {
-    color: #dc2626;
-  }
+const CountryTag = styled.span`
+  color: #000000;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
 `;
+
+const DietTypeContainer = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+`;
+
+// const DeleteButton = styled.button`
+//   background: transparent;
+//   border: none;
+//   color: #ef4444;
+//   cursor: pointer;
+//   padding: 4px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 1.25rem;
+  
+//   &:hover {
+//     color: #dc2626;
+//   }
+// `;
 
 const RecipeName = styled.h3`
   font-size: 1.25rem;
@@ -98,7 +122,6 @@ const ProgressFill = styled.div<{ percentage: number }>`
 interface RecipeCardProps {
   recipe: Recipe;
   availableIngredients?: number;
-  onDelete?: () => void;
 }
 
 // Helper function to get meal type colors
@@ -106,19 +129,19 @@ const getMealTypeColors = (mealType: string): { bgColor: string; textColor: stri
   const normalizedMealType = mealType.toLowerCase();
   
   if (normalizedMealType.includes('lunch')) {
-    return { bgColor: '#d4f4dd', textColor: '#2d6a3e' }; // Green
+    return { bgColor: '#faedfc', textColor: '#ad0fc9' }; // Green
   } else if (normalizedMealType.includes('dinner')) {
-    return { bgColor: '#fef3c7', textColor: '#92400e' }; // Amber/Yellow
+    return { bgColor: '#fef3c6', textColor: '#973C00' }; // Amber/Yellow
   } else if (normalizedMealType.includes('snack')) {
     return { bgColor: '#fee2e2', textColor: '#991b1b' }; // Red/Pink
   } else if (normalizedMealType.includes('breakfast')) {
     return { bgColor: '#dbeafe', textColor: '#1e40af' }; // Blue
   } else {
-    return { bgColor: '#e5e7eb', textColor: '#374151' }; // Gray (default)
+    return { bgColor: '#dcfce7', textColor: '#016630' }; // DarkGreen
   }
 };
 
-export function RecipeCard({ recipe, availableIngredients = 0, onDelete }: RecipeCardProps) {
+export function RecipeCard({ recipe, availableIngredients = 0 }: RecipeCardProps) {
   const totalIngredients = recipe.ingredients.length;
   const available = Math.min(availableIngredients, totalIngredients);
   const percentage = totalIngredients > 0 ? Math.round((available / totalIngredients) * 100) : 0;
@@ -130,15 +153,23 @@ export function RecipeCard({ recipe, availableIngredients = 0, onDelete }: Recip
         <MealTypeTag $bgColor={mealTypeColors.bgColor} $textColor={mealTypeColors.textColor}>
           {recipe.mealType}
         </MealTypeTag>
-        {onDelete && (
+        <CountryTag>{recipe.country}</CountryTag>
+        {/* {onDelete && (
           <DeleteButton onClick={onDelete} aria-label="Delete recipe">
             🗑️
           </DeleteButton>
-        )}
-      </Header>
-      
+        )} */}
+      </Header>  
       <RecipeName>{recipe.name}</RecipeName>
-      
+      {recipe.dietType && recipe.dietType.length > 0 && (
+        <DietTypeContainer>
+          {recipe.dietType.map((diet, index) => (
+            <DietTypeTag key={index} $bgColor="#dcfce7" $textColor="#016630">
+              {diet}
+            </DietTypeTag>
+          ))}
+        </DietTypeContainer>
+      )}
       <IngredientsText>{totalIngredients} ingredients</IngredientsText>
       
       <AvailabilityInfo>
