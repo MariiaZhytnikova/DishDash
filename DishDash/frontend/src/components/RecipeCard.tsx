@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import type {Recipe} from "../types/recipe"
+import { getMealTypeColors } from "../utils/colors";
 
 const Card = styled.div`
   border: 1px solid #e5e5e5;
@@ -64,30 +65,13 @@ const Header = styled.div`
   margin-bottom: 12px;
 `;
 
-const MealTypeTag = styled.span<{ $bgColor: string; $textColor: string }>`
-  background: ${props => props.$bgColor};
-  color: ${props => props.$textColor};
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-`;
-const DietTypeTag = styled.span<{ $bgColor: string; $textColor: string }>`
+const Tag = styled.span<{ $bgColor: string; $textColor: string }>`
   background: ${props => props.$bgColor};
   color: ${props => props.$textColor};
   padding: 4px 10px;
   border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
-`;
-
-const CountryTag = styled.span`
-  color: #000000;
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border: 1px solid #e5e5e5;
 `;
 
 const DietTypeContainer = styled.div`
@@ -96,22 +80,14 @@ const DietTypeContainer = styled.div`
   margin-bottom: 12px;
   flex-wrap: wrap;
 `;
-
-// const DeleteButton = styled.button`
-//   background: transparent;
-//   border: none;
-//   color: #ef4444;
-//   cursor: pointer;
-//   padding: 4px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: 1.25rem;
-  
-//   &:hover {
-//     color: #dc2626;
-//   }
-// `;
+const CountryTag = styled.span`
+  color: #000000;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
+`;
 
 const RecipeName = styled.h3`
   font-size: 1.25rem;
@@ -167,23 +143,6 @@ interface RecipeCardProps {
   isFavorite?: boolean;
 }
 
-// Helper function to get meal type colors
-const getMealTypeColors = (mealType: string): { bgColor: string; textColor: string } => {
-  const normalizedMealType = mealType.toLowerCase();
-  
-  if (normalizedMealType.includes('lunch')) {
-    return { bgColor: '#faedfc', textColor: '#ad0fc9' }; // Green
-  } else if (normalizedMealType.includes('dinner')) {
-    return { bgColor: '#fef3c6', textColor: '#973C00' }; // Amber/Yellow
-  } else if (normalizedMealType.includes('snack')) {
-    return { bgColor: '#fee2e2', textColor: '#991b1b' }; // Red/Pink
-  } else if (normalizedMealType.includes('breakfast')) {
-    return { bgColor: '#dbeafe', textColor: '#1e40af' }; // Blue
-  } else {
-    return { bgColor: '#dcfce7', textColor: '#016630' }; // DarkGreen
-  }
-};
-
 export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle, isFavorite = false }: RecipeCardProps) {
   const totalIngredients = recipe.ingredients.length;
   const available = Math.min(availableIngredients, totalIngredients);
@@ -193,7 +152,6 @@ export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle,
 
   return (
     <Card>
-    
       <ImageContainer>
         <RecipeImage src={imageUrl} alt={recipe.name} onError={(e) => {
           e.currentTarget.src = '/images/0.png'; // Fallback image
@@ -204,33 +162,26 @@ export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle,
       </ImageContainer>
       <CardContent>
       <Header>
-        <MealTypeTag $bgColor={mealTypeColors.bgColor} $textColor={mealTypeColors.textColor}>
+        <Tag $bgColor={mealTypeColors.bgColor} $textColor={mealTypeColors.textColor}>
           {recipe.mealType}
-        </MealTypeTag>
+        </Tag>
         <CountryTag>{recipe.country}</CountryTag>
-        {/* {onDelete && (
-          <DeleteButton onClick={onDelete} aria-label="Delete recipe">
-            🗑️
-          </DeleteButton>
-        )} */}
       </Header>  
         <RecipeName>{recipe.name}</RecipeName>
         {recipe.dietType && recipe.dietType.length > 0 && (
           <DietTypeContainer>
             {recipe.dietType.map((diet, index) => (
-              <DietTypeTag key={index} $bgColor="#dcfce7" $textColor="#016630">
+              <Tag key={index} $bgColor="#dcfce7" $textColor="#016630">
                 {diet}
-              </DietTypeTag>
+              </Tag>
             ))}
           </DietTypeContainer>
         )}
         <IngredientsText>{totalIngredients} ingredients</IngredientsText>
-      
         <AvailabilityInfo>
           <AvailabilityText>{available} of {totalIngredients} available</AvailabilityText>
           <PercentageText>{percentage}%</PercentageText>
         </AvailabilityInfo>
-        
         <ProgressBar>
           <ProgressFill percentage={percentage} />
         </ProgressBar>
