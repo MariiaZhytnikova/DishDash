@@ -2,8 +2,8 @@ import type { SearchResult } from "../types/search";
 
 // Empty BASE_URL: Vite proxy forwards all API calls to localhost:8080
 // This prevents CORS(Cross-Origin Resource Sharing) issues during development
-// const BASE_URL = "http://localhost:8080";
-const BASE_URL = "";
+const BASE_URL = "http://localhost:8080";
+//const BASE_URL = "";
 
 export type Ingredient = {
   name: string;
