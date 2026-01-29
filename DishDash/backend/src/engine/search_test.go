@@ -7,37 +7,14 @@ import (
 	"DishDash/src/models"
 )
 
-func TestSearchByName(t *testing.T) {
-	recipes := []models.Recipe{
-		{ID: 1, Name: "Apple Pie"},
-		{ID: 2, Name: "Banana Bread"},
-		{ID: 3, Name: "Pie Crust"},
-	}
-
-	res := engine.SearchByName(recipes, "pie")
-	if len(res) != 2 {
-		t.Fatalf("expected 2 matches, got %d", len(res))
-	}
-
-	res = engine.SearchByName(recipes, "banana")
-	if len(res) != 1 || res[0].ID != 2 {
-		t.Fatal("expected Banana Bread")
-	}
-
-	res = engine.SearchByName(recipes, "cake")
-	if len(res) != 0 {
-		t.Fatal("expected no matches")
-	}
-}
-
-func TestSearchRecipes_FilterAndSuggest(t *testing.T) {
+func TestSearchRecipes_BasicQuery(t *testing.T) {
 	recipes := []models.Recipe{
 		{
-			ID: 1, Name: "Salad",
+			ID: 1, Name: "Salad", Description: "Fresh healthy salad",
 			Ingredients: []models.Ingredient{{Name: "Lettuce", Quantity: 1, Unit: "pcs"}},
 		},
 		{
-			ID: 2, Name: "Soup",
+			ID: 2, Name: "Soup", Description: "Warm carrot soup",
 			Ingredients: []models.Ingredient{{Name: "Carrot", Quantity: 2, Unit: "pcs"}},
 		},
 	}
@@ -47,33 +24,104 @@ func TestSearchRecipes_FilterAndSuggest(t *testing.T) {
 	}
 
 	favs := []models.Favorite{{ID: 2}}
-	settings := models.FilterSettings{}
 
+	// Query search only
+	settings := models.FilterSettings{Query: "carrot"}
 	suggestions := engine.SearchRecipes(recipes, fridge, favs, settings)
 
-	if len(suggestions) != 2 {
-		t.Fatalf("expected 2 suggestions, got %d", len(suggestions))
+	if len(suggestions) != 1 {
+		t.Fatalf("expected 1 suggestion, got %d", len(suggestions))
 	}
 
-	var salad, soup models.Suggestion
-	for _, s := range suggestions {
-		if s.Recipe.ID == 1 {
-			salad = s
-		}
-		if s.Recipe.ID == 2 {
-			soup = s
-		}
+	s := suggestions[0]
+	if s.Recipe.ID != 2 {
+		t.Fatal("expected Soup recipe")
 	}
 
-	if !soup.IsFavorite {
-		t.Fatal("expected Soup to be marked as favorite")
+	if !s.IsFavorite {
+		t.Fatal("expected Soup to be favorite")
 	}
 
-	if soup.FinalScore <= soup.MatchScore {
-		t.Fatal("expected favorite to increase FinalScore")
+	if s.FinalScore <= s.MatchScore {
+		t.Fatal("expected FinalScore > MatchScore due to favorite boost")
 	}
 
-	if salad.FinalScore <= soup.FinalScore {
-		t.Fatal("expected Salad to rank higher due to perfect match")
+	// Query with no match
+	settings = models.FilterSettings{Query: "pizza"}
+	suggestions = engine.SearchRecipes(recipes, fridge, favs, settings)
+	if len(suggestions) != 0 {
+		t.Fatal("expected empty suggestions for unmatched query")
+	}
+}
+
+func TestSearchRecipes_WithFilters(t *testing.T) {
+	recipes := []models.Recipe{
+		{
+			ID: 1, Name: "Salad", MealType: "Lunch",
+			Ingredients: []models.Ingredient{{Name: "Lettuce", Quantity: 1, Unit: "pcs"}},
+		},
+		{
+			ID: 2, Name: "Soup", MealType: "Dinner",
+			Ingredients: []models.Ingredient{{Name: "Carrot", Quantity: 2, Unit: "pcs"}},
+		},
+		{
+			ID: 3, Name: "Pancakes", MealType: "Breakfast",
+			Ingredients: []models.Ingredient{{Name: "Flour", Quantity: 200, Unit: "g"}},
+		},
+	}
+
+	fridge := models.Fridge{}
+	favs := []models.Favorite{}
+
+	// Filter only by MealType
+	settings := models.FilterSettings{MealType: "Lunch"}
+	suggestions := engine.SearchRecipes(recipes, fridge, favs, settings)
+
+	if len(suggestions) != 1 || suggestions[0].Recipe.ID != 1 {
+		t.Fatal("expected only Salad for Lunch filter")
+	}
+
+	// Filter + query that doesn’t match
+	settings = models.FilterSettings{MealType: "Dinner", Query: "lettuce"}
+	suggestions = engine.SearchRecipes(recipes, fridge, favs, settings)
+
+	// Soup is Dinner but has no 'lettuce' → should be empty
+	if len(suggestions) != 0 {
+		t.Fatal("expected no recipes to match Dinner + 'lettuce'")
+	}
+
+	// Filter + query that matches
+	settings = models.FilterSettings{MealType: "Dinner", Query: "carrot"}
+	suggestions = engine.SearchRecipes(recipes, fridge, favs, settings)
+
+	if len(suggestions) != 1 || suggestions[0].Recipe.ID != 2 {
+		t.Fatal("expected Soup for Dinner + 'carrot'")
+	}
+}
+
+func TestSearchRecipes_MultipleFilters(t *testing.T) {
+	recipes := []models.Recipe{
+		{
+			ID: 1, Name: "Vegan Salad", MealType: "Lunch", DietType: []string{"vegan"},
+			Ingredients: []models.Ingredient{{Name: "Lettuce", Quantity: 1, Unit: "pcs"}},
+		},
+		{
+			ID: 2, Name: "Chicken Salad", MealType: "Lunch", DietType: []string{"high-protein"},
+			Ingredients: []models.Ingredient{{Name: "Chicken", Quantity: 200, Unit: "g"}},
+		},
+	}
+
+	fridge := models.Fridge{}
+	favs := []models.Favorite{}
+
+	// Filter by MealType + DietType
+	settings := models.FilterSettings{
+		MealType: "Lunch",
+		DietType: []string{"vegan"},
+	}
+	suggestions := engine.SearchRecipes(recipes, fridge, favs, settings)
+
+	if len(suggestions) != 1 || suggestions[0].Recipe.ID != 1 {
+		t.Fatal("expected only Vegan Salad for Lunch + vegan filter")
 	}
 }

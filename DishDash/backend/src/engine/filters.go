@@ -12,21 +12,21 @@ func FilterRecipes(recipes []models.Recipe, settings models.FilterSettings) []mo
 
 	for _, r := range recipes {
 		// mealType filter
-		if settings.MealType != "" && r.MealType != settings.MealType {
+		if settings.MealType != "" && strings.ToLower(r.MealType) != strings.ToLower(settings.MealType) {
 			continue
 		}
 
 		// mainType filter
-		if settings.MainType != "" && r.MainType != settings.MainType {
+		if settings.MainType != "" && strings.ToLower(r.MainType) != strings.ToLower(settings.MainType) {
 			continue
 		}
 
-		// query filter
-		if settings.Query != "" &&
-			!strings.Contains(strings.ToLower(r.Name), strings.ToLower(settings.Query)) &&
-			!strings.Contains(strings.ToLower(r.Description), strings.ToLower(settings.Query)) {
-			continue
-		}
+		// // query filter
+		// if settings.Query != "" &&
+		// 	!strings.Contains(strings.ToLower(r.Name), strings.ToLower(settings.Query)) &&
+		// 	!strings.Contains(strings.ToLower(r.Description), strings.ToLower(settings.Query)) {
+		// 	continue
+		// }
 
 		// diet filter
 		if len(settings.DietType) > 0 {
