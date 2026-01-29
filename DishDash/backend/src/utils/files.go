@@ -28,18 +28,13 @@ func DataFile(name string) (string, error) {
 }
 
 func LoadJSON(path string, v any) error {
-	// create file if missing
-	if _, err := os.Stat(path); os.IsNotExist(err) {
-		if err := os.WriteFile(path, []byte("[]"), 0644); err != nil {
-			return err
-		}
-	}
-
 	data, err := os.ReadFile(path)
+	if os.IsNotExist(err) {
+		return nil // empty struct, caller decides
+	}
 	if err != nil {
 		return err
 	}
-
 	return json.Unmarshal(data, v)
 }
 
