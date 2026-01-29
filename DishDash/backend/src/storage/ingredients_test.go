@@ -103,3 +103,81 @@ func TestIncreaseDecrease(t *testing.T) {
 		t.Fatal("expected error for unknown section")
 	}
 }
+
+func TestIncreaseList(t *testing.T) {
+	tmp := t.TempDir()
+	utils.SetDataDir(tmp)
+
+	// initial fridge
+	storage.AddPosition("fresh", models.Ingredient{
+		Name: "Tomato", Quantity: 2, Unit: "pcs",
+	})
+	storage.AddPosition("pantry", models.Ingredient{
+		Name: "Rice", Quantity: 1, Unit: "kg",
+	})
+
+	err := storage.IncreaseList([]models.Ingredient{
+		{Name: "Tomato", Quantity: 3},
+		{Name: "Rice", Quantity: 2},
+		{Name: "Salt", Quantity: 1},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	fridge, _ := storage.LoadFridge()
+
+	// fresh updated
+	if fridge.Fresh[0].Quantity != 5 {
+		t.Fatalf("expected Tomato = 5, got %v", fridge.Fresh[0].Quantity)
+	}
+
+	// pantry updated
+	if fridge.Pantry[0].Quantity != 3 {
+		t.Fatalf("expected Rice = 3, got %v", fridge.Pantry[0].Quantity)
+	}
+
+	// new ingredient → rare
+	if len(fridge.Rare) != 1 || fridge.Rare[0].Name != "Salt" {
+		t.Fatal("ingredient not added to rare section")
+	}
+}
+
+func TestDecreaseList(t *testing.T) {
+	tmp := t.TempDir()
+	utils.SetDataDir(tmp)
+
+	storage.AddPosition("fresh", models.Ingredient{
+		Name: "Milk", Quantity: 2, Unit: "l",
+	})
+	storage.AddPosition("pantry", models.Ingredient{
+		Name: "Sugar", Quantity: 5, Unit: "g",
+	})
+	storage.AddPosition("rare", models.Ingredient{
+		Name: "Vanilla", Quantity: 1, Unit: "pcs",
+	})
+
+	err := storage.DecreaseList([]models.Ingredient{
+		{Name: "Milk", Quantity: 1},
+		{Name: "Sugar", Quantity: 10},
+		{Name: "Vanilla", Quantity: 1},
+		{Name: "Ghost", Quantity: 5},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	fridge, _ := storage.LoadFridge()
+
+	if fridge.Fresh[0].Quantity != 1 {
+		t.Fatal("Milk quantity incorrect after decrease")
+	}
+
+	if fridge.Pantry[0].Quantity != 0 {
+		t.Fatal("Sugar should be clamped to 0")
+	}
+
+	if fridge.Rare[0].Quantity != 0 {
+		t.Fatal("Vanilla should be clamped to 0")
+	}
+}

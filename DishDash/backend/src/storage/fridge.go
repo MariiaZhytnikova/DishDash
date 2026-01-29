@@ -13,7 +13,22 @@ func LoadFridge() (models.Fridge, error) {
 
 	fridge := models.Fridge{}
 	err = utils.LoadJSON(path, &fridge)
-	return fridge, err
+	if err != nil {
+		return fridge, err
+	}
+
+	if fridge.Fresh == nil && fridge.Pantry == nil && fridge.Rare == nil {
+		fridge = models.Fridge{
+			Fresh:  []models.Ingredient{},
+			Pantry: []models.Ingredient{},
+			Rare:   []models.Ingredient{},
+		}
+		if err := SaveFridge(fridge); err != nil {
+			log.Println("failed to save fridge:", err)
+		}
+	}
+
+	return fridge, nil
 }
 
 func SaveFridge(fridge models.Fridge) error {
@@ -22,6 +37,7 @@ func SaveFridge(fridge models.Fridge) error {
 		return err
 	}
 	return utils.SaveJSON(path, fridge)
+
 }
 
 func GetSection(name string) string {

@@ -8,7 +8,10 @@ import (
 )
 
 func AddPosition(section string, ing models.Ingredient) error {
-	fridge, _ := LoadFridge()
+	fridge, err := LoadFridge()
+	if err != nil {
+		log.Fatalf("failed to load fridge: %v", err) // or return the error
+	}
 
 	// check in all sections
 	if utils.HasIngredient(fridge.Fresh, ing) ||
@@ -150,3 +153,65 @@ func Decrease(section, name string, qty float64) error {
 	return errors.New("ingredient not found")
 }
 
+func IncreaseList(list []models.Ingredient) error {
+	fridge, err := LoadFridge()
+	if err != nil {
+		return err
+	}
+
+	for _, ing := range list {
+		if tryIncrease(&fridge.Fresh, ing) {
+			continue
+		}
+		if tryIncrease(&fridge.Pantry, ing) {
+			continue
+		}
+
+		// not found → add to rare
+		fridge.Rare = append(fridge.Rare, ing)
+	}
+
+	return SaveFridge(fridge)
+}
+
+func DecreaseList(list []models.Ingredient) error {
+	fridge, err := LoadFridge()
+	if err != nil {
+		return err
+	}
+
+	for _, ing := range list {
+		if tryDecrease(&fridge.Fresh, ing) {
+			continue
+		}
+		if tryDecrease(&fridge.Pantry, ing) {
+			continue
+		}
+		tryDecrease(&fridge.Rare, ing)
+	}
+
+	return SaveFridge(fridge)
+}
+
+func tryIncrease(section *[]models.Ingredient, ing models.Ingredient) bool {
+	for i, f := range *section {
+		if utils.Normalize(f.Name) == utils.Normalize(ing.Name) {
+			(*section)[i].Quantity += ing.Quantity
+			return true
+		}
+	}
+	return false
+}
+
+func tryDecrease(section *[]models.Ingredient, ing models.Ingredient) bool {
+	for i, f := range *section {
+		if utils.Normalize(f.Name) == utils.Normalize(ing.Name) {
+			(*section)[i].Quantity -= ing.Quantity
+			if (*section)[i].Quantity < 0 {
+				(*section)[i].Quantity = 0
+			}
+			return true
+		}
+	}
+	return false
+}

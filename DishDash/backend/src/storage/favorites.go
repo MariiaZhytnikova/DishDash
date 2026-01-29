@@ -15,6 +15,14 @@ func LoadFavorites() ([]models.Favorite, error) {
 	if err := utils.LoadJSON(path, &favs); err != nil {
 		return nil, err
 	}
+
+	if favs == nil {
+		favs = []models.Favorite{}
+		if err := SaveFavorites(favs); err != nil {
+			log.Println("failed to save favorities:", err)
+		}
+	}
+
 	return favs, nil
 }
 

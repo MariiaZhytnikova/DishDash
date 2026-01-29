@@ -15,6 +15,14 @@ func LoadRecipes() ([]models.Recipe, error) {
 	if err := utils.LoadJSON(path, &recipes); err != nil {
 		return nil, err
 	}
+
+	if recipes == nil {
+		recipes = []models.Recipe{}
+		if err := SaveRecipes(recipes); err != nil {
+			log.Println("failed to save recipes:", err)
+		}
+	}
+
 	return recipes, nil
 }
 
