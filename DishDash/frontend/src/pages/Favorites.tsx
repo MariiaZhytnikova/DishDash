@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { addFavorite, getFavorites, getRecipes, removeFavorite, searchRecipes } from "../api/api";
+import { addFavorite, getFavorites,getRecipes,removeFavorite } from "../api/api";
 import { RecipeCard } from "../components/RecipeCard";
 import type { SearchResult } from "../types/search";
 import type { Recipe } from "../types/recipe";
@@ -44,8 +44,8 @@ const SearchButton = styled.button`
   }
 `;
 
-export function Recipes() {
-  console.log("Recipes component rendered");
+export function Favorites() {
+  console.log("Favorites component rendered");
   
   const [data, setData] = useState<(Recipe | SearchResult)[]>([]);
   const [loading, setLoading] = useState(true);
@@ -56,13 +56,18 @@ export function Recipes() {
   // Load all recipes on page mount
   useEffect(() => {
     (async () => {
-      
       try {
         setError(null);
-        const res = await getRecipes();
-        setData(res);
+        const favs = await getFavorites();
+        const favoriteIds = new Set(favs.map(f => f.id));
+        const allRecipes = await getRecipes();
+        const favoriteRecipes: (Recipe | SearchResult)[] = allRecipes.filter(item => {
+          const recipeId = 'Recipe' in item ? (item as SearchResult).Recipe.id : (item as Recipe).id;
+          return favoriteIds.has(recipeId);
+        });
+        setData(favoriteRecipes);
       } catch (e) {
-        console.error("Load recipes error:", e);
+        console.error("Load fav recipes error:", e);
         setError((e as Error).message ?? "Unknown error");
       } finally {
         setLoading(false);
@@ -81,26 +86,36 @@ export function Recipes() {
     })();
   }, []);
 
-  // Handle search
-  const handleSearch = async () => {
+  // Handle search - filter favorites list only
+  const handleSearch = () => {
     console.log("handleSearch called with query:", searchQuery);
     
     if (!searchQuery.trim()) {
+      // Reload favorites if search is cleared
+      (async () => {
+        try {
+          setError(null);
+          const favs = await getFavorites();
+          const favoriteIds = new Set(favs.map(f => f.id));
+          const allRecipes = await getRecipes();
+          const favoriteRecipes: (Recipe | SearchResult)[] = allRecipes.filter(item => {
+            const recipeId = 'Recipe' in item ? (item as SearchResult).Recipe.id : (item as Recipe).id;
+            return favoriteIds.has(recipeId);
+          });
+          setData(favoriteRecipes);
+        } catch (e) {
+          console.error("Load fav recipes error:", e);
+        }
+      })();
       return;
     }
 
-    setLoading(true);
-    try {
-      setError(null);
-      const res = await searchRecipes({ settings: { query: searchQuery } });
-      console.log("Search results:", res);
-      setData(res);
-    } catch (e) {
-      console.error("Search error:", e);
-      setError((e as Error).message ?? "Unknown error");
-    } finally {
-      setLoading(false);
-    }
+    // Filter current favorites by name
+    const filtered = data.filter(item => {
+      const recipe = 'Recipe' in item ? (item as SearchResult).Recipe : (item as Recipe);
+      return recipe.name.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+    setData(filtered);
   };
 
   // Allow search on Enter key
@@ -110,10 +125,34 @@ export function Recipes() {
     }
   };
 
+  // Handle favorite toggle
+  const handleFavoriteToggle = async (item: Recipe | SearchResult) => {
+    const recipe = 'Recipe' in item ? (item as SearchResult).Recipe : (item as Recipe);
+    const isFav = favorites.has(recipe.id);
+    const next = new Set(favorites);
+    
+    try {
+      if (isFav) {
+        await removeFavorite(recipe.id);
+        next.delete(recipe.id);
+        const updatedData = data.filter(item => {
+          const r = 'Recipe' in item ? (item as SearchResult).Recipe : (item as Recipe);
+          return r.id !== recipe.id;
+        });
+        setData(updatedData);
+      } else {
+        await addFavorite({ id: recipe.id, name: recipe.name });
+        next.add(recipe.id);
+      }
+      setFavorites(next);
+    } catch (e) {
+      console.error("Favorite toggle error:", e);
+    }
+  };
+
   return (
     <div>
-      <h1>Recipes</h1>
-
+      <h1>My Favorite Recipes</h1>
       <SearchContainer>
         <SearchInput
           type="text"
@@ -134,7 +173,7 @@ export function Recipes() {
       {loading && <p>Loading...</p>}
       {error && <p role="alert">Error: {error}</p>}
 
-      {!loading && !error && data.length === 0 && <p>No recipes found</p>}
+      {!loading && !error && data.length === 0 && <p>No favorite recipes found</p>}
 
       {!loading && !error && data.length > 0 && (
         <Grid>
@@ -146,21 +185,7 @@ export function Recipes() {
                 key={`${recipe.id}-${index}`}
                 recipe={recipe}
                 isFavorite={isFavorite}
-                onFavoriteToggle={async () => {
-                  const next = new Set(favorites);
-                  try {
-                    if (isFavorite) {
-                      await removeFavorite(recipe.id);
-                      next.delete(recipe.id);
-                    } else {
-                      await addFavorite({ id: recipe.id, name: recipe.name });
-                      next.add(recipe.id);
-                    }
-                    setFavorites(next);
-                  } catch (e) {
-                    console.error("Favorite toggle error:", e);
-                  }
-                }}
+                onFavoriteToggle={() => handleFavoriteToggle(item)}
               />
             );
           })}

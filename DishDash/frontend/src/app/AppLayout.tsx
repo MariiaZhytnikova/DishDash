@@ -87,9 +87,7 @@ export function AppLayout() {
         }
       }
     };
-
     fetchStatus();
-
     return () => {
       cancelled = true;
     };
@@ -102,6 +100,7 @@ export function AppLayout() {
         <Nav>
           <Item to="/ingredients">Ingredients</Item>
           <Item to="/recipes">Recipes</Item>
+          <Item to="/favorites">Favorites</Item>
           <Item to="/shopping-list">Shopping List</Item>
         </Nav>
         {/* {statusMsg && <StatusIndicator>Backend: {statusMsg}</StatusIndicator>} */}
@@ -109,7 +108,6 @@ export function AppLayout() {
           Backend: {statusState ? statusState.text : "checking..."}
         </StatusIndicator>
       </Sidebar>
-
       <Main>
         <Outlet />
       </Main>
