@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for backend-ancient-waterfall-8399 on 2026-01-30T09:07:38Z
+# fly.toml app configuration file generated for backend-ancient-waterfall-8399 on 2026-01-30T11:35:07+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -7,8 +7,6 @@ app = 'backend-ancient-waterfall-8399'
 primary_region = 'iad'
 
 [build]
-  [build.args]
-    GO_VERSION = '1.22'
 
 [env]
   PORT = '8080'

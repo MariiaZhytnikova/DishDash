@@ -7,9 +7,13 @@ import (
 	"github.com/rs/cors"
 
 	"DishDash/src/api"
+	"DishDash/src/utils"
 )
 
 func main() {
+
+	utils.SetDataDir("./data")
+
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/health", api.HealthHandler)

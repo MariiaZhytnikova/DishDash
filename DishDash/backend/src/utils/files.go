@@ -6,13 +6,16 @@ import (
 	"path/filepath"
 )
 
-var dataDir = "./data"
+var dataDir string
 
 func SetDataDir(dir string) {
 	dataDir = dir
 }
 
 func DataDir() (string, error) {
+	if dataDir == "" {
+		dataDir = "./data"
+	}
 	if err := os.MkdirAll(dataDir, 0755); err != nil {
 		return "", err
 	}
