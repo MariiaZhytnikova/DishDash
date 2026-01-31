@@ -1,19 +1,66 @@
 {
   "fresh": [
-    {
-      "name": "salt",
-      "quantity": 1,
-      "unit": "tsp"
-    }
+    { "name": "eggs", "quantity": 6, "unit": "pcs" },
+    { "name": "milk", "quantity": 1, "unit": "l" },
+    { "name": "cheese", "quantity": 200, "unit": "g" },
+    { "name": "yogurt", "quantity": 400, "unit": "g" },
+    { "name": "butter", "quantity": 200, "unit": "g" },
+    { "name": "ham", "quantity": 150, "unit": "g" },
+    { "name": "chicken breast", "quantity": 400, "unit": "g" },
+    { "name": "bacon", "quantity": 150, "unit": "g" },
+    { "name": "tofu", "quantity": 200, "unit": "g" },
+    { "name": "cream", "quantity": 200, "unit": "ml" },
+
+    { "name": "onion", "quantity": 2, "unit": "pcs" },
+    { "name": "garlic", "quantity": 1, "unit": "bulb" },
+    { "name": "bell pepper", "quantity": 2, "unit": "pcs" },
+    { "name": "carrot", "quantity": 4, "unit": "pcs" },
+    { "name": "salad", "quantity": 1, "unit": "head" },
+    { "name": "tomato", "quantity": 4, "unit": "pcs" },
+    { "name": "spinach", "quantity": 100, "unit": "g" },
+    { "name": "potato", "quantity": 1, "unit": "kg" },
+
+    { "name": "apple", "quantity": 4, "unit": "pcs" },
+    { "name": "banana", "quantity": 4, "unit": "pcs" },
+    { "name": "lemon", "quantity": 2, "unit": "pcs" },
+    { "name": "orange", "quantity": 3, "unit": "pcs" }
   ],
   "pantry": [
-    {
-      "name": "oil",
-      "quantity": 300,
-      "unit": "ml"
-    }
+    { "name": "mayonnaise", "quantity": 250, "unit": "g" },
+    { "name": "ketchup", "quantity": 300, "unit": "g" },
+
+    { "name": "baking soda", "quantity": 1, "unit": "pack" },
+    { "name": "baking powder", "quantity": 1, "unit": "pack" },
+    { "name": "vanilla sugar", "quantity": 1, "unit": "pack" },
+    { "name": "salt", "quantity": 1, "unit": "pack" },
+    { "name": "black pepper", "quantity": 1, "unit": "pack" },
+
+    { "name": "coffee", "quantity": 250, "unit": "g" },
+    { "name": "tea", "quantity": 50, "unit": "bags" },
+
+    { "name": "oil", "quantity": 500, "unit": "ml" },
+    { "name": "olive oil", "quantity": 500, "unit": "ml" },
+
+    { "name": "flour", "quantity": 1, "unit": "kg" },
+    { "name": "sugar", "quantity": 500, "unit": "g" },
+    { "name": "rice", "quantity": 1, "unit": "kg" },
+    { "name": "pasta", "quantity": 500, "unit": "g" },
+    { "name": "couscous", "quantity": 500, "unit": "g" },
+    { "name": "bulgur", "quantity": 500, "unit": "g" },
+    { "name": "quinoa", "quantity": 500, "unit": "g" },
+    { "name": "oats", "quantity": 1, "unit": "kg" },
+    { "name": "breadcrumbs", "quantity": 200, "unit": "g" },
+    { "name": "cornstarch", "quantity": 200, "unit": "g" }
   ],
   "rare": [
-
+    { "name": "soy sauce", "quantity": 150, "unit": "ml" },
+    { "name": "curry powder", "quantity": 1, "unit": "pack" },
+    { "name": "paprika", "quantity": 1, "unit": "pack" },
+    { "name": "honey", "quantity": 250, "unit": "g" },
+    { "name": "vinegar", "quantity": 250, "unit": "ml" },
+    { "name": "worcestershire sauce", "quantity": 100, "unit": "ml" },
+    { "name": "pesto", "quantity": 150, "unit": "g" },
+    { "name": "curry paste", "quantity": 100, "unit": "g" },
+    { "name": "sesame oil", "quantity": 100, "unit": "ml" }
   ]
 }
