@@ -3,7 +3,13 @@ import type { SearchResult } from "../types/search";
 // Empty BASE_URL: Vite proxy forwards all API calls to localhost:8080
 // This prevents CORS(Cross-Origin Resource Sharing) issues during development
 //const BASE_URL = "http://localhost:8080";
-const BASE_URL = "/api";
+
+// const BASE_URL = "/api";
+
+const BASE_URL = import.meta.env.DEV
+  ? "/api"                            // dev uses Vite proxy
+  : import.meta.env.VITE_API_URL;     // prod uses Fly.io URL
+
 
 export type Ingredient = {
   name: string;
