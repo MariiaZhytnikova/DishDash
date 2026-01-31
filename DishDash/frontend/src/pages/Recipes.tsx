@@ -47,7 +47,7 @@ const SearchButton = styled.button`
 export function Recipes() {
   console.log("Recipes component rendered");
   
-  const [data, setData] = useState<(Recipe | SearchResult)[]>([]);
+  const [data, setData] = useState<Recipe[] | SearchResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");

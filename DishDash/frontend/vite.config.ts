@@ -8,8 +8,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        // target: "http://localhost:8080",
-        target: "https://backend-ancient-waterfall-8399.fly.dev",
+        target: "http://localhost:8080",
+        // target: "https://backend-ancient-waterfall-8399.fly.dev",
         rewrite: (path) => path.replace(/^\/api/, ""),
         changeOrigin: true,
         secure: true,
