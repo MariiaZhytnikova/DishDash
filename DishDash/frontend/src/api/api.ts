@@ -26,12 +26,38 @@ export type FridgeIngredient = Ingredient & {
   expiresAt?: string;
 };
 
+export type Fridge = {
+  fresh: Ingredient[];
+  pantry: Ingredient[];
+  rare: Ingredient[];
+};
+
+export type FilterSettings = {
+  query?: string;
+  mealType?: string;
+  mainType?: string;
+  dietType?: string[];
+  restrictions?: string[];
+  country?: string[];
+};
+
+export type SearchFilters = {
+  fridge?: Fridge;
+  settings?: FilterSettings;
+};
+
 export async function status() {
   const res = await fetch(`${BASE_URL}/health`);
   if (!res.ok) throw new Error(`healthcheck failed with ${res.status}`);
   return res.json();
 }
 
+// Get all ingredients on page load
+export async function getFridge(): Promise<Fridge> {
+  const res = await fetch(`${BASE_URL}/fridge`);
+  if (!res.ok) throw new Error(`get ingredients failed with ${res.status}`);
+  return res.json();
+}
 // Get all recipes on page load
 export async function getRecipes(): Promise<SearchResult[]> {
   const res = await fetch(`${BASE_URL}/recipes`);
@@ -40,7 +66,7 @@ export async function getRecipes(): Promise<SearchResult[]> {
 }
 
 // Search/filter recipes with filters (from search bar or advanced search)
-export async function searchRecipes(filters?: Record<string, unknown>): Promise<SearchResult[]> {
+export async function searchRecipes(filters?: SearchFilters): Promise<SearchResult[]> {
   const res = await fetch(`${BASE_URL}/search`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
