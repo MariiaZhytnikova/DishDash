@@ -1,7 +1,18 @@
 # Dish Dash 🍽️
 
-Dish Dash is a smart recipe recommendation app that helps users turn the ingredients they already have at home into meals.  
-Users can search by ingredients, discover recipes, and generate shopping lists for missing items.
+DishDash helps you reduce food waste by recommending recipes based on the ingredients you already have at home.
+
+Instead of buying more food, you use what’s available — and for anything missing, DishDash creates a precise shopping list so you buy only what you need.
+
+## 👥 Team
+
+This project was developed collaboratively by two developers:
+
+- **Marina Zhivotova** — Frontend (Figma design, React, TypeScript, UI/UX)  
+  GitHub: https://github.com/marinezh
+
+- **[Mariia Zhitnikova]** — Backend (Go, API design, data modeling, deployment)  
+  GitHub: https://github.com/MariiaZhytnikova
 
 ## ✨ Overview
 
