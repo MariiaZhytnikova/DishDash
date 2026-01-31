@@ -1,29 +1,34 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-export default defineConfig({
-  base: "/DishDash/",
-  plugins: [react()],
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:8080",
-        // target: "https://backend-ancient-waterfall-8399.fly.dev",
-        rewrite: (path) => path.replace(/^\/api/, ""),
-        changeOrigin: true,
-        secure: true,
+// https://vitejs.dev/config/
+export default defineConfig(({ mode }) => {
+  return {
+    base: "/DishDash/",
+    plugins: [react()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
       },
     },
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
+    server: {
+      proxy: mode === "development" ? {
+        "/api": {
+          target: "http://localhost:8080",
+          rewrite: (path) => path.replace(/^\/api/, ""),
+          changeOrigin: true,
+          secure: false,
+        },
+      } : undefined,
     },
-  },
-  test: {
-    environment: "jsdom",
-    setupFiles: "./src/test/setup.ts",
-  },
+    define: {
+      // fallback in case env is missing
+      'import.meta.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL || ""),
+    },
+    test: {
+      environment: "jsdom",
+      setupFiles: "./src/test/setup.ts",
+    },
+  };
 });
-
