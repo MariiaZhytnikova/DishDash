@@ -51,3 +51,8 @@ Share shopping lists with family members or housemates to stay coordinated.
 
 - **Share Recipes**
 Share favorite recipes with friends.
+
+- **QR code scanning**
+Makes adding new products to the fridge faster and easier
+
+- **Loading or sacanning of receipt from groccery shops**
