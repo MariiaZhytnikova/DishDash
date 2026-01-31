@@ -43,8 +43,10 @@ func main() {
 	mux.HandleFunc("/shopping/clear", api.ClearShoppingHandler)
 
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"http://localhost:5173"},
+		AllowedOrigins: []string{"http://localhost:5173",
+								"https://mariiazhytnikova.github.io", },
 		AllowedMethods: []string{"GET", "POST", "OPTIONS"},
+		AllowedHeaders: []string{"Content-Type"},
 	})
 
 	handler := c.Handler(mux)
