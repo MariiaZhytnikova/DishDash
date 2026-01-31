@@ -34,11 +34,12 @@ func SearchRecipes(
 	// query filtering
 	if settings.Query != "" {
 		withQuery := []models.Recipe{}
-		for _, r := range candidates {
-			if QueryScore(r, settings.Query) > 0 {
-				withQuery = append(withQuery, r)
-			}
+
+	for _, r := range candidates {
+		if QueryScore(r, settings.Query) > 0 {
+			withQuery = append(withQuery, r)
 		}
+	}
 		candidates = withQuery
 	}
 
@@ -47,5 +48,5 @@ func SearchRecipes(
 		return []models.Suggestion{}
 	}
 
-	return SuggestRecipes(candidates, all, favorites)
+	return SuggestRecipes(candidates, all, favorites, settings.Query)
 }

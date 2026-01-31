@@ -11,6 +11,7 @@ func SuggestRecipes(
 	recipes []models.Recipe,
 	fridge []models.Ingredient,
 	favorites []models.Favorite,
+	query string,
 ) []models.Suggestion {
 
 	suggestions := []models.Suggestion{}
@@ -33,10 +34,11 @@ func SuggestRecipes(
 		}
 
 		matchScore := float64(available) / float64(total)
+		qScore := QueryScore(r, query)
 
 		fav := utils.IsFavorite(r.ID, favorites)
 
-		finalScore := matchScore
+		finalScore := matchScore + qScore*0.1
 		if fav {
 			finalScore += 0.3
 		}

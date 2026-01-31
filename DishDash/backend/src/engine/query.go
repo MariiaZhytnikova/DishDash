@@ -43,16 +43,34 @@ func QueryScore(r models.Recipe, query string) float64 {
 		return 0
 	}
 
-	text := recipeText(r)
+	nameText := strings.ToLower(r.Name)
+	otherText := recipeText(r) // includes everything
+	otherText = strings.ReplaceAll(otherText, nameText, "") // remove name part
+	otherText = strings.ReplaceAll(otherText, "-", " ")
+	otherText = strings.ReplaceAll(otherText, ",", "")
 
-	matches := 0
+	matchesInName := 0
+	matchesInOther := 0
+
 	for _, w := range words {
-		if strings.Contains(text, w) {
-			matches++
+		if strings.Contains(nameText, w) {
+			matchesInName++
+		} else if strings.Contains(otherText, w) {
+			matchesInOther++
 		}
 	}
 
-	return float64(matches) / float64(len(words))
-}
+	// base weights
+	weightName := 1.0
+	weightOther := 0.2
 
+	score := float64(matchesInName)*weightName + float64(matchesInOther)*weightOther
+
+	// if all query words are found in name, give big bonus
+	if matchesInName == len(words) {
+		score += 10 // arbitrary big bonus to outrank any other recipe
+	}
+
+	return score
+}
 

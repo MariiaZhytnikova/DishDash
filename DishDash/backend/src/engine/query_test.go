@@ -14,7 +14,10 @@ func TestQueryScore_MultipleKeywords(t *testing.T) {
 	}
 
 	score := engine.QueryScore(r, "chicken spicy soup")
-	if score != 1.0 {
-		t.Fatalf("expected 1.0, got %.2f", score)
+
+	expected := 13.0
+
+	if score != expected {
+		t.Fatalf("expected %.2f, got %.2f", expected, score)
 	}
 }

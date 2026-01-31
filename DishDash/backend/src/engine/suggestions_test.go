@@ -28,7 +28,7 @@ func TestSuggestRecipes_Basic(t *testing.T) {
 
 	favs := []models.Favorite{{ID: 1}}
 
-	suggestions := engine.SuggestRecipes(recipes, fridge, favs)
+	suggestions := engine.SuggestRecipes(recipes, fridge, favs, "")
 
 	if len(suggestions) != 1 {
 		t.Fatalf("expected 1 suggestion, got %d", len(suggestions))
@@ -64,8 +64,43 @@ func TestSuggestRecipes_Basic(t *testing.T) {
 }
 
 func TestSuggestRecipes_Empty(t *testing.T) {
-	res := engine.SuggestRecipes([]models.Recipe{}, []models.Ingredient{}, []models.Favorite{})
+	res := engine.SuggestRecipes([]models.Recipe{}, []models.Ingredient{}, []models.Favorite{}, "")
 	if len(res) != 0 {
 		t.Fatal("expected empty suggestions for empty input")
+	}
+}
+
+func TestSuggestRecipes_WithQuery(t *testing.T) {
+	recipes := []models.Recipe{
+		{
+			ID:   2,
+			Name: "Apple Pie",
+			Ingredients: []models.Ingredient{
+				{Name: "Apple", Quantity: 3, Unit: "pcs"},
+				{Name: "Sugar", Quantity: 1, Unit: "cup"},
+				{Name: "Flour", Quantity: 200, Unit: "g"},
+			},
+		},
+	}
+
+	fridge := []models.Ingredient{
+		{Name: "Apple", Quantity: 3, Unit: "pcs"},
+	}
+
+	favs := []models.Favorite{}
+
+	query := "apple"
+
+	suggestions := engine.SuggestRecipes(recipes, fridge, favs, query)
+
+	if len(suggestions) != 1 {
+		t.Fatalf("expected 1 suggestion, got %d", len(suggestions))
+	}
+
+	s := suggestions[0]
+
+	// check that query influenced final score
+	if s.FinalScore <= s.MatchScore {
+		t.Fatalf("expected final score > match score due to query, got %.2f <= %.2f", s.FinalScore, s.MatchScore)
 	}
 }
