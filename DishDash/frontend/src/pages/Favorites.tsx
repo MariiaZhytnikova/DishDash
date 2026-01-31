@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { addFavorite, getFavorites,getRecipes,removeFavorite } from "../api/api";
+import { addFavorite, getFavorites,getRecipes,removeFavorite, searchRecipes, getRecipeDetails, getFridge } from "../api/api";
 import { RecipeCard } from "../components/RecipeCard";
 import type { SearchResult } from "../types/search";
 import type { Recipe } from "../types/recipe";
+import type { RecipeDetails, Ingredient } from "../api/api";
+import { RecipeDetailModal } from "../components/RecipeDetailModal";
 
 const Grid = styled.div`
   display: grid;
@@ -52,6 +54,19 @@ export function Favorites() {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
+  const [selectedRecipe, setSelectedRecipe] = useState<RecipeDetails | null>(null);
+  const [fridgeIngredients, setFridgeIngredients] = useState<Ingredient[]>([]);
+
+  // Helper function to calculate available ingredients
+  const calculateAvailableIngredients = (recipeIngredients: Ingredient[]): number => {
+    if (!recipeIngredients || recipeIngredients.length === 0) return 0;
+    
+    return recipeIngredients.filter(recipeIng =>
+      fridgeIngredients.some(fridgeIng =>
+        fridgeIng.name.toLowerCase() === recipeIng.name.toLowerCase()
+      )
+    ).length;
+  };
 
   // Load all recipes on page mount
   useEffect(() => {
@@ -85,6 +100,33 @@ export function Favorites() {
       }
     })();
   }, []);
+
+  // Load fridge ingredients
+  useEffect(() => {
+    (async () => {
+      try {
+        const fridge = await getFridge();
+        const allIngredients = [
+          ...fridge.fresh,
+          ...fridge.pantry,
+          ...fridge.rare,
+        ];
+        setFridgeIngredients(allIngredients);
+      } catch (e) {
+        console.error("Load fridge error:", e);
+      }
+    })();
+  }, []);
+
+  // Handle recipe card click
+  const handleRecipeClick = async (recipe: Recipe) => {
+    try {
+      const details = await getRecipeDetails(recipe.id);
+      setSelectedRecipe(details);
+    } catch (e) {
+      console.error("Failed to load recipe details:", e);
+    }
+  };
 
   // Handle search - filter favorites list only
   const handleSearch = () => {
@@ -180,16 +222,25 @@ export function Favorites() {
           {data.map((item, index) => {
             const recipe = 'Recipe' in item ? item.Recipe : item;
             const isFavorite = favorites.has(recipe.id);
+            const availableIngredients = calculateAvailableIngredients(recipe.ingredients);
             return (
               <RecipeCard
                 key={`${recipe.id}-${index}`}
                 recipe={recipe}
+                availableIngredients={availableIngredients}
                 isFavorite={isFavorite}
+                onClick={() => handleRecipeClick(recipe)}
                 onFavoriteToggle={() => handleFavoriteToggle(item)}
               />
             );
           })}
         </Grid>
+      )}
+      {selectedRecipe && (
+              <RecipeDetailModal
+                recipe={selectedRecipe}
+                onClose={() => setSelectedRecipe(null)}
+              />
       )}
     </div>
   );

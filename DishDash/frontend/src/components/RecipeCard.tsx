@@ -10,6 +10,7 @@ const Card = styled.div`
   position: relative;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   overflow: hidden;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-3px) scale(1.02);
@@ -141,9 +142,10 @@ interface RecipeCardProps {
   availableIngredients?: number;
   onFavoriteToggle?: () => void;
   isFavorite?: boolean;
+  onClick?: () => void;
 }
 
-export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle, isFavorite = false }: RecipeCardProps) {
+export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle, isFavorite = false, onClick }: RecipeCardProps) {
   const totalIngredients = recipe.ingredients.length;
   const available = Math.min(availableIngredients, totalIngredients);
   const percentage = totalIngredients > 0 ? Math.round((available / totalIngredients) * 100) : 0;
@@ -151,8 +153,16 @@ export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle,
   // const imageUrl = recipe.imageUrl || `/small/${recipe.id}.jpg`;
   const imageUrl = recipe.imageUrl || `${import.meta.env.BASE_URL}small/${recipe.id}.jpg`;
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Don't trigger if user clicked the heart button
+    if ((e.target as HTMLElement).closest('button')) {
+      return;
+    }
+    onClick?.();
+  };
+
   return (
-    <Card>
+    <Card onClick={handleCardClick}>
       <ImageContainer>
         <RecipeImage src={imageUrl} alt={recipe.name} onError={(e) => {
           e.currentTarget.src = `${import.meta.env.BASE_URL}small/0.png`; // Fallback image

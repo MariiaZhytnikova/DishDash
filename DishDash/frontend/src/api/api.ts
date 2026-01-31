@@ -46,6 +46,24 @@ export type SearchFilters = {
   settings?: FilterSettings;
 };
 
+export type IngredientWithStatus = {
+  name: string;
+  quantity: number;
+  unit: string;
+  missing: boolean;
+};
+
+export type RecipeDetails = {
+  id: number;
+  name: string;
+  mealType: string;
+  description: string;
+  ingredients: IngredientWithStatus[];
+  available: number;
+  missing: number;
+  steps?: string[];
+};
+
 export async function status() {
   const res = await fetch(`${BASE_URL}/health`);
   if (!res.ok) throw new Error(`healthcheck failed with ${res.status}`);
@@ -102,6 +120,13 @@ export async function getRecipes(): Promise<SearchResult[]> {
   return res.json();
 }
 
+// Get recipe details by ID
+export async function getRecipeDetails(id: number): Promise<RecipeDetails> {
+  const res = await fetch(`${BASE_URL}/recipes/${id}`);
+  if (!res.ok) throw new Error(`get recipe details failed with ${res.status}`);
+  return res.json();
+}
+
 // Search/filter recipes with filters (from search bar or advanced search)
 export async function searchRecipes(filters?: SearchFilters): Promise<SearchResult[]> {
   const res = await fetch(`${BASE_URL}/search`, {
@@ -138,4 +163,14 @@ export async function removeFavorite(id: number): Promise<void> {
   });
 
   if (!res.ok) throw new Error(`remove favorite failed with ${res.status}`);
+}
+
+export async function addToShopping(ingredients: Ingredient[]): Promise<void> {
+  const res = await fetch(`${BASE_URL}/shopping/add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(ingredients),
+  });
+
+  if (!res.ok) throw new Error(`add to shopping failed with ${res.status}`);
 }
