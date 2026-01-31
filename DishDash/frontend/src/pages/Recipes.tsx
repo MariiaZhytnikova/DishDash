@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { addFavorite, getFavorites, getRecipes, removeFavorite, searchRecipes } from "../api/api";
+import { addFavorite, getFavorites, getRecipes, removeFavorite, searchRecipes, getRecipeDetails, getFridge } from "../api/api";
 import { RecipeCard } from "../components/RecipeCard";
+import { RecipeDetailModal } from "../components/RecipeDetailModal";
 import type { SearchResult } from "../types/search";
 import type { Recipe } from "../types/recipe";
+import type { RecipeDetails, Ingredient } from "../api/api";
 
 const Grid = styled.div`
   display: grid;
@@ -52,6 +54,19 @@ export function Recipes() {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
+  const [selectedRecipe, setSelectedRecipe] = useState<RecipeDetails | null>(null);
+  const [fridgeIngredients, setFridgeIngredients] = useState<Ingredient[]>([]);
+
+  // Helper function to calculate available ingredients
+  const calculateAvailableIngredients = (recipeIngredients: Ingredient[]): number => {
+    if (!recipeIngredients || recipeIngredients.length === 0) return 0;
+    
+    return recipeIngredients.filter(recipeIng =>
+      fridgeIngredients.some(fridgeIng =>
+        fridgeIng.name.toLowerCase() === recipeIng.name.toLowerCase()
+      )
+    ).length;
+  };
 
   // Load all recipes on page mount
   useEffect(() => {
@@ -66,6 +81,23 @@ export function Recipes() {
         setError((e as Error).message ?? "Unknown error");
       } finally {
         setLoading(false);
+      }
+    })();
+  }, []);
+
+  // Load fridge ingredients
+  useEffect(() => {
+    (async () => {
+      try {
+        const fridge = await getFridge();
+        const allIngredients = [
+          ...fridge.fresh,
+          ...fridge.pantry,
+          ...fridge.rare,
+        ];
+        setFridgeIngredients(allIngredients);
+      } catch (e) {
+        console.error("Load fridge error:", e);
       }
     })();
   }, []);
@@ -110,6 +142,16 @@ export function Recipes() {
     }
   };
 
+  // Handle recipe card click
+  const handleRecipeClick = async (recipe: Recipe) => {
+    try {
+      const details = await getRecipeDetails(recipe.id);
+      setSelectedRecipe(details);
+    } catch (e) {
+      console.error("Failed to load recipe details:", e);
+    }
+  };
+
   return (
     <div>
       <h1>Recipes</h1>
@@ -141,11 +183,14 @@ export function Recipes() {
           {data.map((item, index) => {
             const recipe = 'Recipe' in item ? item.Recipe : item;
             const isFavorite = favorites.has(recipe.id);
+            const availableIngredients = calculateAvailableIngredients(recipe.ingredients);
             return (
               <RecipeCard
                 key={`${recipe.id}-${index}`}
                 recipe={recipe}
+                availableIngredients={availableIngredients}
                 isFavorite={isFavorite}
+                onClick={() => handleRecipeClick(recipe)}
                 onFavoriteToggle={async () => {
                   const next = new Set(favorites);
                   try {
@@ -165,6 +210,13 @@ export function Recipes() {
             );
           })}
         </Grid>
+      )}
+
+      {selectedRecipe && (
+        <RecipeDetailModal
+          recipe={selectedRecipe}
+          onClose={() => setSelectedRecipe(null)}
+        />
       )}
     </div>
   );

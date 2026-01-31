@@ -17,7 +17,7 @@ const AddContainer = styled.div`
 `;
 const AddButton = styled.button`
   padding: 8px 24px;
-  background-color: #1FA9E4;
+  background-color: #21c6e9;
   color: white;
   border: none;
   border-radius: 10px;
@@ -26,7 +26,7 @@ const AddButton = styled.button`
   font-weight: bold;
 
   &:hover {
-    background-color: #138ec3;
+    background-color: #21c6e9;
   }
 `;
 
