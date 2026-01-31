@@ -22,10 +22,6 @@ export default defineConfig(({ mode }) => {
         },
       } : undefined,
     },
-    define: {
-      // fallback in case env is missing
-      'import.meta.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL || ""),
-    },
     test: {
       environment: "jsdom",
       setupFiles: "./src/test/setup.ts",
