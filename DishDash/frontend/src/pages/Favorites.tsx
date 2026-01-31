@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { addFavorite, getFavorites,getRecipes,removeFavorite, searchRecipes, getRecipeDetails, getFridge } from "../api/api";
+import { addFavorite, getFavorites,getRecipes,removeFavorite, getRecipeDetails, getFridge } from "../api/api";
 import { RecipeCard } from "../components/RecipeCard";
 import type { SearchResult } from "../types/search";
 import type { Recipe } from "../types/recipe";
