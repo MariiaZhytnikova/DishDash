@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
-import type { RecipeDetails } from "../api/api";
-import { addToShopping } from "../api/api";
+import type { RecipeDetails } from "../api";
+import { addToShopping } from "../api";
 
 const ModalOverlay = styled.div`
   position: fixed;

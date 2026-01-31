@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { status } from "../api/api";
+import { status } from "../api";
 
 const Shell = styled.div`
   height: 100vh;

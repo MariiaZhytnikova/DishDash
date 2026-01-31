@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getShoppingList, removeFromShopping, clearShopping, addToShopping, sendShoppingListToEmail, createWoltOrder } from "../api/api";
-import type { Ingredient } from "../api/api";
+import { getShoppingList, removeFromShopping, clearShopping, addToShopping, sendShoppingListToEmail, createWoltOrder } from "../api";
+import type { Ingredient } from "../api";
 
 const Container = styled.div`
   width: 100%;

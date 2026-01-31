@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getFridge, addIngredient, deleteIngredient, increaseIngredient, type Fridge } from "../api/api";
+import { getFridge, addIngredient, deleteIngredient, increaseIngredient, type Fridge } from "../api";
 import { AddIngredientModal, type AddIngredientPayload } from "../components/AddIngredientModal";
 
 const Grid = styled.div`
