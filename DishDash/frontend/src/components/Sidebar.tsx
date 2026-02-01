@@ -117,14 +117,14 @@ export function Sidebar() {
   return (
 	<SidebarContainer>
 	  <Brand>
-		<BrandIcon src="/dishdash.svg" alt="DishDash" />
+		<BrandIcon src={`${import.meta.env.BASE_URL}dishdash.svg`} alt="DishDash" />
 		<BrandText>DishDash</BrandText>
 	  </Brand>
 	  <Nav>
 		<NavItem to="/ingredients">
 		  {({ isActive }) => (
 			<>
-			  <NavIcon src={isActive ? "/icons/ingredients_active.svg" : "/icons/ingredients.svg"} alt="Ingredients" />
+			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "ingredients_active" : "ingredients"}.svg`} alt="Ingredients" />
 			  <Text>Ingredients</Text>
 			</>
 		  )}
@@ -132,7 +132,7 @@ export function Sidebar() {
 		<NavItem to="/recipes">
 		  {({ isActive }) => (
 			<>
-			  <NavIcon src={isActive ? "/icons/hat_active.svg" : "/icons/hat.svg"} alt="Recipes" />
+			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "hat_active" : "hat"}.svg`} alt="Recipes" />
 			  <Text>Recipes</Text>
 			</>
 		  )}
@@ -140,7 +140,7 @@ export function Sidebar() {
 		<NavItem to="/favorites">
 		  {({ isActive }) => (
 			<>
-			  <NavIcon src={isActive ? "/icons/like_active.svg" : "/icons/like.svg"} alt="Favorites" />
+			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "like_active" : "like"}.svg`} alt="Favorites" />
 			  <Text>Favorites</Text>
 			</>
 		  )}
@@ -148,7 +148,7 @@ export function Sidebar() {
 		<NavItem to="/shopping-list">
 		  {({ isActive }) => (
 			<>
-			  <NavIcon src={isActive ? "/icons/cart_active.svg" : "/icons/cart.svg"} alt="Shopping List" />
+			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "cart_active" : "cart"}.svg`} alt="Shopping List" />
 			  <Text>Shopping List</Text>
 			</>
 		  )}
