@@ -1,6 +1,14 @@
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import type {Recipe} from "../../types/recipe"
 import { getMealTypeColors } from "../../utils/colors";
+
+interface CountryApiResponse {
+  flags: {
+    svg: string;
+  };
+}
 
 const Card = styled.div`
   border: 1px solid #e5e5e5;
@@ -88,6 +96,16 @@ const CountryTag = styled.span`
   font-size: 0.875rem;
   font-weight: 500;
   border: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const FlagImage = styled.img`
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
 `;
 
 const RecipeName = styled.h3`
@@ -146,12 +164,21 @@ interface RecipeCardProps {
 }
 
 export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle, isFavorite = false, onClick }: RecipeCardProps) {
+  const [flag, setFlag] = useState<string>("");
   const totalIngredients = recipe.ingredients.length;
   const available = Math.min(availableIngredients, totalIngredients);
   const percentage = totalIngredients > 0 ? Math.round((available / totalIngredients) * 100) : 0;
   const mealTypeColors = getMealTypeColors(recipe.mealType);
   // const imageUrl = recipe.imageUrl || `/small/${recipe.id}.jpg`;
   const imageUrl = recipe.imageUrl || `${import.meta.env.BASE_URL}small/${recipe.id}.jpg`;
+
+  useEffect(() => {
+    if (!recipe.country) return;
+    axios
+      .get<CountryApiResponse[]>(`https://restcountries.com/v3.1/name/${recipe.country}`)
+      .then((response) => setFlag(response.data[0].flags.svg))
+      .catch(() => setFlag("")); // Handle errors gracefully
+  }, [recipe.country]);
 
   const handleCardClick = (e: React.MouseEvent) => {
     // Don't trigger if user clicked the heart button
@@ -176,7 +203,10 @@ export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle,
         <Tag $bgColor={mealTypeColors.bgColor} $textColor={mealTypeColors.textColor}>
           {recipe.mealType}
         </Tag>
-        <CountryTag>{recipe.country}</CountryTag>
+        <CountryTag>
+          {flag && <FlagImage src={flag} alt={`${recipe.country} flag`} />}
+          {recipe.country}
+        </CountryTag>
       </Header>  
         <RecipeName>{recipe.name}</RecipeName>
         {recipe.dietType && recipe.dietType.length > 0 && (

@@ -111,3 +111,4 @@ http://localhost:8080
 
 - ⚠️ All recipes are AI-generated and provided for demonstration purposes only. Do not use for cooking.
 - Images are taken from  https://www.pexels.com/ and used for demonstration purposes only
+- Country flags are fetched from [REST Countries API](https://restcountries.com/) — a free API providing country data including flags, languages, and more
