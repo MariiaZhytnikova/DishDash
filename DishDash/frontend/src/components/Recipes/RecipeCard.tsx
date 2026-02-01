@@ -45,22 +45,32 @@ const HeartButton = styled.button`
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(121, 121, 121, 0.8);
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  border-radius: 20%;
-  width: 36px;
-  height: 36px;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.125rem;
   transition: background 0.2s, transform 0.2s;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
-  // &:hover {
-  //   background: rgba(255, 255, 255, 1);
-  //   transform: scale(1.1);
-  // }
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const HeartIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+
+  ${HeartButton}:hover & {
+    transform: scale(1.2);
+  }
 `;
 
 const CardContent = styled.div`
@@ -195,7 +205,10 @@ export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle,
           e.currentTarget.src = `${import.meta.env.BASE_URL}small/0.png`; // Fallback image
         }} />
         <HeartButton onClick={onFavoriteToggle} aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}>
-          {isFavorite ? '❤️' : '🩶'}
+          <HeartIcon 
+            src={`${import.meta.env.BASE_URL}icons/${isFavorite ? "heart_red" : "heart_white"}.svg`} 
+            alt={isFavorite ? "Favorite" : "Not favorite"} 
+          />
         </HeartButton>
       </ImageContainer>
       <CardContent>

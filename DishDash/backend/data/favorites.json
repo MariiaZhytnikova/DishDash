@@ -8,15 +8,23 @@
     "name": "Classic Apple Pie"
   },
   {
-    "id": 2,
-    "name": "Chocolate Brownies"
-  },
-  {
     "id": 120,
     "name": "Baked Apple Chips"
   },
   {
     "id": 102,
     "name": "Apple Slices with Peanut Butter"
+  },
+  {
+    "id": 5,
+    "name": "Vegan Banana Ice Cream"
+  },
+  {
+    "id": 3,
+    "name": "Vegan Chocolate Mousse"
+  },
+  {
+    "id": 9,
+    "name": "Vegan Oat Cookies"
   }
 ]
