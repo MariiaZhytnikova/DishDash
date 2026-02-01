@@ -10,6 +10,23 @@ interface CountryApiResponse {
   };
 }
 
+// List of regions or non-country values that don't have flags in the API
+const NON_COUNTRY_REGIONS = [
+  "Global",
+  "Middle East",
+  "Hawaii",
+  "Mediterranean",
+  "Caribbean",
+  "Latin America",
+  "Southeast Asia",
+  "East Asia",
+  "South Asia",
+  "Europe",
+  "Africa",
+  "North America",
+  "South America",
+];
+
 const Card = styled.div`
   border: 1px solid #e5e5e5;
   border-radius: 12px;
@@ -181,14 +198,18 @@ export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle,
   const mealTypeColors = getMealTypeColors(recipe.mealType);
   // const imageUrl = recipe.imageUrl || `/small/${recipe.id}.jpg`;
   const imageUrl = recipe.imageUrl || `${import.meta.env.BASE_URL}small/${recipe.id}.jpg`;
+  
+  // Check if country is a valid country (not a region)
+  const isValidCountry = recipe.country && !NON_COUNTRY_REGIONS.includes(recipe.country);
 
   useEffect(() => {
-    if (!recipe.country) return;
+    if (!isValidCountry) return;
+    
     axios
       .get<CountryApiResponse[]>(`https://restcountries.com/v3.1/name/${recipe.country}`)
       .then((response) => setFlag(response.data[0].flags.svg))
-      .catch(() => setFlag("")); // Handle errors gracefully
-  }, [recipe.country]);
+      .catch(() => setFlag("")); // Handle errors gracefully (e.g., invalid country names)
+  }, [recipe.country, isValidCountry]);
 
   const handleCardClick = (e: React.MouseEvent) => {
     // Don't trigger if user clicked the heart button
