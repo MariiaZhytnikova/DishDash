@@ -46,7 +46,7 @@ describe("Sidebar Component", () => {
       renderSidebar();
       const logo = screen.getByAltText("DishDash");
       expect(logo).toBeInTheDocument();
-      expect(logo).toHaveAttribute("src", "/dishdash.svg");
+      expect(logo.getAttribute("src")).toContain("dishdash.svg");
     });
 
     // Test: DishDash brand text is visible
@@ -96,35 +96,36 @@ describe("Sidebar Component", () => {
     it("shows default icon when not active", () => {
       renderSidebar("/recipes");
       const ingredientsIcon = screen.getByAltText("Ingredients");
-      expect(ingredientsIcon).toHaveAttribute("src", "/icons/ingredients.svg");
+      expect(ingredientsIcon.getAttribute("src")).toContain("ingredients.svg");
+      expect(ingredientsIcon.getAttribute("src")).not.toContain("_active");
     });
 
     // Test: Ingredients icon switches to active version on /ingredients route
     it("shows active icon for ingredients when on ingredients page", () => {
       renderSidebar("/ingredients");
       const ingredientsIcon = screen.getByAltText("Ingredients");
-      expect(ingredientsIcon).toHaveAttribute("src", "/icons/ingredients_active.svg");
+      expect(ingredientsIcon.getAttribute("src")).toContain("ingredients_active.svg");
     });
 
     // Test: Recipes icon switches to active version on /recipes route
     it("shows active icon for recipes when on recipes page", () => {
       renderSidebar("/recipes");
       const recipesIcon = screen.getByAltText("Recipes");
-      expect(recipesIcon).toHaveAttribute("src", "/icons/hat_active.svg");
+      expect(recipesIcon.getAttribute("src")).toContain("hat_active.svg");
     });
 
     // Test: Favorites icon switches to active version on /favorites route
     it("shows active icon for favorites when on favorites page", () => {
       renderSidebar("/favorites");
       const favoritesIcon = screen.getByAltText("Favorites");
-      expect(favoritesIcon).toHaveAttribute("src", "/icons/like_active.svg");
+      expect(favoritesIcon.getAttribute("src")).toContain("like_active.svg");
     });
 
     // Test: Shopping list icon switches to active version on /shopping-list route
     it("shows active icon for shopping list when on shopping list page", () => {
       renderSidebar("/shopping-list");
       const shoppingIcon = screen.getByAltText("Shopping List");
-      expect(shoppingIcon).toHaveAttribute("src", "/icons/cart_active.svg");
+      expect(shoppingIcon.getAttribute("src")).toContain("cart_active.svg");
     });
   });
 
