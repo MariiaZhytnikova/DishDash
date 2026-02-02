@@ -338,7 +338,9 @@ describe("SuccessModal", () => {
 
     render(<SuccessModal isOpen message="Done" onClose={onClose} />);
 
-    expect(screen.getByText("✅ Success!")).toBeInTheDocument();
+    // New SuccessModal has checkmark in separate div, title is just "Success!"
+    expect(screen.getByText("Success!")).toBeInTheDocument();
+    expect(screen.getByText("✓")).toBeInTheDocument(); // Checkmark in icon div
     expect(screen.getByText("Done")).toBeInTheDocument();
     fireEvent.click(screen.getByText("OK"));
     expect(onClose).toHaveBeenCalledTimes(1);
