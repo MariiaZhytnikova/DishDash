@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import { addFavorite, getFavorites, getRecipes, removeFavorite, searchRecipes, getRecipeDetails, getFridge } from "../api";
 import { RecipeCard } from "../components/Recipes/RecipeCard";
 import { RecipeDetailModal } from "../components/Recipes/RecipeDetailModal";
+import { SearchBar } from "../components/Search/SearchBar";
 import type { SearchResult } from "../types/search";
 import type { Recipe } from "../types/recipe";
 import type { RecipeDetails, Ingredient } from "../api";
@@ -11,39 +12,6 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 16px;
-`;
-
-const SearchContainer = styled.div`
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
-`;
-
-const SearchInput = styled.input`
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-
-  &:focus {
-    outline: none;
-    border-color: #4caf50;
-  }
-`;
-
-const SearchButton = styled.button`
-  padding: 8px 24px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-
-  &:hover {
-    background-color: #45a049;
-  }
 `;
 
 export function Recipes() {
@@ -114,7 +82,7 @@ export function Recipes() {
   }, []);
 
   // Handle search
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async () => {
     console.log("handleSearch called with query:", searchQuery);
     
     setLoading(true);
@@ -137,14 +105,16 @@ export function Recipes() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [searchQuery]);
 
-  // Allow search on Enter key
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
+  // Auto-search when query changes (debounced)
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
       handleSearch();
-    }
-  };
+    }, 300); // Wait 300ms after user stops typing
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery, handleSearch]); // Trigger when searchQuery changes
 
   // Handle recipe card click
   const handleRecipeClick = async (recipe: Recipe) => {
@@ -160,22 +130,12 @@ export function Recipes() {
     <div>
       <h1>Recipes</h1>
 
-      <SearchContainer>
-        <SearchInput
-          type="text"
-          placeholder="Search recipes..."
-          value={searchQuery}
-          onChange={(e) => {
-            console.log("Input changed:", e.target.value);
-            setSearchQuery(e.target.value);
-          }}
-          onKeyDown={handleKeyDown}
-        />
-        <SearchButton onClick={() => {
-          console.log("Search button clicked");
-          handleSearch();
-        }}>Search</SearchButton>
-      </SearchContainer>
+      <SearchBar
+        value={searchQuery}
+        onChange={setSearchQuery}
+        onSearch={handleSearch}
+        placeholder="Search recipes..."
+      />
 
       {loading && <p>Loading...</p>}
       {error && <p role="alert">Error: {error}</p>}

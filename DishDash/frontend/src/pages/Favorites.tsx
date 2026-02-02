@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import { addFavorite, getFavorites,getRecipes,removeFavorite, getRecipeDetails, getFridge } from "../api";
 import { RecipeCard } from "../components/Recipes/RecipeCard";
+import { SearchBar } from "../components/Search/SearchBar";
 import type { SearchResult } from "../types/search";
 import type { Recipe } from "../types/recipe";
 import type { RecipeDetails, Ingredient } from "../api";
@@ -11,39 +12,6 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 16px;
-`;
-
-const SearchContainer = styled.div`
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
-`;
-
-const SearchInput = styled.input`
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-
-  &:focus {
-    outline: none;
-    border-color: #4caf50;
-  }
-`;
-
-const SearchButton = styled.button`
-  padding: 8px 24px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-
-  &:hover {
-    background-color: #45a049;
-  }
 `;
 
 export function Favorites() {
@@ -129,7 +97,7 @@ export function Favorites() {
   };
 
   // Handle search - filter favorites list only
-  const handleSearch = () => {
+  const handleSearch = useCallback(() => {
     console.log("handleSearch called with query:", searchQuery);
     
     if (!searchQuery.trim()) {
@@ -158,14 +126,16 @@ export function Favorites() {
       return recipe.name.toLowerCase().includes(searchQuery.toLowerCase());
     });
     setData(filtered);
-  };
+  }, [searchQuery, data]);
 
-  // Allow search on Enter key
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
+  // Auto-search when query changes (debounced)
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
       handleSearch();
-    }
-  };
+    }, 300); // Wait 300ms after user stops typing
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery, handleSearch]);
 
   // Handle favorite toggle
   const handleFavoriteToggle = async (item: Recipe | SearchResult) => {
@@ -195,22 +165,13 @@ export function Favorites() {
   return (
     <div>
       <h1>My Favorite Recipes</h1>
-      <SearchContainer>
-        <SearchInput
-          type="text"
-          placeholder="Search recipes..."
-          value={searchQuery}
-          onChange={(e) => {
-            console.log("Input changed:", e.target.value);
-            setSearchQuery(e.target.value);
-          }}
-          onKeyDown={handleKeyDown}
-        />
-        <SearchButton onClick={() => {
-          console.log("Search button clicked");
-          handleSearch();
-        }}>Search</SearchButton>
-      </SearchContainer>
+      
+      <SearchBar
+        value={searchQuery}
+        onChange={setSearchQuery}
+        onSearch={handleSearch}
+        placeholder="Search favorite recipes..."
+      />
 
       {loading && <p>Loading...</p>}
       {error && <p role="alert">Error: {error}</p>}
