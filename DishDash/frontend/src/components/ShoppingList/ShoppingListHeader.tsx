@@ -17,14 +17,14 @@ const ButtonGroup = styled.div`
 `;
 
 const AddButton = styled.button`
-  padding: 8px 16px;
+  padding: 8px 24px;
   background-color: var(--color-primary);
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 800;
 
   &:hover {
     background-color: var(--color-primary-hover);

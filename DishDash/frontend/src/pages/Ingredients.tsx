@@ -18,16 +18,16 @@ const AddContainer = styled.div`
 `;
 const AddButton = styled.button`
   padding: 8px 24px;
-  background-color: #21c6e9;
+  background-color: var(--color-primary);
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 800;
 
   &:hover {
-    background-color: #21c6e9;
+      background-color: var(--color-primary-hover);
   }
 `;
 
@@ -167,7 +167,7 @@ export function Ingredients() {
     <Grid>
       <AddContainer>
         <h2>Add Ingredient</h2>
-        <AddButton onClick={() => setIsModalOpen(true)}>+ Add ingredient</AddButton>
+        <AddButton onClick={() => setIsModalOpen(true)}>+ Add</AddButton>
       </AddContainer>
       <Container>
           {fridge.fresh.length > 0 && (
