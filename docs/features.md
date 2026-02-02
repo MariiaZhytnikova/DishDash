@@ -57,12 +57,13 @@ Share shopping lists with family members or housemates to stay coordinated.
 Share favorite recipes with friends.
 
 - **QR code scanning**
-Makes adding new products to the fridge faster and easier
+Makes adding new products to the fridge faster and easier 
 
 - **Receipt Scanning from Grocery Stores**
 Scan grocery receipts to automatically add purchased items to the fridge.
 
-- **Loading or sacanning of receipt from groccery shops**
+- **Receipt Scanning from Grocery Stores**
+Scan grocery receipts to automatically add purchased items to the fridge.
 
 - **Converter**
 Add a feature to store ingredients in the fridge using unified units, and automatically convert them when using recipes or generating shopping lists.
