@@ -4,6 +4,7 @@ import (
 	"os"
 	"net/smtp"
 	"fmt"
+	"crypto/tls"
 )
 
 func SendShoppingListEmail(to []string, subject, body string) error {
@@ -28,7 +29,7 @@ func SendShoppingListEmail(to []string, subject, body string) error {
 
 	tlsConfig := &tls.Config{
 		ServerName:         host,
-		InsecureSkipVerify: true, // ✅ IMPORTANT
+		InsecureSkipVerify: true,
 	}
 
 	if err = c.StartTLS(tlsConfig); err != nil {
