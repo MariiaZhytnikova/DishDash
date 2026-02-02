@@ -100,23 +100,26 @@ The server will be available at:
 
 http://localhost:8080
 
-## Frontend Features Under Development
+## 🚧 Frontend Features Under Development
 
 The following features are currently being implemented to improve the user experience:
 
-- **Test Coverage Expansion**  
+- **🔍 Advanced Search Filters**  
+  Implementing filter options for recipe search including dietary preferences, cuisine types, cooking time, difficulty level, and ingredient availability for more refined search results.
+
+- **✅ Test Coverage Expansion**  
   Ongoing work to increase test coverage across all components and functionality for better code quality and reliability.
 
-- **Delete Confirmation Modal**  
+- **↩️ Delete Confirmation Modal**  
   Add a confirmation popup when deleting items: "Item deleted" with an "Undo" button to restore accidentally deleted items.
 
-- **Quantity Controls for Ingredients**  
+- **➕➖ Quantity Controls for Ingredients**  
   Add +/- buttons to ingredient cards for easy quantity adjustment directly in the UI.
 
-- **Skeleton Loading Screens**  
+- **⏳ Skeleton Loading Screens**  
   Implement skeleton screens during data loading to provide better visual feedback and improve perceived performance.
 
-## �📂 Documentation
+## 📂 Documentation
 
 - docs/overview.md – Project concept and goals
 - docs/features.md – Detailed feature descriptions and future improvements
