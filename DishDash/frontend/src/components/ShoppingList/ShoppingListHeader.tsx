@@ -21,7 +21,7 @@ const AddButton = styled.button`
   background-color: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
@@ -41,7 +41,7 @@ const ClearButton = styled.button`
   background-color: var(--color-danger);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
