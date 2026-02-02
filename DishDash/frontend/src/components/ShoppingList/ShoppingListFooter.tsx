@@ -18,10 +18,10 @@ const SendEmailButton = styled.button`
   background-color: var(--color-info);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
 
   &:hover {
     background-color: var(--color-info-hover);
@@ -39,13 +39,13 @@ const WoltButton = styled.button`
   background-color: var(--color-secondary);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
 
   &:hover {
-    background-color: var(--color-secondary-alt);
+    background-color: var(--color-primary-hover);
   }
 
   &:disabled {
@@ -55,14 +55,14 @@ const WoltButton = styled.button`
 `;
 
 const FoodoraButton = styled.button<{ $x: number; $y: number }>`
-  padding: 12px 20px;
+  padding: 12px 40px;
   background-color: var(--color-accent);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: left 0.15s ease, top 0.15s ease;
 
   position: fixed;
@@ -96,10 +96,10 @@ export function ShoppingListFooter({
     <>
       <FooterSection>
         <SendEmailButton onClick={onEmailClick} disabled={isSendingEmail}>
-          📧 Send to Email
+          Send to Email
         </SendEmailButton>
         <WoltButton onClick={onWoltClick} disabled={isSendingWolt}>
-          {isSendingWolt ? "Creating Order..." : "🛒 Create Wolt Order"}
+          {isSendingWolt ? "Creating Order..." : "Create Wolt Order"}
         </WoltButton>
       </FooterSection>
 
@@ -109,7 +109,7 @@ export function ShoppingListFooter({
         $x={foodoraPosition.x}
         $y={foodoraPosition.y}
       >
-        🛒 Create Foodora Order
+        Create Foodora Order
       </FoodoraButton>
     </>
   );

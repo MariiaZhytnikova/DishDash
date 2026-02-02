@@ -38,9 +38,9 @@ const ItemQuantity = styled.span`
 
 const RemoveButton = styled.button`
   padding: 6px 12px;
-  background-color: var(--color-danger-light);
+  background-color: transparent;
   color: var(--color-danger-text);
-  border: 1px solid var(--color-danger-border);
+  border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
   font-size: 13px;
@@ -56,6 +56,10 @@ const RemoveButton = styled.button`
     opacity: 0.5;
     cursor: not-allowed;
   }
+`;
+const BinIcon = styled.img`
+  width: 18px;
+  height: 18px;
 `;
 
 const QuantityControl = styled.div`
@@ -129,8 +133,14 @@ export function ShoppingListItemComponent({
         <QuantityButton onClick={() => onQuantityIncrease(index)}>+</QuantityButton>
       </QuantityControl>
       <ItemQuantity>{item.unit}</ItemQuantity>
-      <RemoveButton onClick={() => onRemove(item.name)} disabled={isRemoving}>
+      {/* <RemoveButton onClick={() => onRemove(item.name)} disabled={isRemoving}>
         {isRemoving ? "Removing..." : "Remove"}
+      </RemoveButton> */}
+      <RemoveButton onClick={() => onRemove(item.name)} disabled={isRemoving}>
+        <BinIcon 
+            src={`${import.meta.env.BASE_URL}icons/bin.svg`} 
+            alt={isRemoving ? "Removing..." : "Remove"} 
+          />
       </RemoveButton>
     </ListItem>
   );

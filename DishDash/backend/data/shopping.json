@@ -1,18 +1,23 @@
 {
   "items": [
     {
-      "name": "maple syrup",
+      "name": "apple",
+      "quantity": 6,
+      "unit": "pcs"
+    },
+    {
+      "name": "cinnamon",
+      "quantity": 3,
+      "unit": "tsp"
+    },
+    {
+      "name": "cocoa powder",
       "quantity": 2,
       "unit": "tbsp"
     },
     {
       "name": "tomato",
       "quantity": 2,
-      "unit": "pcs"
-    },
-    {
-      "name": "milk",
-      "quantity": 0.5,
       "unit": "pcs"
     }
   ]

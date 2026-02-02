@@ -178,7 +178,7 @@ const IngredientItem = styled.div<{ $missing: boolean }>`
   justify-content: space-between;
   align-items: center;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: ${(props) => (props.$missing ? "#fee2e2" : "#dcfce7")};
   border-left: 4px solid ${(props) => (props.$missing ? "#ef4444" : "#22c55e")};
 `;
@@ -204,7 +204,7 @@ const SummarySection = styled.div`
 const SummaryItem = styled.div<{ $type: "available" | "missing" }>`
   text-align: center;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: ${(props) => (props.$type === "available" ? "#dcfce7" : "#fee2e2")};
 `;
 
@@ -227,7 +227,7 @@ const AddToShoppingButton = styled.button`
   background-color: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -370,7 +370,7 @@ export function RecipeDetailModal({
               >
                 {loading
                   ? "Adding..."
-                  : "Add Missing Ingredients to Shopping List"}
+                  : "Add to Shopping List"}
               </AddToShoppingButton>
             )}
             </IngredientsSection>

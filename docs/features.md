@@ -12,11 +12,15 @@ Clear and easy-to-follow cooking instructions for each recipe.
 - **Save Recipes**
 Save your favorite recipes for quick access later.
 
-**Shopping List*
+- **Shopping List**
 Automatically generate a shopping list for missing ingredients from selected recipes.
 Items can be checked off while shopping.
 
 ### 🧩 Future Implementations
+
+- **Smart Expiration Awareness**
+Ingredients track shelf life and expiration status with visual indicators.
+The app highlights items that should be used first and prioritizes them in recipe suggestions to help prevent food waste.
 
 - **Accounts Management**
 User accounts to save preferences, recipes, and history.
@@ -54,6 +58,9 @@ Share favorite recipes with friends.
 
 - **QR code scanning**
 Makes adding new products to the fridge faster and easier
+
+- **Receipt Scanning from Grocery Stores**
+Scan grocery receipts to automatically add purchased items to the fridge.
 
 - **Loading or sacanning of receipt from groccery shops**
 

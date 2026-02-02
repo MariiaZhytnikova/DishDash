@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     /* Primary Colors */
     --color-primary: #1FA9E4;
-    --color-primary-hover: #45a049;
+    --color-primary-hover: #7ed5f9;
     --color-primary-light: #e8f5e9;
     
     /* Danger Colors */
