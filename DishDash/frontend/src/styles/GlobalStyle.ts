@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-primary: #1FA9E4;
     --color-primary-hover: #7ed5f9;
     --color-primary-light: #e8f5e9;
+    --color-primary-grey: #aeb0b4ff;
     
     /* Danger Colors */
     --color-danger: #ef4444;

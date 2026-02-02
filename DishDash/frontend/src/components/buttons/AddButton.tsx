@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   border-radius: 10px;
   cursor: pointer;
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 500;
 
   &:hover {
       background-color: var(--color-primary-hover);
