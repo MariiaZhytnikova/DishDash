@@ -44,16 +44,19 @@ The app is designed as a scalable product, with future plans for personalization
 
 ## 🧩 Future Implementations
 
-- **Accounts Management**  
-- **Family Access**  
-- **Smart Substitutions**  
-- **AI-Powered Suggestions**  
-- **Menu Generator (daily / weekly / monthly)**  
-- **Random Theme Menu** (Italian, Vegetarian, Quick 20-min meals, etc.)  
-- **Nutrition Tracking** (calories & macros)  
-- **Delivery Option**  
-- **Family Sharing**  
+- **Smart Expiration Awareness** (in progress)
+- **Accounts Management**
+- **Family Access**
+- **Smart Substitutions**
+- **AI-Powered Suggestions**
+- **Menu Generator**
+- **Random Theme Menu** (Italian, Vegetarian, Quick 20-min meals, etc.) 
+- **Nutrition Tracking** (calories & macros)
+- **Delivery Option**
+- **Family Sharing**
 - **Share Recipes**
+- **QR code scanning**
+- **Receipt Scanning from Grocery Stores**
 
 ## 🛠️ Tech Stack
 
