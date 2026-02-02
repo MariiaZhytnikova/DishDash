@@ -56,3 +56,6 @@ Share favorite recipes with friends.
 Makes adding new products to the fridge faster and easier
 
 - **Loading or sacanning of receipt from groccery shops**
+
+- **Converter**
+Add a feature to store ingredients in the fridge using unified units, and automatically convert them when using recipes or generating shopping lists.
