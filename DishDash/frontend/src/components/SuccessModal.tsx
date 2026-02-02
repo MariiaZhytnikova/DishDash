@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-// ========================================================================
-// Success Modal Styled Components
-// ========================================================================
-
 const SuccessModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -70,10 +66,6 @@ const SuccessButton = styled.button`
     background-color: #0f6ca8;
   }
 `;
-
-// ========================================================================
-// Success Modal Component
-// ========================================================================
 
 interface SuccessModalProps {
   isOpen: boolean;

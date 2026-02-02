@@ -117,16 +117,20 @@ export function Recipes() {
   const handleSearch = async () => {
     console.log("handleSearch called with query:", searchQuery);
     
-    if (!searchQuery.trim()) {
-      return;
-    }
-
     setLoading(true);
     try {
       setError(null);
-      const res = await searchRecipes({ settings: { query: searchQuery } });
-      console.log("Search results:", res);
-      setData(res);
+      
+      // If search query is empty, load all recipes
+      if (!searchQuery.trim()) {
+        const res = await getRecipes();
+        setData(res);
+      } else {
+        // Otherwise, search for recipes
+        const res = await searchRecipes({ settings: { query: searchQuery } });
+        console.log("Search results:", res);
+        setData(res);
+      }
     } catch (e) {
       console.error("Search error:", e);
       setError((e as Error).message ?? "Unknown error");

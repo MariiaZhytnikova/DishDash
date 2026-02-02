@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { RecipeDetails } from "../../api";
 import { addToShopping } from "../../api";
+import { SuccessModal } from "../SuccessModal";
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -96,6 +97,7 @@ const StepsList = styled.ol`
     position: relative;
     color: #333;
     line-height: 1.5;
+    white-space: pre-line; // Preserve line breaks
 
     &::before {
       content: counter(step-counter);
@@ -222,7 +224,7 @@ const SummaryCount = styled.div`
 const AddToShoppingButton = styled.button`
   width: 100%;
   padding: 12px;
-  background-color: #21c6e9;
+  background-color: var(--color-primary);
   color: white;
   border: none;
   border-radius: 8px;
@@ -251,29 +253,55 @@ export function RecipeDetailModal({
   onClose,
 }: RecipeDetailModalProps) {
   const imageUrl = `${import.meta.env.BASE_URL}small/${recipe.id}.jpg`;
-  const steps = recipe.steps || [];
+  const steps = useMemo(() => recipe.steps || [], [recipe.steps]);
   const [loading, setLoading] = useState(false);
-
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
   const missingIngredients = recipe.ingredients.filter((ing) => ing.missing);
+
+  // Clean step text: remove markdown headers (##) and extra whitespace
+  const cleanStepText = (step: string) => {
+    return step
+      .replace(/#{1,6}\s*/g, '') // Remove # (1-6 times) followed by optional spaces
+      .trim();
+  };
+
+  // Log recipe details when modal opens
+  useEffect(() => {
+    console.log("Description:", recipe.description);
+    steps.forEach((step, i) => {
+    console.log(`Step ${i}:`, JSON.stringify(step));
+    console.log(`Cleaned Step ${i}:`, cleanStepText(step));
+    });
+  }, [recipe, steps]);
 
   const handleAddToShopping = async () => {
     try {
       setLoading(true);
       await addToShopping(missingIngredients);
-      alert("Missing ingredients added to shopping list!");
-      onClose();
+      setShowSuccessModal(true);
     } catch (e) {
       console.error("Failed to add to shopping:", e);
-      alert("Failed to add ingredients to shopping list");
+      setShowErrorModal(true);
     } finally {
       setLoading(false);
     }
   };
 
+  const handleCloseSuccessModal = () => {
+    setShowSuccessModal(false);
+    onClose();
+  };
+
+  const handleCloseErrorModal = () => {
+    setShowErrorModal(false);
+  };
+
   return (
-    <ModalOverlay onClick={onClose}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
-        <CloseButton onClick={onClose}>✕</CloseButton>
+    <>
+      <ModalOverlay onClick={onClose}>
+        <ModalContent onClick={(e) => e.stopPropagation()}>
+          <CloseButton onClick={onClose}>✕</CloseButton>
 
         <LeftColumn>
           <RecipeImage
@@ -288,20 +316,21 @@ export function RecipeDetailModal({
               <StepTitle>Instructions</StepTitle>
               <StepsList>
                 {steps.map((step, index) => (
-                  <li key={index}>{step}</li>
+                  <li key={index}>{cleanStepText(step)}</li>
                 ))}
               </StepsList>
             </StepsSection>
           )}
+            {recipe.description && (
+              <Description>{cleanStepText(recipe.description)}</Description>
+            )}
         </LeftColumn>
 
         <RightColumn>
           <RecipeHeader>
             <RecipeName>{recipe.name}</RecipeName>
             <MealTypeTag>{recipe.mealType}</MealTypeTag>
-            {recipe.description && (
-              <Description>{recipe.description}</Description>
-            )}
+
           </RecipeHeader>
 
           <IngredientsSection>
@@ -344,9 +373,23 @@ export function RecipeDetailModal({
                   : "Add Missing Ingredients to Shopping List"}
               </AddToShoppingButton>
             )}
-          </IngredientsSection>
-        </RightColumn>
-      </ModalContent>
-    </ModalOverlay>
+            </IngredientsSection>
+          </RightColumn>
+        </ModalContent>
+      </ModalOverlay>
+
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={handleCloseSuccessModal}
+        message="Missing ingredients have been added to your shopping list."
+      />
+
+      <SuccessModal
+        isOpen={showErrorModal}
+        onClose={handleCloseErrorModal}
+        type="error"
+        message="Failed to add ingredients to shopping list. Please try again."
+      />
+    </>
   );
 }

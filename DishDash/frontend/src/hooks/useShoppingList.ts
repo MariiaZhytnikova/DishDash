@@ -170,9 +170,11 @@ export function useShoppingList() {
         },
       ]);
 
-      // Reset form and close modal
+      // Reset form and close modal, then show success
       setFormData({ name: "", quantity: "", unit: "pcs" });
       setShowAddModal(false);
+      setSuccessMessage("Item added to shopping list! 🛒");
+      setShowSuccessModal(true);
     } catch (e) {
       console.error("Add item error:", e);
       setError((e as Error).message ?? "Failed to add item");
