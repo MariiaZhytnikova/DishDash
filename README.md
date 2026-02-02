@@ -100,7 +100,23 @@ The server will be available at:
 
 http://localhost:8080
 
-## 📂 Documentation
+## Frontend Features Under Development
+
+The following features are currently being implemented to improve the user experience:
+
+- **Test Coverage Expansion**  
+  Ongoing work to increase test coverage across all components and functionality for better code quality and reliability.
+
+- **Delete Confirmation Modal**  
+  Add a confirmation popup when deleting items: "Item deleted" with an "Undo" button to restore accidentally deleted items.
+
+- **Quantity Controls for Ingredients**  
+  Add +/- buttons to ingredient cards for easy quantity adjustment directly in the UI.
+
+- **Skeleton Loading Screens**  
+  Implement skeleton screens during data loading to provide better visual feedback and improve perceived performance.
+
+## �📂 Documentation
 
 - docs/overview.md – Project concept and goals
 - docs/features.md – Detailed feature descriptions and future improvements
