@@ -56,11 +56,12 @@ export function useShoppingList() {
     }
   }, [showEmailModal]);
 
-  // Initialize Foodora button position at bottom-right
+  // Initialize Foodora button position directly under Send to Email button
   useEffect(() => {
+    // Position it at a fixed location - stays consistent regardless of window size
     setFoodoraPosition({
-      x: Math.max(10, window.innerWidth - 260),
-      y: Math.max(10, window.innerHeight - 80),
+      x: 310,
+      y: 700,
     });
   }, []);
 
