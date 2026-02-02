@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 import { getFridge, addIngredient, deleteIngredient, increaseIngredient, type Fridge } from "../api";
 import { AddIngredientModal, type AddIngredientPayload } from "../components/Ingredients/AddIngredientModal";
 import { SuccessModal } from "../components/SuccessModal";
+import { AddButton } from "../components/buttons/AddButton";
 
 const Grid = styled.div`
   display: flex;
@@ -15,20 +16,6 @@ const AddContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-`;
-const AddButton = styled.button`
-  padding: 8px 24px;
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 800;
-
-  &:hover {
-      background-color: var(--color-primary-hover);
-  }
 `;
 
 const Container = styled.div`
