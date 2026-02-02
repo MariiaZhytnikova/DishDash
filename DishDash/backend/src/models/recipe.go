@@ -12,5 +12,4 @@ type Recipe struct {
 	Steps        []string     `json:"steps"`
 	Description  string       `json:"description"`
 	Time         int          `json:"time"`
-	ImageURL     string       `json:"imageUrl"`
 }

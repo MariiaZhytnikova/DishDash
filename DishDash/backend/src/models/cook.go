@@ -12,6 +12,9 @@ type RecipeDetails struct {
 	Name             string                  `json:"name"`
 	MealType         string                  `json:"mealType"`
 	Description      string                  `json:"description"`
+	DietType         []string               `json:"dietType"`
+	Restrictions     []string               `json:"restrictions"`
+	Time             int                    `json:"time"`
 	Ingredients      []IngredientWithStatus  `json:"ingredients"`
 	SummaryAvailable int                     `json:"available"`
 	SummaryMissing   int                     `json:"missing"`

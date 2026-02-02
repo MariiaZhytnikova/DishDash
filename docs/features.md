@@ -62,3 +62,7 @@ Makes adding new products to the fridge faster and easier
 - **Receipt Scanning from Grocery Stores**
 Scan grocery receipts to automatically add purchased items to the fridge.
 
+- **Loading or sacanning of receipt from groccery shops**
+
+- **Converter**
+Add a feature to store ingredients in the fridge using unified units, and automatically convert them when using recipes or generating shopping lists.
