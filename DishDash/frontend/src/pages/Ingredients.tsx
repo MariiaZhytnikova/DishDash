@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getFridge, addIngredient, deleteIngredient, increaseIngredient, type Fridge } from "../api";
 import { AddIngredientModal, type AddIngredientPayload } from "../components/Ingredients/AddIngredientModal";
+import { SuccessModal } from "../components/SuccessModal";
 
 const Grid = styled.div`
   display: flex;
@@ -99,6 +100,8 @@ export function Ingredients() {
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalError, setModalError] = useState<string | null>(null);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   
   useEffect(() => {
     (async () => {
@@ -122,6 +125,8 @@ export function Ingredients() {
       const updatedFridge = await getFridge();
       setFridge(updatedFridge);
       setIsModalOpen(false);
+      setSuccessMessage("Ingredient added successfully!");
+      setShowSuccessModal(true);
     } catch (err) {
       const errorMsg = err instanceof Error ? err.message : "Failed to add ingredient";
       // If ingredient already exists, increase quantity instead
@@ -132,6 +137,8 @@ export function Ingredients() {
           const updatedFridge = await getFridge();
           setFridge(updatedFridge);
           setIsModalOpen(false);
+          setSuccessMessage("Ingredient quantity increased successfully!");
+          setShowSuccessModal(true);
         } catch (increaseErr) {
           const increaseErrorMsg = increaseErr instanceof Error ? increaseErr.message : "Failed to increase quantity";
           setModalError(increaseErrorMsg);
@@ -220,6 +227,11 @@ export function Ingredients() {
         }}
         onSubmit={handleAddIngredient}
         error={modalError}
+      />
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        message={successMessage}
       />
     </Grid>
   );

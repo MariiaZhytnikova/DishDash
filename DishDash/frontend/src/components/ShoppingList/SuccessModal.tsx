@@ -1,82 +1,110 @@
 import styled from "styled-components";
 
-const ModalOverlay = styled.div`
+// ========================================================================
+// Success Modal Styled Components
+// ========================================================================
+
+const SuccessModalOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
 `;
 
-const ModalContent = styled.div`
-  background: var(--color-white);
-  border-radius: 12px;
-  padding: 24px;
+const SuccessModalContent = styled.div`
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 400px;
   width: 90%;
-  max-width: 500px;
-  box-shadow: var(--shadow-sm);
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 `;
 
-const ModalTitle = styled.h2`
-  margin: 0 0 20px 0;
-  font-size: 1.5rem;
-  color: var(--color-text);
-`;
-
-const ButtonRow = styled.div`
+const SuccessIcon = styled.div<{ $type?: "success" | "error" }>`
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: ${(props) => (props.$type === "error" ? "#ef4444" : "#22c55e")};
+  border-radius: 50%;
   display: flex;
-  gap: 12px;
-  margin-top: 24px;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
 `;
 
-const SubmitButton = styled.button`
-  flex: 1;
-  padding: 10px 16px;
+const SuccessTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+`;
+
+const SuccessMessage = styled.p`
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+`;
+
+const SuccessButton = styled.button`
+  width: 100%;
+  padding: 12px;
   background-color: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 500;
+  transition: background-color 0.2s;
 
   &:hover {
-    background-color: var(--color-primary-hover);
-  }
-
-  &:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+    background-color: #0f6ca8;
   }
 `;
 
+// ========================================================================
+// Success Modal Component
+// ========================================================================
+
 interface SuccessModalProps {
   isOpen: boolean;
-  message: string;
   onClose: () => void;
+  title?: string;
+  message: string;
+  buttonText?: string;
+  type?: "success" | "error";
 }
 
-export function SuccessModal({ isOpen, message, onClose }: SuccessModalProps) {
+export function SuccessModal({
+  isOpen,
+  onClose,
+  title,
+  message,
+  buttonText = "OK",
+  type = "success",
+}: SuccessModalProps) {
   if (!isOpen) return null;
 
+  const defaultTitle = type === "error" ? "Error" : "Success!";
+  const icon = type === "error" ? "✕" : "✓";
+
   return (
-    <ModalOverlay onClick={onClose}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
-        <ModalTitle>✅ Success!</ModalTitle>
-        <p style={{ fontSize: "1.1rem", margin: "16px 0 24px", color: "#333" }}>
-          {message}
-        </p>
-        <ButtonRow>
-          <SubmitButton type="button" onClick={onClose}>
-            OK
-          </SubmitButton>
-        </ButtonRow>
-      </ModalContent>
-    </ModalOverlay>
+    <SuccessModalOverlay onClick={onClose}>
+      <SuccessModalContent onClick={(e) => e.stopPropagation()}>
+        <SuccessIcon $type={type}>{icon}</SuccessIcon>
+        <SuccessTitle>{title || defaultTitle}</SuccessTitle>
+        <SuccessMessage>{message}</SuccessMessage>
+        <SuccessButton onClick={onClose}>{buttonText}</SuccessButton>
+      </SuccessModalContent>
+    </SuccessModalOverlay>
   );
 }

@@ -184,7 +184,16 @@ export function AddIngredientModal({ isOpen, onClose, onSubmit, error: externalE
 			},
 		};
 		onSubmit(submitPayload);
-		handleClose();
+		// Reset form after submit - don't close here, let parent handle it
+		setPayload({
+			section: "fresh",
+			ingredient: {
+				name: "",
+				quantity: "",
+				unit: "pcs",
+			},
+		});
+		setError(null);
 	};
 
 	return (
