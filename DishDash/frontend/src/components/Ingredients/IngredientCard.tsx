@@ -37,34 +37,6 @@ function getExpirationStatus(expiresAt?: string): {
 }
 
 const Card = styled.div<{ $status: string }>`
-  /* background: ${({ $status }) => {
-	switch ($status) {
-	  case "expired":
-		return "#fee";
-	  case "expiring-soon":
-		return "#ffeaea";
-	  case "use-soon":
-		return "#fff4e6";
-	  case "no-expiry":
-		return "#f5f5f5";
-	  default:
-		return "#f0fdf4";
-	}
-  }}; */
-/*border: 2px solid ${({ $status }) => {
-	switch ($status) {
-	  case "expired":
-		return "#ef4444";
-	  case "expiring-soon":
-		return "#ef4444";
-	  case "use-soon":
-		return "#f97316";
-	  case "no-expiry":
-		return "#9ca3af";
-	  default:
-		return "#22c55e";
-	}
-  }};*/
   /*border: 2px solid rgba(31, 169, 228, 0.3);*/
   border: 1px solid #d2d2d2ff;
   border-radius: 12px;
@@ -143,23 +115,17 @@ const StatusIcon = styled.div<{ $status: string }>`
 		return "#dcfce7";
 	}
   }};
-  
-  /* Remove emoji pseudo-element */
-  img {
-    width: 12px;
-    height: 12px;
-  }
 `;
 
 // Helper function to get the icon path based on status
 function getStatusIcon(status: string): string {
   switch (status) {
-    case "no-expiry":
-      return `${import.meta.env.BASE_URL}icons/grey.svg`; // You need to add this file
     case "fresh":
       return `${import.meta.env.BASE_URL}icons/green.svg`; // You need to add this file
     case "warning":
       return `${import.meta.env.BASE_URL}icons/green.svg`; // You need to add this file
+    case "no-expiry":
+      return `${import.meta.env.BASE_URL}icons/grey.svg`; // You need to add this file
     default:
       return `${import.meta.env.BASE_URL}icons/red.svg`; // You need to add this file
   }
@@ -185,12 +151,12 @@ const IngredientName = styled.h3`
   font-size: 20px;
   font-weight: 600;
   margin: 0;
-  color: #1a1a1a;
+  color: var(--color-cardtext);
 `;
 
 const QuantityText = styled.p`
   font-size: 16px;
-  color: #666;
+  color: var(--color-text-muted);
   margin: 4px 0;
 `;
 

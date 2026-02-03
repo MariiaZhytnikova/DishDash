@@ -15,7 +15,7 @@ const FooterSection = styled.div`
 const SendEmailButton = styled.button`
   flex: 1;
   padding: 12px 20px;
-  background-color: var(--color-info);
+  background-color: var(--color-secondary-alt);
   color: white;
   border: none;
   border-radius: 10px;

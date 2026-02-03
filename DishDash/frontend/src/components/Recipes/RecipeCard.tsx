@@ -138,7 +138,7 @@ const FlagImage = styled.img`
 const RecipeName = styled.h3`
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--color-cardtext);
   margin: 12px 0 8px 0;
 `;
 

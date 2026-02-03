@@ -133,7 +133,7 @@ const RecipeHeader = styled.div`
 const RecipeName = styled.h1`
   font-size: 1.75rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--color-cardtext);
   margin: 0;
 `;
 
@@ -163,7 +163,7 @@ const IngredientsSection = styled.div`
 const SectionTitle = styled.h3`
   font-size: 1.125rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--color-text-secondary);
   margin: 0;
 `;
 
@@ -330,7 +330,6 @@ export function RecipeDetailModal({
           <RecipeHeader>
             <RecipeName>{recipe.name}</RecipeName>
             <MealTypeTag>{recipe.mealType}</MealTypeTag>
-
           </RecipeHeader>
 
           <IngredientsSection>
