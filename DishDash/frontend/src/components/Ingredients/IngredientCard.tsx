@@ -51,7 +51,7 @@ const Card = styled.div<{ $status: string }>`
 		return "#f0fdf4";
 	}
   }}; */
-  border: 2px solid ${({ $status }) => {
+/*border: 2px solid ${({ $status }) => {
 	switch ($status) {
 	  case "expired":
 		return "#ef4444";
@@ -64,7 +64,9 @@ const Card = styled.div<{ $status: string }>`
 	  default:
 		return "#22c55e";
 	}
-  }};
+  }};*/
+  /*border: 2px solid rgba(31, 169, 228, 0.3);*/
+  border: 1px solid #d2d2d2ff;
   border-radius: 12px;
   padding: 16px;
   display: flex;
@@ -141,35 +143,42 @@ const StatusIcon = styled.div<{ $status: string }>`
 		return "#dcfce7";
 	}
   }};
-  color: ${({ $status }) => {
-	switch ($status) {
-	  case "expired":
-	  case "expiring-soon":
-		return "#dc2626";
-	  case "use-soon":
-		return "#ea580c";
-	  case "no-expiry":
-		return "#6b7280";
-	  default:
-		return "#16a34a";
-	}
-  }};
-  font-size: 14px;
-  font-weight: bold;
-
-  &::before {
-	content: "${({ $status }) => {
-	  if ($status === "no-expiry") return "📅";
-	  return $status === "fresh" ? "✓" : "⚠";
-	}}";
+  
+  /* Remove emoji pseudo-element */
+  img {
+    width: 12px;
+    height: 12px;
   }
 `;
+
+// Helper function to get the icon path based on status
+function getStatusIcon(status: string): string {
+  switch (status) {
+    case "no-expiry":
+      return `${import.meta.env.BASE_URL}icons/grey.svg`; // You need to add this file
+    case "fresh":
+      return `${import.meta.env.BASE_URL}icons/green.svg`; // You need to add this file
+    case "warning":
+      return `${import.meta.env.BASE_URL}icons/green.svg`; // You need to add this file
+    default:
+      return `${import.meta.env.BASE_URL}icons/red.svg`; // You need to add this file
+  }
+}
 
 const IngredientHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+`;
+
+const StyledDeleteButton = styled(DeleteButton)`
+  opacity: 0;
+  transition: opacity 0.2s;
+
+  ${Card}:hover & {
+    opacity: 1;
+  }
 `;
 
 const IngredientName = styled.h3`
@@ -253,7 +262,9 @@ export function IngredientCard({ ingredient, onDelete, onQuantityChange }: Ingre
 	<Card $status={status}>
 		<StatusBadge $status={status}>
 			<StatusLeft>
-			  <StatusIcon $status={status} />
+			  <StatusIcon $status={status}>
+			    <img src={getStatusIcon(status)} alt={label} />
+			  </StatusIcon>
 			  <span>{label}</span>
 			</StatusLeft>
 			{daysLeft !== null && (
@@ -263,7 +274,7 @@ export function IngredientCard({ ingredient, onDelete, onQuantityChange }: Ingre
 
 	<IngredientHeader>
 	  <IngredientName>{ingredient.name}</IngredientName>
-	  <DeleteButton onClick={() => onDelete(ingredient.name)} />
+	  <StyledDeleteButton onClick={() => onDelete(ingredient.name)} />
 	</IngredientHeader>
 
 	<QuantityText>
