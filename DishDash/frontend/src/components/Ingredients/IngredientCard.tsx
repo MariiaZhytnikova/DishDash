@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import type { Ingredient } from "../../api/types";
+import { DeleteButton } from "../buttons/DeleteButton";
 
 interface IngredientCardProps {
   ingredient: Ingredient;
@@ -234,27 +235,6 @@ const QuantityButton = styled.button`
   }
 `;
 
-const DeleteButton = styled.button`
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  border: none;
-  background: #fee;
-  color: #dc2626;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 18px;
-  transition: all 0.2s;
-  flex-shrink: 0;
-
-  &:hover {
-	background: #dc2626;
-	color: white;
-  }
-`;
-
 export function IngredientCard({ ingredient, onDelete, onQuantityChange }: IngredientCardProps) {
   console.log("IngredientCard rendered:", ingredient.name, ingredient);
   const { status, label, daysLeft } = getExpirationStatus(ingredient.expires_at);
@@ -283,9 +263,7 @@ export function IngredientCard({ ingredient, onDelete, onQuantityChange }: Ingre
 
 	<IngredientHeader>
 	  <IngredientName>{ingredient.name}</IngredientName>
-	  <DeleteButton onClick={() => onDelete(ingredient.name)} title="Delete ingredient">
-		🗑️
-	  </DeleteButton>
+	  <DeleteButton onClick={() => onDelete(ingredient.name)} />
 	</IngredientHeader>
 
 	<QuantityText>

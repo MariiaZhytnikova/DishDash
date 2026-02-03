@@ -197,7 +197,7 @@ export function useShoppingList() {
       setError(null);
       await sendShoppingListToEmail(email);
       setShowEmailModal(false);
-      setSuccessMessage(`Shopping list sent to ${email}! 📧`);
+      setSuccessMessage(`Shopping list sent to ${email}! 📧 If you don’t see it, please check your spam folder.`);
       setShowSuccessModal(true);
       setEmail("");
     } catch (e) {
