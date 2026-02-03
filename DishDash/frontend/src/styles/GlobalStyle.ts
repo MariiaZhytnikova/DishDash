@@ -11,28 +11,22 @@ export const GlobalStyle = createGlobalStyle`
     /* Danger Colors */
     --color-danger: #ef4444;
     --color-danger-hover: #dc2626;
-    --color-danger-light: #fee2e2;
-    --color-danger-text: #991b1b;
-    --color-danger-border: #fca5a5;
     
-    /* Info Colors */
-    --color-info: #3b82f6;
-    --color-info-hover: #2563eb;
+    /* Text Colors */ 
+    --color-text: #0F172A;
+    --color-text-muted:     #64748B; 
+    --color-text-secondary: #202125;  /* secondary text */
+    --color-text-disabled:  #94A3B8;  /* disabled / very subtle */
+    --color-cardtext: #4a4a4a;
     
     /* Secondary Colors */
     --color-secondary: #5dc2e7;
-    --color-secondary-alt: #4f46e5;
-    
-    /* Accent Colors */
+    --color-secondary-alt: #a0c6ff;
     --color-accent: #de1167;
     --color-accent-hover: #b21057;
     
     /* Neutral Colors */
     --color-white: #ffffff;
-    --color-text: #1a1a1a;
-    --color-text-secondary: #333333;
-    --color-text-muted: #666666;
-    --color-text-light: #999999;
     
     /* Border & Background Colors */
     --color-border: #e5e5e5;

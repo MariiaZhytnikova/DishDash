@@ -16,13 +16,18 @@ const AddContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-top: 20px;
 `;
 
 const Container = styled.div`
   padding: 20px;
 `;
-
+const Title = styled.h1`
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  margin: 0 0 0 20px;
+`;
 const Category = styled.div`
   margin-bottom: 32px;
 `;
@@ -30,7 +35,7 @@ const Category = styled.div`
 const CategoryTitle = styled.h2`
   font-size: 20px;
   margin-bottom: 16px;
-  color: #333;
+  color: var(--color-text-muted);
 `;
 
 const IngredientList = styled.div`
@@ -142,7 +147,7 @@ export function Ingredients() {
   return (
     <Grid>
       <AddContainer>
-        <h2>Add Ingredient</h2>
+        <Title>What do you have at home?</Title>
         <AddButton onClick={() => setIsModalOpen(true)}>+ Add</AddButton>
       </AddContainer>
       <Container>

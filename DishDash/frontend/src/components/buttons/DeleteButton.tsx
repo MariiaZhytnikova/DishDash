@@ -5,6 +5,7 @@ interface DeleteButtonProps {
   disabled?: boolean;
   isRemoving?: boolean;
   size?: "small" | "medium";
+  className?: string; // Allow custom className for styling from parent
 }
 
 const StyledButton = styled.button<{ $size: "small" | "medium" }>`
@@ -23,7 +24,8 @@ const StyledButton = styled.button<{ $size: "small" | "medium" }>`
   width: ${({ $size }) => ($size === "small" ? "24px" : "28px")};
   height: ${({ $size }) => ($size === "small" ? "24px" : "28px")};
 
-  &:hover {
+  /* Only show red background when hovering the button itself */
+  &:hover:not(:disabled) {
     background-color: #fecaca;
     border-color: #f87171;
   }
@@ -43,7 +45,8 @@ export function DeleteButton({
   onClick, 
   disabled = false, 
   isRemoving = false,
-  size = "medium" 
+  size = "medium",
+  className 
 }: DeleteButtonProps) {
   return (
     <StyledButton 
@@ -51,6 +54,7 @@ export function DeleteButton({
       disabled={disabled || isRemoving}
       title={isRemoving ? "Removing..." : "Delete"}
       $size={size}
+      className={className}
     >
       <BinIcon 
         src={`${import.meta.env.BASE_URL}icons/bin.svg`} 
