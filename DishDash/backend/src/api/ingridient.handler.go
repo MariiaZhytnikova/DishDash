@@ -49,7 +49,11 @@ func DeletePositionHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	section := storage.GetSection(payload.Name)
+	section, err := storage.GetSection(payload.Name)
+	if err != nil {
+		http.Error(w, "failed to get fridge section", http.StatusInternalServerError)
+		return
+	}
 
 	if err := storage.DeletePosition(section, payload.Name); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
@@ -75,7 +79,11 @@ func IncreaseHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	section := storage.GetSection(payload.Name)
+	section, err := storage.GetSection(payload.Name)
+	if err != nil {
+		http.Error(w, "failed to get fridge section", http.StatusInternalServerError)
+		return
+	}
 
 	if err := storage.Increase(section, payload.Name, payload.Quantity); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
@@ -101,7 +109,11 @@ func DecreaseHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-		section := storage.GetSection(payload.Name)
+		section, err := storage.GetSection(payload.Name)
+		if err != nil {
+			http.Error(w, "failed to get fridge section", http.StatusInternalServerError)
+			return
+		}
 
 		if err := storage.Decrease(section, payload.Name, payload.Quantity); err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)

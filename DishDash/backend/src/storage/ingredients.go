@@ -19,7 +19,7 @@ func AddPosition(section string, ing models.Ingredient) error {
 	// utils.HasIngredient(fridge.Pantry, ing) ||
 	// utils.HasIngredient(fridge.Rare, ing) {
 	// 	return errors.New("ingredient already exists")
-	}
+	// }
 
 	// add to chosen section
 	switch section {

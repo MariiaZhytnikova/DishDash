@@ -1,8 +1,12 @@
 {
   "fresh": [
     { "name": "eggs", "quantity": 6, "unit": "pcs", "expires_at": "2026-02-20" },
+    { "name": "eggs", "quantity": 6, "unit": "pcs", "expires_at": "2026-02-07" },
+    { "name": "eggs", "quantity": 6, "unit": "pcs", "expires_at": "2026-02-01" },
     { "name": "milk", "quantity": 1, "unit": "l", "expires_at": "2026-02-15" },
+    { "name": "milk", "quantity": 1, "unit": "l", "expires_at": "2026-02-02" },
     { "name": "cheese", "quantity": 200, "unit": "g", "expires_at": "2026-03-05" },
+    { "name": "cheese", "quantity": 200, "unit": "g", "expires_at": "2026-02-03" },
     { "name": "yogurt", "quantity": 400, "unit": "g", "expires_at": "2026-02-18" },
     { "name": "butter", "quantity": 200, "unit": "g", "expires_at": "2026-04-10" },
     { "name": "ham", "quantity": 150, "unit": "g", "expires_at": "2026-02-14" },

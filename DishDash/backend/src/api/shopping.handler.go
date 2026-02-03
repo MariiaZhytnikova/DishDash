@@ -55,7 +55,7 @@ func AddToShoppingHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := storage.AddToShopping(ingredients...); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, "failed to add to shopping list", http.StatusInternalServerError)
 		return
 	}
 
@@ -71,7 +71,7 @@ func SetShoppingHandler(w http.ResponseWriter, r *http.Request) {
 
 	if ing.Quantity <= 0 {
 		if err := storage.RemoveFromShopping(ing.Name); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+			http.Error(w, "failed to remove shopping list", http.StatusInternalServerError)
 			return
 		}
 		w.WriteHeader(http.StatusOK)
@@ -80,7 +80,7 @@ func SetShoppingHandler(w http.ResponseWriter, r *http.Request) {
 
 	err := storage.SetShoppingIngredient(ing)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, "failed to set shopping list", http.StatusInternalServerError)
 		return
 	}
 
@@ -109,7 +109,7 @@ func RemoveFromShoppingHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := storage.RemoveFromShopping(payload.Name); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, "failed to remove ingredient", http.StatusInternalServerError)
 		return
 	}
 

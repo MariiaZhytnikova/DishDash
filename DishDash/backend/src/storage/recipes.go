@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"log"
+	"fmt"
 
 	"DishDash/src/models"
 	"DishDash/src/utils"
@@ -10,18 +10,18 @@ import (
 func LoadRecipes() ([]models.Recipe, error) {
 	path, err := utils.RecipesPath()
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to get recipes path: %w", err)
 	}
 
 	var recipes []models.Recipe
 	if err := utils.LoadJSON(path, &recipes); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to load recipes JSON: %w", err)
 	}
 
 	if recipes == nil {
 		recipes = []models.Recipe{}
 		if err := SaveRecipes(recipes); err != nil {
-			log.Println("failed to save recipes:", err)
+			return nil, fmt.Errorf("failed to save empty recipes: %w", err)
 		}
 	}
 
