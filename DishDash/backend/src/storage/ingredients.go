@@ -15,10 +15,10 @@ func AddPosition(section string, ing models.Ingredient) error {
 	}
 
 	// check in all sections
-	if utils.HasIngredient(fridge.Fresh, ing) ||
-	utils.HasIngredient(fridge.Pantry, ing) ||
-	utils.HasIngredient(fridge.Rare, ing) {
-		return errors.New("ingredient already exists")
+	// if utils.HasIngredient(fridge.Fresh, ing) ||
+	// utils.HasIngredient(fridge.Pantry, ing) ||
+	// utils.HasIngredient(fridge.Rare, ing) {
+	// 	return errors.New("ingredient already exists")
 	}
 
 	// add to chosen section

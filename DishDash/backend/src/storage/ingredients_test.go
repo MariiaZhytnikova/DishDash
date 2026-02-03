@@ -24,10 +24,10 @@ func TestAddPosition(t *testing.T) {
 		t.Fatalf("ingredient not added correctly")
 	}
 
-	// Add same ingredient → should fail
-	if err := storage.AddPosition("fresh", ing); err == nil {
-		t.Fatal("expected error for duplicate ingredient")
-	}
+	// // Add same ingredient → should fail
+	// if err := storage.AddPosition("fresh", ing); err == nil {
+	// 	t.Fatal("expected error for duplicate ingredient")
+	// }
 
 	// Add unknown section → should fail
 	if err := storage.AddPosition("unknown", ing); err == nil {
