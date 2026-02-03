@@ -191,6 +191,7 @@ export function AddIngredientModal({ isOpen, onClose, onSubmit, error: externalE
 				const expirationDate = new Date();
 				expirationDate.setDate(expirationDate.getDate() + days);
 				expiresAt = expirationDate.toISOString().split('T')[0]; // Format: "2026-02-10"
+				console.log(`Converting ${days} days to expiration date: ${expiresAt}`);
 			}
 		}
 		
@@ -204,6 +205,7 @@ export function AddIngredientModal({ isOpen, onClose, onSubmit, error: externalE
 				...(expiresAt && { expires_at: expiresAt }), // Only include if defined
 			},
 		};
+		console.log("Submitting payload to backend:", submitPayload);
 		onSubmit(submitPayload);
 		// Reset form after submit - don't close here, let parent handle it
 		setPayload({
