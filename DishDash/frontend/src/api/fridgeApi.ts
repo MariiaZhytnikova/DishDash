@@ -19,7 +19,7 @@ export async function addIngredient(payload: {
     body: JSON.stringify(payload),
   });
 
-  if (!res.ok) throw new Error(`add ingredient failed with ${res.status}`);
+  if (!res.ok) throw new Error(`add ingredient failed with ${res.statusText}`);
 }
 
 // Delete ingredient from fridge

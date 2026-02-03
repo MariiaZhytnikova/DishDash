@@ -37,6 +37,20 @@ function getExpirationStatus(expiresAt?: string): {
 }
 
 const Card = styled.div<{ $status: string }>`
+  /* background: ${({ $status }) => {
+	switch ($status) {
+	  case "expired":
+		return "#fee";
+	  case "expiring-soon":
+		return "#ffeaea";
+	  case "use-soon":
+		return "#fff4e6";
+	  case "no-expiry":
+		return "#f5f5f5";
+	  default:
+		return "#f0fdf4";
+	}
+  }}; */
   border: 2px solid ${({ $status }) => {
 	switch ($status) {
 	  case "expired":
