@@ -13,8 +13,11 @@ func LoadShopping() (models.ShoppingList, error) {
 
 	var list models.ShoppingList
 	if err := utils.LoadJSON(path, &list); err != nil {
-		// if file empty or not found -> return empty list
-		return models.ShoppingList{Items: []models.Ingredient{}}, nil
+		return models.ShoppingList{}, err
+	}
+
+	if list.Items == nil {
+		list.Items = []models.Ingredient{}
 	}
 
 	return list, nil
@@ -111,5 +114,10 @@ func LoadShoppingList() (models.ShoppingList, error) {
 	if err := utils.LoadJSON(path, &list); err != nil {
 		return models.ShoppingList{}, err
 	}
+
+	if list.Items == nil {
+		list.Items = []models.Ingredient{}
+	}
+
 	return list, nil
 }

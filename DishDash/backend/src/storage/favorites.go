@@ -1,8 +1,6 @@
 package storage
 
 import (
-	"log"
-
 	"DishDash/src/models"
 	"DishDash/src/utils"
 )
@@ -21,7 +19,7 @@ func LoadFavorites() ([]models.Favorite, error) {
 	if favs == nil {
 		favs = []models.Favorite{}
 		if err := SaveFavorites(favs); err != nil {
-			log.Println("failed to save favorities:", err)
+			return nil, err
 		}
 	}
 
