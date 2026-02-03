@@ -49,16 +49,23 @@ func TestGetSection(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if section := storage.GetSection("egg"); section != "fresh" {
+	section, err := storage.GetSection("egg")
+	if err != nil || section != "fresh" {
 		t.Errorf("expected fresh, got %s", section)
 	}
-	if section := storage.GetSection("Rice"); section != "pantry" {
+
+	section, err = storage.GetSection("Rice")
+	if err != nil || section != "pantry" {
 		t.Errorf("expected pantry, got %s", section)
 	}
-	if section := storage.GetSection("truffle"); section != "rare" {
+
+	section, err = storage.GetSection("truffle")
+	if err != nil || section != "rare" {
 		t.Errorf("expected rare, got %s", section)
 	}
-	if section := storage.GetSection("unknown"); section != "rare" {
+
+	section, err = storage.GetSection("unknown")
+	if err != nil || section != "rare" {
 		t.Errorf("expected rare for unknown, got %s", section)
 	}
 }
