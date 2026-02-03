@@ -120,13 +120,12 @@ export function Favorites() {
       return;
     }
 
-    // Filter current favorites by name
-    const filtered = data.filter(item => {
+    // Filter current favorites by name using functional update
+    setData(prevData => prevData.filter(item => {
       const recipe = 'Recipe' in item ? (item as SearchResult).Recipe : (item as Recipe);
       return recipe.name.toLowerCase().includes(searchQuery.toLowerCase());
-    });
-    setData(filtered);
-  }, [searchQuery, data]);
+    }));
+  }, [searchQuery]);
 
   // Auto-search when query changes (debounced)
   useEffect(() => {
@@ -169,7 +168,10 @@ export function Favorites() {
       <SearchBar
         value={searchQuery}
         onChange={setSearchQuery}
-        onSearch={handleSearch}
+        onSearch={() => {
+          console.log("Search button clicked");
+          handleSearch();
+        }}
         placeholder="Search favorite recipes..."
       />
 

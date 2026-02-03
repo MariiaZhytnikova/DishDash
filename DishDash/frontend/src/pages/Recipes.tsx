@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import styled from "styled-components";
 import { addFavorite, getFavorites, getRecipes, removeFavorite, searchRecipes, getRecipeDetails, getFridge } from "../api";
 import { RecipeCard } from "../components/Recipes/RecipeCard";
@@ -15,7 +15,7 @@ const Grid = styled.div`
 `;
 
 export function Recipes() {
-  console.log("Recipes component rendered");
+  console.log("🔄 Recipes component rendered");
   
   const [data, setData] = useState<Recipe[] | SearchResult[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,6 +24,16 @@ export function Recipes() {
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [selectedRecipe, setSelectedRecipe] = useState<RecipeDetails | null>(null);
   const [fridgeIngredients, setFridgeIngredients] = useState<Ingredient[]>([]);
+  
+  // Use ref to track if initial load is complete (doesn't cause re-renders)
+  const isInitialLoadRef = useRef(true);
+  
+  console.log("📊 Current state:", { 
+    loading, 
+    dataCount: data.length, 
+    searchQuery,
+    isInitialLoad: isInitialLoadRef.current 
+  });
 
   // Helper function to calculate available ingredients
   const calculateAvailableIngredients = (recipeIngredients: Ingredient[]): number => {
@@ -36,66 +46,54 @@ export function Recipes() {
     ).length;
   };
 
-  // Load all recipes on page mount
+  // Load all initial data on mount (recipes, fridge, favorites)
   useEffect(() => {
+    console.log("⚡ Initial load useEffect triggered");
     (async () => {
-      
       try {
         setError(null);
-        const res = await getRecipes();
-        setData(res);
+        
+        // Load all data in parallel
+        const [recipesRes, fridgeRes, favoritesRes] = await Promise.all([
+          getRecipes(),
+          getFridge(),
+          getFavorites(),
+        ]);
+        
+        console.log("✅ Initial data loaded:", { recipes: recipesRes.length });
+        setData(recipesRes);
+        setFridgeIngredients([
+          ...fridgeRes.fresh,
+          ...fridgeRes.pantry,
+          ...fridgeRes.rare,
+        ]);
+        setFavorites(new Set(favoritesRes.map((fav) => fav.id)));
       } catch (e) {
-        console.error("Load recipes error:", e);
+        console.error("❌ Load initial data error:", e);
         setError((e as Error).message ?? "Unknown error");
       } finally {
         setLoading(false);
+        isInitialLoadRef.current = false; // Mark initial load as complete
+        console.log("✅ Initial load complete");
       }
     })();
-  }, []);
-
-  // Load fridge ingredients
-  useEffect(() => {
-    (async () => {
-      try {
-        const fridge = await getFridge();
-        const allIngredients = [
-          ...fridge.fresh,
-          ...fridge.pantry,
-          ...fridge.rare,
-        ];
-        setFridgeIngredients(allIngredients);
-      } catch (e) {
-        console.error("Load fridge error:", e);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const favs = await getFavorites();
-        setFavorites(new Set(favs.map((fav) => fav.id)));
-      } catch (e) {
-        console.error("Load favorites error:", e);
-      }
-    })();
-  }, []);
+  }, []); // Only run once on mount
 
   // Handle search
-  const handleSearch = useCallback(async () => {
-    console.log("handleSearch called with query:", searchQuery);
+  const handleSearch = useCallback(async (query: string) => {
+    console.log("handleSearch called with query:", query);
     
     setLoading(true);
     try {
       setError(null);
       
       // If search query is empty, load all recipes
-      if (!searchQuery.trim()) {
+      if (!query.trim()) {
         const res = await getRecipes();
         setData(res);
       } else {
         // Otherwise, search for recipes
-        const res = await searchRecipes({ settings: { query: searchQuery } });
+        const res = await searchRecipes({ settings: { query } });
         console.log("Search results:", res);
         setData(res);
       }
@@ -105,16 +103,28 @@ export function Recipes() {
     } finally {
       setLoading(false);
     }
-  }, [searchQuery]);
+  }, []);
 
-  // Auto-search when query changes (debounced)
+  // Auto-search when query changes (debounced) - skip initial mount
   useEffect(() => {
+    console.log("🔍 Auto-search useEffect triggered, isInitial:", isInitialLoadRef.current, "query:", searchQuery);
+    
+    // Skip if this is the initial load
+    if (isInitialLoadRef.current) {
+      console.log("⏭️  Skipping auto-search (initial load)");
+      return;
+    }
+    
     const timeoutId = setTimeout(() => {
-      handleSearch();
+      console.log("🔍 Executing search after debounce");
+      handleSearch(searchQuery);
     }, 300); // Wait 300ms after user stops typing
 
-    return () => clearTimeout(timeoutId);
-  }, [searchQuery, handleSearch]); // Trigger when searchQuery changes
+    return () => {
+      console.log("🧹 Cleanup debounce timer");
+      clearTimeout(timeoutId);
+    };
+  }, [searchQuery, handleSearch]); // No need to include ref in dependencies
 
   // Handle recipe card click
   const handleRecipeClick = async (recipe: Recipe) => {
@@ -133,7 +143,7 @@ export function Recipes() {
       <SearchBar
         value={searchQuery}
         onChange={setSearchQuery}
-        onSearch={handleSearch}
+        onSearch={() => handleSearch(searchQuery)}
         placeholder="Search recipes..."
       />
 

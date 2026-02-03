@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AddButton } from "../buttons/AddButton";
 
 const Header = styled.div`
   display: flex;
@@ -14,26 +15,6 @@ const Header = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   gap: 12px;
-`;
-
-const AddButton = styled.button`
-  padding: 8px 16px;
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-
-  &:hover {
-    background-color: var(--color-primary-hover);
-  }
-
-  &:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
 `;
 
 const ClearButton = styled.button`

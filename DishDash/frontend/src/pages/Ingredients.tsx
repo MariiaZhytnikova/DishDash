@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getFridge, addIngredient, deleteIngredient, increaseIngredient, type Fridge } from "../api";
+import { useEffect, useState } from "react";
+import { getFridge, addIngredient, deleteIngredient, increaseIngredient, type Fridge, type Ingredient } from "../api";
 import { AddIngredientModal, type AddIngredientPayload } from "../components/Ingredients/AddIngredientModal";
 import { SuccessModal } from "../components/SuccessModal";
+import { AddButton } from "../components/buttons/AddButton";
+import { IngredientCard } from "../components/Ingredients/IngredientCard";
 
 const Grid = styled.div`
   display: flex;
@@ -15,20 +17,6 @@ const AddContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-`;
-const AddButton = styled.button`
-  padding: 8px 24px;
-  background-color: #21c6e9;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-
-  &:hover {
-    background-color: #21c6e9;
-  }
 `;
 
 const Container = styled.div`
@@ -47,52 +35,30 @@ const CategoryTitle = styled.h2`
 
 const IngredientList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 `;
 
-const IngredientCard = styled.div`
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  position: relative;
-
-  &:hover button {
-    opacity: 1;
+// Group ingredients by name AND expiration date, combining quantities
+function groupIngredients(ingredients: Ingredient[]): Ingredient[] {
+  const grouped = new Map<string, Ingredient>();
+  
+  for (const ing of ingredients) {
+    // Create a unique key: name + expires_at (or name + "no-expiry" if no date)
+    const key = `${ing.name.toLowerCase()}_${ing.expires_at || 'no-expiry'}`;
+    
+    if (grouped.has(key)) {
+      // Add quantity to existing group
+      const existing = grouped.get(key)!;
+      existing.quantity += ing.quantity;
+    } else {
+      // Create new group (clone to avoid mutation)
+      grouped.set(key, { ...ing });
+    }
   }
-`;
-
-const IngredientInfo = styled.div`
-  flex: 1;
-`;
-
-const DeleteButton = styled.button`
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  background-color: #ff4444;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s, background-color 0.2s;
-
-  &:hover {
-    background-color: #cc0000;
-  }
-`;
+  
+  return Array.from(grouped.values());
+}
 
 export function Ingredients() {
   const [fridge, setFridge] = useState<Fridge>({fresh: [], pantry: [], rare: []});
@@ -129,23 +95,7 @@ export function Ingredients() {
       setShowSuccessModal(true);
     } catch (err) {
       const errorMsg = err instanceof Error ? err.message : "Failed to add ingredient";
-      // If ingredient already exists, increase quantity instead
-      if (errorMsg.includes("400")) {
-        try {
-          await increaseIngredient(payload.ingredient.name, payload.ingredient.quantity);
-          // Refresh fridge data after increasing
-          const updatedFridge = await getFridge();
-          setFridge(updatedFridge);
-          setIsModalOpen(false);
-          setSuccessMessage("Ingredient quantity increased successfully!");
-          setShowSuccessModal(true);
-        } catch (increaseErr) {
-          const increaseErrorMsg = increaseErr instanceof Error ? increaseErr.message : "Failed to increase quantity";
-          setModalError(increaseErrorMsg);
-        }
-      } else {
-        setModalError(errorMsg);
-      }
+      setModalError(errorMsg);
     }
   };
 
@@ -160,60 +110,83 @@ export function Ingredients() {
     }
   };
 
+  const handleQuantityChange = async (name: string, newQuantity: number) => {
+    try {
+      // Find the current ingredient
+      const allIngredients = [...fridge.fresh, ...fridge.pantry, ...fridge.rare];
+      const ingredient = allIngredients.find(ing => ing.name === name);
+      
+      if (!ingredient) return;
+      
+      const quantityDiff = newQuantity - ingredient.quantity;
+      
+      if (quantityDiff !== 0) {
+        await increaseIngredient(name, quantityDiff);
+        // Refresh fridge data
+        const updatedFridge = await getFridge();
+        setFridge(updatedFridge);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to update quantity");
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p role="alert">Error: {error}</p>;
+
+  // Group ingredients before rendering
+  const groupedFresh = groupIngredients(fridge.fresh);
+  const groupedPantry = groupIngredients(fridge.pantry);
+  const groupedRare = groupIngredients(fridge.rare);
 
   return (
     <Grid>
       <AddContainer>
         <h2>Add Ingredient</h2>
-        <AddButton onClick={() => setIsModalOpen(true)}>+ Add ingredient</AddButton>
+        <AddButton onClick={() => setIsModalOpen(true)}>+ Add</AddButton>
       </AddContainer>
       <Container>
-          {fridge.fresh.length > 0 && (
+          {groupedFresh.length > 0 && (
             <Category>
               <CategoryTitle>Fresh</CategoryTitle>
               <IngredientList>
-                {fridge.fresh.map((ing, i) => (
-                  <IngredientCard key={i}>
-                    <IngredientInfo>
-                      <div>{ing.name}</div>
-                      <div>{ing.quantity} {ing.unit}</div>
-                    </IngredientInfo>
-                    <DeleteButton onClick={() => handleDeleteIngredient(ing.name)}>×</DeleteButton>
-                  </IngredientCard>
+                {groupedFresh.map((ing, i) => (
+                  <IngredientCard
+                    key={`${ing.name}-${ing.expires_at || 'no-expiry'}-${i}`}
+                    ingredient={ing}
+                    onDelete={handleDeleteIngredient}
+                    onQuantityChange={handleQuantityChange}
+                  />
                 ))}
               </IngredientList>
             </Category>
           )}
-          {fridge.pantry.length > 0 && (
+          {groupedPantry.length > 0 && (
             <Category>
               <CategoryTitle>Pantry</CategoryTitle>
               <IngredientList>
-                {fridge.pantry.map((ing, i) => (
-                  <IngredientCard key={i}>
-                    <IngredientInfo>
-                      <div>{ing.name}</div>
-                      <div>{ing.quantity} {ing.unit}</div>
-                    </IngredientInfo>
-                    <DeleteButton onClick={() => handleDeleteIngredient(ing.name)}>×</DeleteButton>
-                  </IngredientCard>
+                {groupedPantry.map((ing, i) => (
+                  <IngredientCard
+                    key={`${ing.name}-${ing.expires_at || 'no-expiry'}-${i}`}
+                    ingredient={ing}
+                    onDelete={handleDeleteIngredient}
+                    onQuantityChange={handleQuantityChange}
+                  />
                 ))}
               </IngredientList>
             </Category>
           )}
-          {fridge.rare.length > 0 && (
+          {groupedRare.length > 0 && (
             <Category>
               <CategoryTitle>Rare</CategoryTitle>
               <IngredientList>
-                {fridge.rare.map((ing, i) => (
-                  <IngredientCard key={i}>
-                    <IngredientInfo>
-                      <div>{ing.name}</div>
-                      <div>{ing.quantity} {ing.unit}</div>
-                    </IngredientInfo>
-                    <DeleteButton onClick={() => handleDeleteIngredient(ing.name)}>×</DeleteButton>
-                  </IngredientCard>
+                {groupedRare.map((ing, i) => (
+                  <IngredientCard
+                    key={`${ing.name}-${ing.expires_at || 'no-expiry'}-${i}`}
+                    ingredient={ing}
+                    onDelete={handleDeleteIngredient}
+                    onQuantityChange={handleQuantityChange}
+                  />
                 ))}
               </IngredientList>
             </Category>

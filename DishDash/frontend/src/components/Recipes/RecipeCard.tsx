@@ -174,11 +174,11 @@ const ProgressBar = styled.div`
   overflow: hidden;
 `;
 
-const ProgressFill = styled.div<{ percentage: number }>`
+const ProgressFill = styled.div<{ $percentage: number }>`
   height: 100%;
   background: #4ade80;
   border-radius: 4px;
-  width: ${props => props.percentage}%;
+  width: ${props => props.$percentage}%;
   transition: width 0.3s ease;
 `;
 
@@ -258,7 +258,7 @@ export function RecipeCard({ recipe, availableIngredients = 0, onFavoriteToggle,
           <PercentageText>{percentage}%</PercentageText>
         </AvailabilityInfo>
         <ProgressBar>
-          <ProgressFill percentage={percentage} />
+          <ProgressFill $percentage={percentage} />
         </ProgressBar>
       </CardContent>
     </Card>

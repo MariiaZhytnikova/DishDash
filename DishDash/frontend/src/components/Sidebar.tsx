@@ -69,9 +69,9 @@ const Text = styled.p`
   margin: 0;
 `;
 
-const StatusIndicator = styled.div<{ ok: boolean }>`
+const StatusIndicator = styled.div<{ $ok: boolean }>`
   font-size: 14px;
-  color: ${({ ok }) => (ok ? "#16a34a" : "#dc2626")};
+  color: ${({ $ok }) => ($ok ? "#16a34a" : "#dc2626")};
   padding-top: 16px;
   margin-top: auto;
   border-top: 1px solid ${({ theme }) => theme.colors.border};
@@ -85,7 +85,7 @@ const StatusIndicator = styled.div<{ ok: boolean }>`
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: ${({ ok }) => (ok ? "#16a34a" : "#dc2626")};
+	background: ${({ $ok }) => ($ok ? "#16a34a" : "#dc2626")};
   }
 `;
 
@@ -154,7 +154,7 @@ export function Sidebar() {
 		  )}
 		</NavItem>
 	  </Nav>
-	  <StatusIndicator ok={statusState?.ok ?? false}>
+	  <StatusIndicator $ok={statusState?.ok ?? false}>
 		Backend: {statusState ? statusState.text : "checking..."}
 	  </StatusIndicator>
 	</SidebarContainer>

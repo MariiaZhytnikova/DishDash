@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import type { Ingredient } from "../../api";
+import { DeleteButton } from "../buttons/DeleteButton";
 
 const ListItem = styled.div`
   display: grid;
@@ -34,32 +35,6 @@ const ItemName = styled.span`
 const ItemQuantity = styled.span`
   color: var(--color-text-muted);
   font-size: 0.95rem;
-`;
-
-const RemoveButton = styled.button`
-  padding: 6px 12px;
-  background-color: transparent;
-  color: var(--color-danger-text);
-  border: 1px solid transparent;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  transition: all 0.2s;
-
-  &:hover {
-    background-color: #fecaca;
-    border-color: #f87171;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-`;
-const BinIcon = styled.img`
-  width: 18px;
-  height: 18px;
 `;
 
 const QuantityControl = styled.div`
@@ -133,15 +108,11 @@ export function ShoppingListItemComponent({
         <QuantityButton onClick={() => onQuantityIncrease(index)}>+</QuantityButton>
       </QuantityControl>
       <ItemQuantity>{item.unit}</ItemQuantity>
-      {/* <RemoveButton onClick={() => onRemove(item.name)} disabled={isRemoving}>
-        {isRemoving ? "Removing..." : "Remove"}
-      </RemoveButton> */}
-      <RemoveButton onClick={() => onRemove(item.name)} disabled={isRemoving}>
-        <BinIcon 
-            src={`${import.meta.env.BASE_URL}icons/bin.svg`} 
-            alt={isRemoving ? "Removing..." : "Remove"} 
-          />
-      </RemoveButton>
+      <DeleteButton 
+        onClick={() => onRemove(item.name)} 
+        disabled={isRemoving}
+        isRemoving={isRemoving}
+      />
     </ListItem>
   );
 }

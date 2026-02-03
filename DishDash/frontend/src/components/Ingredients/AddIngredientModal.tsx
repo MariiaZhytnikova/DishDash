@@ -8,6 +8,7 @@ export type AddIngredientPayload = {
 		name: string;
 		quantity: number;
 		unit: string;
+		expires_at?: string;  // Optional: ISO date string
 	};
 };
 
@@ -20,6 +21,7 @@ type InternalFormState = {
 		name: string;
 		quantity: string;  // string internally for input handling
 		unit: string;
+		expires_at?: string;  // Optional: date string
 	};
 };
 
@@ -52,8 +54,14 @@ const Title = styled.h2`
 	margin: 0 0 16px 0;
 `;
 
+const Text = styled.p`
+	font-weight: 400;
+	color: var(--color-primary-grey);
+	margin: 0;
+`;
 const FormGroup = styled.div`
 	margin-bottom: 16px;
+	
 `;
 
 const Label = styled.label`
@@ -174,6 +182,19 @@ export function AddIngredientModal({ isOpen, onClose, onSubmit, error: externalE
 			return;
 		}
 		setError(null);
+		
+		// Calculate expiration date if shelf life is provided
+		let expiresAt: string | undefined;
+		if (payload.ingredient.expires_at && payload.ingredient.expires_at.trim() !== "") {
+			const days = Number(payload.ingredient.expires_at);
+			if (!isNaN(days) && days > 0) {
+				const expirationDate = new Date();
+				expirationDate.setDate(expirationDate.getDate() + days);
+				expiresAt = expirationDate.toISOString().split('T')[0]; // Format: "2026-02-10"
+				console.log(`Converting ${days} days to expiration date: ${expiresAt}`);
+			}
+		}
+		
 		// Convert string quantity to number for API submission
 		const submitPayload: AddIngredientPayload = {
 			section: payload.section,
@@ -181,8 +202,10 @@ export function AddIngredientModal({ isOpen, onClose, onSubmit, error: externalE
 				name: payload.ingredient.name,
 				quantity: Number(payload.ingredient.quantity),
 				unit: payload.ingredient.unit,
+				...(expiresAt && { expires_at: expiresAt }), // Only include if defined
 			},
 		};
+		console.log("Submitting payload to backend:", submitPayload);
 		onSubmit(submitPayload);
 		// Reset form after submit - don't close here, let parent handle it
 		setPayload({
@@ -273,6 +296,29 @@ export function AddIngredientModal({ isOpen, onClose, onSubmit, error: externalE
 							</option>
 						))}
 					</Select>
+				</FormGroup>
+				
+				<FormGroup>
+					<Label htmlFor="shelfLife">Shelf Life (days)</Label>
+					<Input
+						id="shelfLife"
+						type="text"
+						min={0}
+						step="1"
+						placeholder="e.g., 3, 7, 14"
+						value={payload.ingredient.expires_at || ""} 
+						onChange={(e) => {
+							const val = e.target.value;
+							// Only allow empty or valid numbers
+							if (val === "" || !isNaN(Number(val))) {
+								setPayload({
+									...payload,
+									ingredient: { ...payload.ingredient, expires_at: val },
+								});
+							}
+						}}
+					/>
+					<Text>Leave empty if not applicable</Text>
 				</FormGroup>
 
 				{displayError && <ErrorMessage>{displayError}</ErrorMessage>}

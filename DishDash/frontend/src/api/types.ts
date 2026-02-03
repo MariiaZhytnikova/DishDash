@@ -2,6 +2,7 @@ export type Ingredient = {
   name: string;
   quantity: number;
   unit: string;
+  expires_at?: string;  // Optional: ISO date string (e.g., "2026-02-10")
 };
 
 export type Favorite = {
