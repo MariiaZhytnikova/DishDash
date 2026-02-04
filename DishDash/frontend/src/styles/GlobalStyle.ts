@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     /* Secondary Colors */
     --color-secondary: #5dc2e7;
     --color-secondary-alt: #a0c6ff;
+    --color-info-hover: #7ed5f9;
     --color-accent: #de1167;
     --color-accent-hover: #b21057;
     

@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { fireEvent, render, screen, cleanup } from "@testing-library/react";
 import { ShoppingListHeader } from "./ShoppingListHeader";
+import { prettyDOM } from "@testing-library/dom";
 
 afterEach(cleanup);
 
@@ -59,4 +60,7 @@ describe("ShoppingListHeader", () => {
     const button = screen.getByText("Clearing...") as HTMLButtonElement;
     expect(button.disabled).toBe(true);
   });
+
+  console.log(prettyDOM(document.body, 20000));
+  screen.debug();
 });
