@@ -121,6 +121,14 @@ export function Sidebar() {
 		<BrandText>DishDash</BrandText>
 	  </Brand>
 	  <Nav>
+		<NavItem to="/home">
+		  {({ isActive }) => (
+			<>
+			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "home_active" : "home"}.svg`} alt="Home" />
+			  <Text>Home</Text>
+			</>
+		  )}
+		</NavItem>
 		<NavItem to="/ingredients">
 		  {({ isActive }) => (
 			<>
