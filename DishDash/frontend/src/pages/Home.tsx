@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import homeContentData from "../data/homeContent.json";
 import type { HomeContent } from "../types/home";
 
@@ -100,12 +101,15 @@ const FeaturesGrid = styled.div`
 	}
 `;
 
-const FeatureCard = styled.div`
+const FeatureCard = styled(NavLink)`
 	background: white;
 	border: 2px solid #e9ecef;
 	border-radius: 16px;
 	padding: 28px;
 	transition: all 0.3s ease;
+	text-decoration: none;
+	color: inherit;
+	display: block;
 
 	&:hover {
 		border-color: #1fa9e4;
@@ -263,6 +267,13 @@ const CallToActionText = styled.p`
 `;
 
 export function Home() {
+	const featureRoutes: Record<number, string> = {
+		1: "/ingredients",
+		2: "/recipes",
+		3: "/favorites",
+		4: "/shopping-list",
+	};
+
 	return (
 		<Container>
 			<Header>
@@ -285,7 +296,7 @@ export function Home() {
 				<Title>{content.featuresSection.title}</Title>
 				<FeaturesGrid>
 					{content.featuresSection.features.map((feature) => (
-						<FeatureCard key={feature.id}>
+						<FeatureCard key={feature.id} to={featureRoutes[feature.id]}>
 							<FeatureIcon $color={feature.color}>
 								{feature.icon.endsWith('.svg') ? (
 									<img src={`${import.meta.env.BASE_URL}${feature.icon.replace(/^\//, '')}`} alt={feature.title} />
