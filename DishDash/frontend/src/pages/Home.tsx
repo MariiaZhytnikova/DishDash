@@ -28,13 +28,10 @@ const IconWrapper = styled.div`
 	box-shadow: 0 4px 12px rgba(31, 169, 228, 0.3);
 `;
 
-const ChefIcon = styled.div`
-	font-size: 48px;
-	color: white;
-	
-	&::before {
-		content: "👨‍🍳";
-	}
+const ChefIcon = styled.img`
+	width: 48px;
+	height: 48px;
+	filter: brightness(0) invert(1);
 `;
 
 const Title = styled.h1`
@@ -130,6 +127,11 @@ const FeatureIcon = styled.div<{ $color: string }>`
 	justify-content: center;
 	margin-bottom: 16px;
 	font-size: 24px;
+
+	img {
+		width: 32px;
+		height: 32px;
+	}
 `;
 
 const FeatureTitle = styled.h3`
@@ -282,10 +284,10 @@ export function Home() {
 		<Container>
 			<Header>
 				<IconWrapper>
-					<ChefIcon />
+				<ChefIcon src={`${import.meta.env.BASE_URL}icons/big_hat.svg`} alt="DishDash" />
 				</IconWrapper>
-				<Title>{content.hero.title}</Title>
 				<Subtitle>{content.hero.subtitle}</Subtitle>
+			
 			</Header>
 
 			<InfoSection>
@@ -300,7 +302,13 @@ export function Home() {
 				<FeaturesGrid>
 					{content.featuresSection.features.map((feature) => (
 						<FeatureCard key={feature.id}>
-							<FeatureIcon $color={feature.color}>{feature.icon}</FeatureIcon>
+							<FeatureIcon $color={feature.color}>
+								{feature.icon.endsWith('.svg') ? (
+									<img src={`${import.meta.env.BASE_URL}${feature.icon.replace(/^\//, '')}`} alt={feature.title} />
+								) : (
+									feature.icon
+								)}
+							</FeatureIcon>
 							<FeatureTitle>{feature.title}</FeatureTitle>
 							<FeatureDescription>{feature.description}</FeatureDescription>
 						</FeatureCard>

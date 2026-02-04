@@ -15,28 +15,28 @@
     "features": [
       {
         "id": 1,
-        "icon": "🥬",
+        "icon": "/icons/ingredients.svg",
         "color": "rgba(52, 211, 153, 0.15)",
         "title": "Ingredient Management",
         "description": "Track your pantry inventory with shelf life monitoring. Color-coded alerts help you use ingredients before they expire."
       },
       {
         "id": 2,
-        "icon": "📖",
+        "icon": "/icons/book.svg",
         "color": "rgba(251, 146, 60, 0.15)",
         "title": "Recipe Library",
         "description": "Store and organize your favorite recipes. Search by ingredients, cuisine, or dietary preferences. Mark favorites for quick access."
       },
       {
         "id": 3,
-        "icon": "📅",
+        "icon": "/icons/calendar.svg",
         "color": "rgba(59, 130, 246, 0.15)",
         "title": "Favorites Collection",
         "description": "Save your most-loved recipes to a dedicated favorites list. Quick access to the meals you cook most often."
       },
       {
         "id": 4,
-        "icon": "🛒",
+        "icon": "/icons/cart_home.svg",
         "color": "rgba(168, 85, 247, 0.15)",
         "title": "Smart Shopping List",
         "description": "Automatically generate shopping lists from your menu. Check off items as you shop and never forget an ingredient again."

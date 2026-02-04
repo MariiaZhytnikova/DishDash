@@ -117,7 +117,7 @@ The following features are currently being implemented to improve the user exper
   Add a confirmation popup when deleting items: "Item deleted" with an "Undo" button to restore accidentally deleted items.
 
 - **➕➖ Quantity Controls for Ingredients**  
-  Add +/- buttons to ingredient cards for easy quantity adjustment directly in the UI.
+  Add +/- buttons to ingredient cards for easy quantity adjustment directly in the UI. - ✅ (done)
 
 - **⏳ Skeleton Loading Screens**  
   Implement skeleton screens during data loading to provide better visual feedback and improve perceived performance.
