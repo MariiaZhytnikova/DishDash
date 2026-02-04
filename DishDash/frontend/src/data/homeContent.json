@@ -1,0 +1,108 @@
+{
+  "hero": {
+    "title": "Welcome to DishDash",
+    "subtitle": "Your smart kitchen assistant for effortless meal planning, recipe management, and grocery shopping"
+  },
+  "whatIsDishDash": {
+    "title": "What is DishDash?",
+    "paragraphs": [
+      "DishDash is a comprehensive meal planning solution designed to make your kitchen life easier and more organized. It helps you track ingredients, discover recipes, plan weekly menus, and generate smart shopping lists—all in one place.",
+      "Say goodbye to food waste, forgotten ingredients, and the daily \"what's for dinner?\" stress. DishDash brings calm and organization to your meal planning routine."
+    ]
+  },
+  "featuresSection": {
+    "title": "Key Features",
+    "features": [
+      {
+        "id": 1,
+        "icon": "/icons/ingredients.svg",
+        "color": "rgba(52, 211, 153, 0.15)",
+        "title": "Ingredient Management",
+        "description": "Track your pantry inventory with shelf life monitoring. Color-coded alerts help you use ingredients before they expire."
+      },
+      {
+        "id": 2,
+        "icon": "/icons/book.svg",
+        "color": "rgba(251, 146, 60, 0.15)",
+        "title": "Recipe Library",
+        "description": "Store and organize your favorite recipes. Search by ingredients, cuisine, or dietary preferences. Mark favorites for quick access."
+      },
+      {
+        "id": 3,
+        "icon": "/icons/calendar.svg",
+        "color": "rgba(59, 130, 246, 0.15)",
+        "title": "Favorites Collection",
+        "description": "Save your most-loved recipes to a dedicated favorites list. Quick access to the meals you cook most often."
+      },
+      {
+        "id": 4,
+        "icon": "/icons/cart_home.svg",
+        "color": "rgba(168, 85, 247, 0.15)",
+        "title": "Smart Shopping List",
+        "description": "Automatically generate shopping lists from your menu. Check off items as you shop and never forget an ingredient again."
+      }
+    ]
+  },
+  "howItWorksSection": {
+    "title": "How It Works",
+    "steps": [
+      {
+        "id": 1,
+        "stepNumber": 1,
+        "title": "Add Your Ingredients",
+        "description": "Start by adding ingredients to your pantry. Set shelf life for perishables to track freshness. The app will alert you when items are about to expire with color-coded borders."
+      },
+      {
+        "id": 2,
+        "stepNumber": 2,
+        "title": "Build Your Recipe Collection",
+        "description": "Add your favorite recipes with ingredients, instructions, prep time, and cooking time. Use filters to search by cuisine type, dietary preferences, or specific ingredients you want to use."
+      },
+      {
+        "id": 3,
+        "stepNumber": 3,
+        "title": "Mark Your Favorites",
+        "description": "As you explore recipes, save your favorites with a single click. All your go-to meals are organized in one place for quick access when planning your week."
+      },
+      {
+        "id": 4,
+        "stepNumber": 4,
+        "title": "Build Your Shopping List",
+        "description": "Select a recipe and automatically add all missing ingredients to your shopping list. Check off items as you shop, and add custom items as needed. Your shopping is now organized and stress-free."
+      }
+    ]
+  },
+  "benefitsSection": {
+    "title": "Benefits You'll Love",
+    "benefits": [
+      {
+        "id": 1,
+        "text": "Reduce food waste by tracking shelf life"
+      },
+      {
+        "id": 2,
+        "text": "Save time with automated menu planning"
+      },
+      {
+        "id": 3,
+        "text": "Never forget ingredients at the store"
+      },
+      {
+        "id": 4,
+        "text": "Organize recipes in one convenient place"
+      },
+      {
+        "id": 5,
+        "text": "Make meal planning stress-free"
+      },
+      {
+        "id": 6,
+        "text": "Cook with confidence and ease"
+      }
+    ]
+  },
+  "callToAction": {
+    "title": "Ready to get started?",
+    "text": "Choose a section from the sidebar to begin your meal planning journey!"
+  }
+}

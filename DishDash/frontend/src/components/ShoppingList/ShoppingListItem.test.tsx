@@ -40,7 +40,7 @@ describe("ShoppingListItemComponent", () => {
 
     fireEvent.click(screen.getByText("+"));
     fireEvent.click(screen.getByText("−"));
-    fireEvent.click(screen.getByText("Remove"));
+    fireEvent.click(screen.getByTitle("Delete"));
 
     expect(onIncrease).toHaveBeenCalledWith(1);
     expect(onDecrease).toHaveBeenCalledWith(1);
@@ -60,7 +60,7 @@ describe("ShoppingListItemComponent", () => {
       />
     );
 
-    const button = screen.getByText("Removing...") as HTMLButtonElement;
+    const button = screen.getByTitle("Removing...") as HTMLButtonElement;
     expect(button.disabled).toBe(true);
   });
 });

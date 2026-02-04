@@ -158,7 +158,7 @@ describe("ShoppingListItemComponent", () => {
 
     fireEvent.click(screen.getByText("+"));
     fireEvent.click(screen.getByText("−"));
-    fireEvent.click(screen.getByText("Remove"));
+    fireEvent.click(screen.getByTitle("Delete"));
 
     expect(onIncrease).toHaveBeenCalledWith(1);
     expect(onDecrease).toHaveBeenCalledWith(1);
@@ -214,8 +214,8 @@ describe("ShoppingListFooter", () => {
       />
     );
 
-    fireEvent.click(screen.getByText("📧 Send to Email"));
-    fireEvent.click(screen.getByText("🛒 Create Wolt Order"));
+    fireEvent.click(screen.getByText("Send to Email"));
+    fireEvent.click(screen.getByText("Create Wolt Order"));
 
     expect(onEmailClick).toHaveBeenCalledTimes(1);
     expect(onWoltClick).toHaveBeenCalledTimes(1);
@@ -391,7 +391,7 @@ describe("ShoppingList page", () => {
 
     expect(screen.getByText("Shopping List")).toBeInTheDocument();
     expect(screen.getByText("Bread")).toBeInTheDocument();
-    expect(screen.getByText("📧 Send to Email")).toBeInTheDocument();
+    expect(screen.getByText("Send to Email")).toBeInTheDocument();
   });
 
   // Test: Page shows empty state when list has no items

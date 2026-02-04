@@ -369,7 +369,7 @@ export function RecipeDetailModal({
               >
                 {loading
                   ? "Adding..."
-                  : "Add to Shopping List"}
+                  : "Add To Shopping List"}
               </AddToShoppingButton>
             )}
             </IngredientsSection>

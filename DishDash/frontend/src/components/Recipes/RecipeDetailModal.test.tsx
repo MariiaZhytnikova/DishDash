@@ -327,7 +327,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       );
       expect(addButton).toBeInTheDocument();
     });
@@ -338,7 +338,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       );
       expect(addButton).toBeUndefined();
     });
@@ -353,7 +353,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       ) as HTMLButtonElement;
       
       fireEvent.click(addButton);
@@ -371,7 +371,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       ) as HTMLButtonElement;
       
       fireEvent.click(addButton);
@@ -392,7 +392,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       ) as HTMLButtonElement;
       
       fireEvent.click(addButton);
@@ -414,7 +414,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       ) as HTMLButtonElement;
       
       fireEvent.click(addButton);
@@ -438,7 +438,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       ) as HTMLButtonElement;
       
       fireEvent.click(addButton);
@@ -463,7 +463,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       ) as HTMLButtonElement;
       
       fireEvent.click(addButton);
@@ -491,7 +491,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       ) as HTMLButtonElement;
       
       fireEvent.click(addButton);
@@ -522,7 +522,7 @@ describe("RecipeDetailModal Component", () => {
 
       const buttons = screen.getAllByRole("button");
       const addButton = buttons.find((button) =>
-        button.textContent?.includes("Add Missing Ingredients")
+        button.textContent?.includes("Add To Shopping List")
       );
       expect(addButton).toBeInTheDocument();
     });

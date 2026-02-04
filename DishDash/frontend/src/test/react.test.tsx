@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 
 function Hello() {
-  return <h1>Hello</h1>;
+  return <h2>Hello</h2>;
 }
 
 describe("react rendering", () => {

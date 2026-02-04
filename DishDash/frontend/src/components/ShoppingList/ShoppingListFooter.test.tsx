@@ -25,8 +25,8 @@ describe("ShoppingListFooter", () => {
       />
     );
 
-    fireEvent.click(screen.getByText("📧 Send to Email"));
-    fireEvent.click(screen.getByText("🛒 Create Wolt Order"));
+    fireEvent.click(screen.getByText("Send to Email"));
+    fireEvent.click(screen.getByText("Create Wolt Order"));
 
     expect(onEmailClick).toHaveBeenCalledTimes(1);
     expect(onWoltClick).toHaveBeenCalledTimes(1);
@@ -45,7 +45,7 @@ describe("ShoppingListFooter", () => {
       />
     );
 
-    const button = screen.getByText("📧 Send to Email") as HTMLButtonElement;
+    const button = screen.getByText("Send to Email") as HTMLButtonElement;
     expect(button.disabled).toBe(true);
   });
 
@@ -78,6 +78,6 @@ describe("ShoppingListFooter", () => {
       />
     );
 
-    expect(screen.getByText("🛒 Create Foodora Order")).toBeInTheDocument();
+    expect(screen.getByText("Create Foodora Order")).toBeInTheDocument();
   });
 });
