@@ -11,13 +11,21 @@ const SidebarContainer = styled.aside`
   flex-direction: column;
 `;
 
-const Brand = styled.div`
+const Brand = styled(NavLink)`
   font-weight: 700;
   font-size: 18px;
-  margin-bottom: 16px;
+  padding-bottom: 20px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #d2d2d2;
   gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const BrandText = styled.h1`
@@ -36,6 +44,7 @@ const BrandIcon = styled.img`
 const Nav = styled.nav`
   display: grid;
   gap: 8px;
+  margin-top: 24px;
 `;
 
 const NavItem = styled(NavLink)`
@@ -48,13 +57,13 @@ const NavItem = styled(NavLink)`
   gap: 10px;
 
   &.active {
-	color: ${({ theme }) => theme.colors.title};
-	background: rgba(31, 169, 228, 0.1);
-	border: 1px solid rgba(31, 169, 228, 0.3);
+    color: ${({ theme }) => theme.colors.title};
+    background: rgba(31, 169, 228, 0.1);
+    border: 1px solid rgba(31, 169, 228, 0.3);
   }
 
   &:hover {
-	background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.04);
   }
 `;
 
@@ -81,11 +90,11 @@ const StatusIndicator = styled.div<{ $ok: boolean }>`
   font-weight: 600;
 
   &::before {
-	content: "";
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: ${({ $ok }) => ($ok ? "#16a34a" : "#dc2626")};
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: ${({ $ok }) => ($ok ? "#16a34a" : "#dc2626")};
   }
 `;
 
@@ -93,78 +102,78 @@ export function Sidebar() {
   const [statusState, setStatusState] = useState<{ text: string; ok: boolean } | null>(null);
 
   useEffect(() => {
-	let cancelled = false;
+    let cancelled = false;
 
-	const fetchStatus = async () => {
-	  try {
-		const data = await status();
-		if (!cancelled) {
-		  setStatusState({ text: data.status ?? "ok", ok: true });
-		}
-	  } catch {
-		if (!cancelled) {
-		  setStatusState({ text: "offline", ok: false });
-		}
-	  }
-	};
+    const fetchStatus = async () => {
+      try {
+        const data = await status();
+        if (!cancelled) {
+          setStatusState({ text: data.status ?? "ok", ok: true });
+        }
+      } catch {
+        if (!cancelled) {
+          setStatusState({ text: "offline", ok: false });
+        }
+      }
+    };
 
-	fetchStatus();
-	return () => {
-	  cancelled = true;
-	};
+    fetchStatus();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
-	<SidebarContainer>
-	  <Brand>
-		<BrandIcon src={`${import.meta.env.BASE_URL}dishdash.svg`} alt="DishDash" />
-		<BrandText>DishDash</BrandText>
-	  </Brand>
-	  <Nav>
-		<NavItem to="/home">
-		  {({ isActive }) => (
-			<>
-			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "home_active" : "home"}.svg`} alt="Home" />
-			  <Text>Home</Text>
-			</>
-		  )}
-		</NavItem>
-		<NavItem to="/ingredients">
-		  {({ isActive }) => (
-			<>
-			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "ingredients_active" : "ingredients"}.svg`} alt="Ingredients" />
-			  <Text>Ingredients</Text>
-			</>
-		  )}
-		</NavItem>
-		<NavItem to="/recipes">
-		  {({ isActive }) => (
-			<>
-			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "hat_active" : "hat"}.svg`} alt="Recipes" />
-			  <Text>Recipes</Text>
-			</>
-		  )}
-		</NavItem>
-		<NavItem to="/favorites">
-		  {({ isActive }) => (
-			<>
-			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "like_active" : "like"}.svg`} alt="Favorites" />
-			  <Text>Favorites</Text>
-			</>
-		  )}
-		</NavItem>
-		<NavItem to="/shopping-list">
-		  {({ isActive }) => (
-			<>
-			  <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "cart_active" : "cart"}.svg`} alt="Shopping List" />
-			  <Text>Shopping List</Text>
-			</>
-		  )}
-		</NavItem>
-	  </Nav>
-	  <StatusIndicator $ok={statusState?.ok ?? false}>
-		Backend: {statusState ? statusState.text : "checking..."}
-	  </StatusIndicator>
-	</SidebarContainer>
+    <SidebarContainer>
+      <Brand to="/home">
+        <BrandIcon src={`${import.meta.env.BASE_URL}dishdash.svg`} alt="DishDash" />
+        <BrandText>DishDash</BrandText>
+      </Brand>
+      <Nav>
+        <NavItem to="/home">
+          {({ isActive }) => (
+            <>
+              <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "home_active" : "home"}.svg`} alt="Home" />
+              <Text>Home</Text>
+            </>
+          )}
+        </NavItem>
+        <NavItem to="/ingredients">
+          {({ isActive }) => (
+            <>
+              <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "ingredients_active" : "ingredients"}.svg`} alt="Ingredients" />
+              <Text>Ingredients</Text>
+            </>
+          )}
+        </NavItem>
+        <NavItem to="/recipes">
+          {({ isActive }) => (
+            <>
+              <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "hat_active" : "hat"}.svg`} alt="Recipes" />
+              <Text>Recipes</Text>
+            </>
+          )}
+        </NavItem>
+        <NavItem to="/favorites">
+          {({ isActive }) => (
+            <>
+              <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "like_active" : "like"}.svg`} alt="Favorites" />
+              <Text>Favorites</Text>
+            </>
+          )}
+        </NavItem>
+        <NavItem to="/shopping-list">
+          {({ isActive }) => (
+            <>
+              <NavIcon src={`${import.meta.env.BASE_URL}icons/${isActive ? "cart_active" : "cart"}.svg`} alt="Shopping List" />
+              <Text>Shopping List</Text>
+            </>
+          )}
+        </NavItem>
+      </Nav>
+      <StatusIndicator $ok={statusState?.ok ?? false}>
+        Backend: {statusState ? statusState.text : "checking..."}
+      </StatusIndicator>
+    </SidebarContainer>
   );
 }

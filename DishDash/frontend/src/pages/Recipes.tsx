@@ -138,7 +138,7 @@ export function Recipes() {
 
   return (
     <div>
-      <h1>Recipes</h1>
+      <h2>Recipes</h2>
 
       <SearchBar
         value={searchQuery}

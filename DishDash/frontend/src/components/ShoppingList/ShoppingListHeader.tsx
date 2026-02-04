@@ -52,7 +52,7 @@ export function ShoppingListHeader({
 }: ShoppingListHeaderProps) {
   return (
     <Header>
-      <h1>Shopping List</h1>
+      <h2>Shopping List</h2>
       <ButtonGroup>
         <AddButton onClick={onAddClick}>+ Add</AddButton>
         {itemsCount > 0 && (

@@ -34,14 +34,18 @@ const ChefIcon = styled.img`
 	filter: brightness(0) invert(1);
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
 	font-size: 2.5rem;
 	font-weight: 700;
 	color: #1a1a1a;
 	margin: 0 0 16px 0;
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: #1a1a1a;
+	margin: 0 0 32px 0;
 `;
 
-const Subtitle = styled.p`
+const Subtitle = styled.h2`
 	font-size: 1.125rem;
 	color: #666;
 	line-height: 1.6;
@@ -56,7 +60,7 @@ const InfoSection = styled.div`
 	margin-bottom: 48px;
 `;
 
-const SectionTitle = styled.h2`
+const SectionTitle = styled.h1`
 	font-size: 1.5rem;
 	font-weight: 600;
 	color: #1a1a1a;
@@ -84,13 +88,6 @@ const Description = styled.p`
 
 const FeaturesSection = styled.div`
 	margin-top: 48px;
-`;
-
-const FeaturesSectionTitle = styled.h2`
-	font-size: 1.75rem;
-	font-weight: 700;
-	color: #1a1a1a;
-	margin: 0 0 32px 0;
 `;
 
 const FeaturesGrid = styled.div`
@@ -155,13 +152,6 @@ const HowItWorksSection = styled.div`
 	padding: 40px;
 `;
 
-const HowItWorksTitle = styled.h2`
-	font-size: 1.75rem;
-	font-weight: 700;
-	color: #1a1a1a;
-	margin: 0 0 32px 0;
-`;
-
 const StepsList = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -208,13 +198,6 @@ const StepDescription = styled.p`
 
 const BenefitsSection = styled.div`
 	margin-top: 64px;
-`;
-
-const BenefitsTitle = styled.h2`
-	font-size: 1.75rem;
-	font-weight: 700;
-	color: #1a1a1a;
-	margin: 0 0 32px 0;
 `;
 
 const BenefitsGrid = styled.div`
@@ -298,7 +281,8 @@ export function Home() {
 			</InfoSection>
 
 			<FeaturesSection>
-				<FeaturesSectionTitle>{content.featuresSection.title}</FeaturesSectionTitle>
+				{/* <FeaturesSectionTitle>{content.featuresSection.title}</FeaturesSectionTitle> */}
+				<Title>{content.featuresSection.title}</Title>
 				<FeaturesGrid>
 					{content.featuresSection.features.map((feature) => (
 						<FeatureCard key={feature.id}>
@@ -317,7 +301,8 @@ export function Home() {
 			</FeaturesSection>
 
 			<HowItWorksSection>
-				<HowItWorksTitle>{content.howItWorksSection.title}</HowItWorksTitle>
+				{/* <HowItWorksTitle>{content.howItWorksSection.title}</HowItWorksTitle> */}
+				<Title>{content.howItWorksSection.title}</Title>
 				<StepsList>
 					{content.howItWorksSection.steps.map((step) => (
 						<StepItem key={step.id}>
@@ -332,7 +317,8 @@ export function Home() {
 			</HowItWorksSection>
 
 			<BenefitsSection>
-				<BenefitsTitle>{content.benefitsSection.title}</BenefitsTitle>
+				{/* <BenefitsTitle>{content.benefitsSection.title}</BenefitsTitle> */}
+				<Title>{content.benefitsSection.title}</Title>
 				<BenefitsGrid>
 					{content.benefitsSection.benefits.map((benefit) => (
 						<BenefitItem key={benefit.id}>
