@@ -207,10 +207,8 @@ describe("ShoppingListFooter", () => {
       <ShoppingListFooter
         isSendingEmail={false}
         isSendingWolt={false}
-        foodoraPosition={{ x: 12, y: 24 }}
         onEmailClick={onEmailClick}
         onWoltClick={onWoltClick}
-        foodoraRef={{ current: null }}
       />
     );
 
