@@ -29,7 +29,7 @@ const SendEmailButton = styled.button`
 
   &:disabled {
     background-color: #cccccc;
-    cursor: not-allowed;
+    cursor: default;
   }
 `;
 
@@ -50,7 +50,7 @@ const WoltButton = styled.button`
 
   &:disabled {
     background-color: #cccccc;
-    cursor: not-allowed;
+    cursor: default;
   }
 `;
 
@@ -76,7 +76,7 @@ const FoodoraButton = styled.button`
 
   &:disabled {
     background-color: #cccccc;
-    cursor: not-allowed;
+    cursor: default;
   }
 `;
 
@@ -95,13 +95,13 @@ export function ShoppingListFooter({
 }: ShoppingListFooterProps) {
   return (
     <FooterSection>
-      <SendEmailButton onClick={onEmailClick} disabled={isSendingEmail}>
+      <SendEmailButton type="button" onClick={onEmailClick} disabled={isSendingEmail}>
         Send to Email
       </SendEmailButton>
-      <WoltButton onClick={onWoltClick} disabled={isSendingWolt}>
+      <WoltButton type="button" onClick={onWoltClick} disabled={isSendingWolt}>
         {isSendingWolt ? "Creating Order..." : "Create Wolt Order"}
       </WoltButton>
-      <FoodoraButton>
+      <FoodoraButton type="button">
         Create Foodora Order
       </FoodoraButton>
     </FooterSection>

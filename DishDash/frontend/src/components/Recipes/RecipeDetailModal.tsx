@@ -239,7 +239,7 @@ const AddToShoppingButton = styled.button`
 
   &:disabled {
     background-color: #cccccc;
-    cursor: not-allowed;
+    cursor: default;
   }
 `;
 

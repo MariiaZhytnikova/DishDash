@@ -109,7 +109,7 @@ const PrimaryButton = styled.button<{ $disabled?: boolean }>`
 	color: #fff;
 	border: none;
 	border-radius: 8px;
-	cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
+	cursor: ${(props) => (props.$disabled ? "default" : "pointer")};
 	font-weight: 600;
 
 	&:hover {
