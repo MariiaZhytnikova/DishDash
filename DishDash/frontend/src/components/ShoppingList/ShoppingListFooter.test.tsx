@@ -18,10 +18,8 @@ describe("ShoppingListFooter", () => {
       <ShoppingListFooter
         isSendingEmail={false}
         isSendingWolt={false}
-        foodoraPosition={{ x: 12, y: 24 }}
         onEmailClick={onEmailClick}
         onWoltClick={onWoltClick}
-        foodoraRef={{ current: null }}
       />
     );
 
@@ -38,10 +36,8 @@ describe("ShoppingListFooter", () => {
       <ShoppingListFooter
         isSendingEmail={true}
         isSendingWolt={false}
-        foodoraPosition={{ x: 12, y: 24 }}
         onEmailClick={vi.fn()}
         onWoltClick={vi.fn()}
-        foodoraRef={{ current: null }}
       />
     );
 
@@ -55,26 +51,22 @@ describe("ShoppingListFooter", () => {
       <ShoppingListFooter
         isSendingEmail={false}
         isSendingWolt={true}
-        foodoraPosition={{ x: 12, y: 24 }}
         onEmailClick={vi.fn()}
         onWoltClick={vi.fn()}
-        foodoraRef={{ current: null }}
       />
     );
 
     expect(screen.getByText("Creating Order...")).toBeInTheDocument();
   });
 
-  // Test: Foodora button renders at specified position
-  it("renders Foodora button at correct position", () => {
+  // Test: Foodora button renders
+  it("renders Foodora button", () => {
     render(
       <ShoppingListFooter
         isSendingEmail={false}
         isSendingWolt={false}
-        foodoraPosition={{ x: 100, y: 200 }}
         onEmailClick={vi.fn()}
         onWoltClick={vi.fn()}
-        foodoraRef={{ current: null }}
       />
     );
 

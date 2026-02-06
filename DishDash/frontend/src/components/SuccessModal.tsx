@@ -27,7 +27,7 @@ const SuccessIcon = styled.div<{ $type?: "success" | "error" }>`
   width: 64px;
   height: 64px;
   margin: 0 auto 16px;
-  background: ${(props) => (props.$type === "error" ? "#ef4444" : "#b6ffd1")};
+  background: ${(props) => (props.$type === "error" ? "#ef4444" : "#22c55e")};
   border-radius: 50%;
   display: flex;
   align-items: center;

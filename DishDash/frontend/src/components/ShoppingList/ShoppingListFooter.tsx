@@ -29,7 +29,7 @@ const SendEmailButton = styled.button`
 
   &:disabled {
     background-color: #cccccc;
-    cursor: not-allowed;
+    cursor: default;
   }
 `;
 
@@ -50,12 +50,13 @@ const WoltButton = styled.button`
 
   &:disabled {
     background-color: #cccccc;
-    cursor: not-allowed;
+    cursor: default;
   }
 `;
 
-const FoodoraButton = styled.button<{ $x: number; $y: number }>`
-  padding: 12px 40px;
+const FoodoraButton = styled.button`
+  flex: 1;
+  padding: 12px 20px;
   background-color: var(--color-accent);
   color: white;
   border: none;
@@ -63,54 +64,46 @@ const FoodoraButton = styled.button<{ $x: number; $y: number }>`
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
-  transition: left 0.15s ease, top 0.15s ease;
-
-  position: fixed;
-  left: ${(p) => `${p.$x}px`};
-  top: ${(p) => `${p.$y}px`};
-  z-index: 1000;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, background-color 0.2s ease;
 
   &:hover {
+    transform: scale(0);
+    opacity: 0;
     background-color: var(--color-accent-hover);
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: default;
   }
 `;
 
 interface ShoppingListFooterProps {
   isSendingEmail: boolean;
   isSendingWolt: boolean;
-  foodoraPosition: { x: number; y: number };
   onEmailClick: () => void;
   onWoltClick: () => void;
-  foodoraRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 export function ShoppingListFooter({
   isSendingEmail,
   isSendingWolt,
-  foodoraPosition,
   onEmailClick,
   onWoltClick,
-  foodoraRef,
 }: ShoppingListFooterProps) {
   return (
-    <>
-      <FooterSection>
-        <SendEmailButton onClick={onEmailClick} disabled={isSendingEmail}>
-          Send to Email
-        </SendEmailButton>
-        <WoltButton onClick={onWoltClick} disabled={isSendingWolt}>
-          {isSendingWolt ? "Creating Order..." : "Create Wolt Order"}
-        </WoltButton>
-      </FooterSection>
-
-      {/* Foodora button - fixed positioning so it can escape */}
-      <FoodoraButton
-        ref={foodoraRef}
-        $x={foodoraPosition.x}
-        $y={foodoraPosition.y}
-      >
+    <FooterSection>
+      <SendEmailButton type="button" onClick={onEmailClick} disabled={isSendingEmail}>
+        Send to Email
+      </SendEmailButton>
+      <WoltButton type="button" onClick={onWoltClick} disabled={isSendingWolt}>
+        {isSendingWolt ? "Creating Order..." : "Create Wolt Order"}
+      </WoltButton>
+      <FoodoraButton type="button">
         Create Foodora Order
       </FoodoraButton>
-    </>
+    </FooterSection>
   );
 }

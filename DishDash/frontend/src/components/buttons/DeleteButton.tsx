@@ -32,7 +32,7 @@ const StyledButton = styled.button<{ $size: "small" | "medium" }>`
 
   &:disabled {
     opacity: 0.5;
-    cursor: not-allowed;
+    cursor: default;
   }
 `;
 

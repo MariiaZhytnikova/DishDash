@@ -200,8 +200,9 @@ const QuantityButton = styled.button`
   }
 
   &:disabled {
-	opacity: 0.5;
-	cursor: not-allowed;
+    opacity: 0.5;
+    cursor: default ;
+
 	&:hover {
 	  background: white;
 	  border-color: #ddd;
