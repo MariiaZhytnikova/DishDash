@@ -31,11 +31,9 @@ export function useShoppingList() {
   const [sendingWolt, setSendingWolt] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-  const [foodoraPosition, setFoodoraPosition] = useState({ x: 40, y: 40 });
 
   const nameInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
-  const foodoraButtonRef = useRef<HTMLButtonElement>(null);
 
   // Load shopping list on mount
   useEffect(() => {
@@ -55,48 +53,6 @@ export function useShoppingList() {
       emailInputRef.current.focus();
     }
   }, [showEmailModal]);
-
-  // Initialize Foodora button position directly under Send to Email button
-  useEffect(() => {
-    // Position it at a fixed location - stays consistent regardless of window size
-    setFoodoraPosition({
-      x: 310,
-      y: 700,
-    });
-  }, []);
-
-  // Make Foodora button run away from cursor
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const button = foodoraButtonRef.current;
-      if (!button) return;
-
-      const rect = button.getBoundingClientRect();
-      const buttonCenterX = rect.left + rect.width / 2;
-      const buttonCenterY = rect.top + rect.height / 2;
-
-      const distance = Math.hypot(
-        e.clientX - buttonCenterX,
-        e.clientY - buttonCenterY
-      );
-
-      // If mouse gets within 150px, move button away
-      if (distance < 150) {
-        const w = rect.width;
-        const h = rect.height;
-        const maxX = window.innerWidth - w - 10;
-        const maxY = window.innerHeight - h - 10;
-
-        setFoodoraPosition({
-          x: Math.random() * Math.max(10, maxX),
-          y: Math.random() * Math.max(10, maxY),
-        });
-      }
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    return () => document.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   const loadShoppingList = async () => {
     try {
@@ -263,11 +219,9 @@ export function useShoppingList() {
     sendingWolt,
     showSuccessModal,
     successMessage,
-    foodoraPosition,
     // Refs
     nameInputRef,
     emailInputRef,
-    foodoraButtonRef,
     // Setters
     setShowAddModal,
     setError,

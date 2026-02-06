@@ -39,10 +39,8 @@ export function ShoppingList() {
     sendingWolt,
     showSuccessModal,
     successMessage,
-    foodoraPosition,
     nameInputRef,
     emailInputRef,
-    foodoraButtonRef,
     setShowAddModal,
     setFormData,
     setEmail,
@@ -87,10 +85,8 @@ export function ShoppingList() {
           <ShoppingListFooter
             isSendingEmail={sendingEmail}
             isSendingWolt={sendingWolt}
-            foodoraPosition={foodoraPosition}
             onEmailClick={() => setShowEmailModal(true)}
             onWoltClick={handleWoltOrder}
-            foodoraRef={foodoraButtonRef}
           />
         </>
       )}
