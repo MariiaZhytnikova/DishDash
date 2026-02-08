@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, fireEvent, waitFor, cleanup } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import { RecipeDetailModal } from "./RecipeDetailModal";
+import { theme } from "../../styles/theme";
 import type { RecipeDetails } from "../../api";
 import * as api from "../../api";
 
@@ -11,25 +12,6 @@ import * as api from "../../api";
 vi.mock("../../api", () => ({
   addToShopping: vi.fn(),
 }));
-
-// ========================================================================
-// Theme for styled-components
-// ========================================================================
-const theme = {
-  colors: {
-    bg: "#fcfcfcff" as const,
-    panel: "#FAFAFA" as const,
-    border: "rgba(255,255,255,0.08)" as const,
-    text: "#000000" as const,
-    title: "#1FA9E4" as const,
-    muted: "#000000" as const,
-    active: "#1FA9E4" as const,
-    check: "yellow" as const,
-  },
-  radius: {
-    md: "12px" as const,
-  },
-};
 
 // ========================================================================
 // Mock recipe data for testing

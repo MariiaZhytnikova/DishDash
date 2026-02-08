@@ -140,6 +140,7 @@ export function AddItemModal({
               onChange={(e) => onFormChange({ ...formData, name: e.target.value })}
               placeholder="e.g., Tomato, Milk, Butter"
               required
+              autoComplete="off"
             />
           </FormGroup>
 
@@ -157,6 +158,7 @@ export function AddItemModal({
                     onFormChange({ ...formData, quantity: val });
                   }
                 }}
+                autoComplete="off"
               />
             </FormGroup>
 
@@ -168,6 +170,7 @@ export function AddItemModal({
                 value={formData.unit}
                 onChange={(e) => onFormChange({ ...formData, unit: e.target.value })}
                 placeholder="e.g., pcs, kg, L"
+                autoComplete="off"
               />
             </FormGroup>
           </FormRow>

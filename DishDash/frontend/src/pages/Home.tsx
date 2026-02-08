@@ -21,12 +21,12 @@ const IconWrapper = styled.div`
 	width: 80px;
 	height: 80px;
 	margin: 0 auto 24px;
-	background: linear-gradient(135deg, #1fa9e4 0%, #0d8bc9 100%);
+	background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 0 4px 12px rgba(31, 169, 228, 0.3);
+	box-shadow: var(--shadow-primary);
 `;
 
 const ChefIcon = styled.img`
@@ -38,24 +38,24 @@ const ChefIcon = styled.img`
 const Title = styled.h2`
 	font-size: 2.5rem;
 	font-weight: 700;
-	color: #1a1a1a;
+	color: var(--color-text-primary);
 	margin: 0 0 16px 0;
 	font-size: 1.75rem;
 	font-weight: 700;
-	color: #1a1a1a;
+	color: var(--color-text-primary);
 	margin: 0 0 32px 0;
 `;
 
 const Subtitle = styled.h2`
 	font-size: 1.125rem;
-	color: #666;
+	color: var(--color-text-light);
 	line-height: 1.6;
 	max-width: 600px;
 	margin: 0 auto;
 `;
 
 const InfoSection = styled.div`
-	background: #f8f9fa;
+	background: var(--color-bg-lighter);
 	border-radius: 16px;
 	padding: 32px;
 	margin-bottom: 48px;
@@ -64,7 +64,7 @@ const InfoSection = styled.div`
 const SectionTitle = styled.h1`
 	font-size: 1.5rem;
 	font-weight: 600;
-	color: #1a1a1a;
+	color: var(--color-text-primary);
 	margin: 0 0 16px 0;
 	display: flex;
 	align-items: center;
@@ -78,7 +78,7 @@ const SectionTitle = styled.h1`
 
 const Description = styled.p`
 	font-size: 1rem;
-	color: #4a4a4a;
+	color: var(--color-text-cardtext);
 	line-height: 1.7;
 	margin: 0 0 16px 0;
 
@@ -103,7 +103,7 @@ const FeaturesGrid = styled.div`
 
 const FeatureCard = styled(NavLink)`
 	background: white;
-	border: 2px solid #e9ecef;
+	border: 2px solid var(--color-border-focus);
 	border-radius: 16px;
 	padding: 28px;
 	transition: all 0.3s ease;
@@ -112,8 +112,8 @@ const FeatureCard = styled(NavLink)`
 	display: block;
 
 	&:hover {
-		border-color: #1fa9e4;
-		box-shadow: 0 4px 12px rgba(31, 169, 228, 0.15);
+		border-color: var(--color-primary);
+		box-shadow: var(--shadow-primary-hover);
 		transform: translateY(-2px);
 	}
 `;
@@ -138,20 +138,20 @@ const FeatureIcon = styled.div<{ $color: string }>`
 const FeatureTitle = styled.h3`
 	font-size: 1.25rem;
 	font-weight: 600;
-	color: #1a1a1a;
+	color: var(--color-text-primary);
 	margin: 0 0 12px 0;
 `;
 
 const FeatureDescription = styled.p`
 	font-size: 0.95rem;
-	color: #666;
+	color: var(--color-text-light);
 	line-height: 1.6;
 	margin: 0;
 `;
 
 const HowItWorksSection = styled.div`
 	margin-top: 64px;
-	background: #f8f9fa;
+	background: var(--color-bg-lighter);
 	border-radius: 16px;
 	padding: 40px;
 `;
@@ -171,7 +171,7 @@ const StepItem = styled.div`
 const StepNumber = styled.div`
 	width: 40px;
 	height: 40px;
-	background: #1fa9e4;
+	background: var(--color-primary);
 	color: white;
 	border-radius: 50%;
 	display: flex;
@@ -189,13 +189,13 @@ const StepContent = styled.div`
 const StepTitle = styled.h3`
 	font-size: 1.125rem;
 	font-weight: 600;
-	color: #1a1a1a;
+	color: var(--color-text-primary);
 	margin: 0 0 8px 0;
 `;
 
 const StepDescription = styled.p`
 	font-size: 0.95rem;
-	color: #666;
+	color: var(--color-text-light);
 	line-height: 1.6;
 	margin: 0;
 `;
@@ -223,7 +223,7 @@ const BenefitItem = styled.div`
 const CheckIcon = styled.div`
 	width: 24px;
 	height: 24px;
-	background: #10b981;
+	background: var(--color-success);
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
@@ -241,7 +241,7 @@ const CheckIcon = styled.div`
 
 const BenefitText = styled.p`
 	font-size: 0.95rem;
-	color: #4a4a4a;
+	color: var(--color-text-cardtext);
 	margin: 0;
 	line-height: 1.6;
 `;
@@ -255,13 +255,13 @@ const CallToActionSection = styled.div`
 const CallToActionTitle = styled.h2`
 	font-size: 1.5rem;
 	font-weight: 600;
-	color: #1a1a1a;
+	color: var(--color-text-primary);
 	margin: 0 0 12px 0;
 `;
 
 const CallToActionText = styled.p`
 	font-size: 1rem;
-	color: #1fa9e4;
+	color: var(--color-primary);
 	margin: 0;
 	font-weight: 500;
 `;

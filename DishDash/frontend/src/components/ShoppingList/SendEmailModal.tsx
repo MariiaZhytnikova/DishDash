@@ -64,7 +64,7 @@ const ButtonRow = styled.div`
 const SubmitButton = styled.button`
   flex: 1;
   padding: 10px 16px;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary-alt);
   color: white;
   border: none;
   border-radius: 4px;
@@ -73,11 +73,15 @@ const SubmitButton = styled.button`
   font-weight: 500;
 
   &:hover {
-    background-color: var(--color-primary-hover);
+    background-color: color-mix(
+      in srgb,
+      var(--color-secondary-alt) 85%,
+      transparent
+    );
   }
 
   &:disabled {
-    background-color: #cccccc;
+    background-color: var(--color-disabled);
     cursor: default;
   }
 `;
@@ -139,6 +143,7 @@ export function SendEmailModal({
               onChange={(e) => onEmailChange(e.target.value)}
               placeholder="your@email.com"
               required
+              autoComplete="off"
             />
           </FormGroup>
 

@@ -3,17 +3,23 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   :root {
     /* Core */
-    --color-bg: #fcfcfc;
+    --color-white: #ffffff;
     --color-panel: #fafafa;
-    --color-border: rgba(255,255,255,0.08);
+    --color-border: #e5e5e5;
     --color-border-focus: #e9ecef;
     --color-bg-lighter: #f8f9fa;
+    --color-disabled: #eeeff0ff;
+
+    /* Border & Background Colors */
+    --color-bg: #f5f5f5;
+    --color-bg-light: #fafafa;
+    --color-input-bg: #ffffff;
 
     /* Text */
     --color-text: #0f172a;
     --color-text-primary: #1a1a1a;
     --color-text-light: #666;
-    --color-text-cardtext: #4a4a4a;
+    --color-cardtext: #4a4a4a;
     --color-title: #1fa9e4;
     --color-muted: #64748b;
 
@@ -25,8 +31,16 @@ export const GlobalStyle = createGlobalStyle`
 
     /* Status */
     --color-success: #22c55e;
-    --color-danger: #dc2626;
+    --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
     --color-warning: #ea580c;
+
+     /* Secondary Colors */
+    --color-secondary-alt: #3a88ffff;
+    --color-secondary: #5dc2e7;
+    --color-info-hover: #7ed5f9;
+    --color-accent: #de1167;
+    --color-accent-hover: #b21057;
 
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -41,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
     --transition-normal: 0.2s ease;
   }
 
-  /* Optional: future dark mode (just switch data-theme on body/html) */
+  /* Optional: future dark mode */
   [data-theme="dark"] {
     --color-bg: #0b1220;
     --color-panel: #0f172a;
@@ -61,7 +75,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    background: var(--color-bg);
     color: var(--color-text);
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   }
