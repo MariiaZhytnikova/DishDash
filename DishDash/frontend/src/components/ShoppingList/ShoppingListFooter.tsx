@@ -24,11 +24,15 @@ const SendEmailButton = styled.button`
   font-weight: 600;
 
   &:hover {
-    background-color: var(--color-info-hover);
+    background-color: color-mix(
+    in srgb,
+    var(--color-secondary-alt) 85%,
+    transparent
+  );
   }
 
   &:disabled {
-    background-color: #cccccc;
+    background-color: var(--color-disabled);
     cursor: default;
   }
 `;

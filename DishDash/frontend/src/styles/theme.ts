@@ -1,17 +1,59 @@
+export type AppTheme = {
+  colors: {
+    bg: string;
+    panel: string;
+    border: string;
+
+    text: string;
+    title: string;
+    muted: string;
+
+    primary: string;
+    primaryHover: string;
+    active: string;
+
+    success: string;
+    danger: string;
+    warning: string;
+  };
+  shadow: {
+    sm: string;
+    md: string;
+  };
+  radius: {
+    md: string;
+  };
+  transition: {
+    normal: string;
+  };
+};
+
 export const theme = {
   colors: {
-    bg: "#fcfcfcff",
-    panel: "#FAFAFA",
-    border: "rgba(255,255,255,0.08)",
-    text: "#000000",
-    title: "#1FA9E4",
-    muted: "#000000",
-    active: "#1FA9E4",
-	  check: "yellow"
+    bg: "var(--color-bg)",
+    panel: "var(--color-panel)",
+    border: "var(--color-border)",
+
+    text: "var(--color-text)",
+    title: "var(--color-title)",
+    muted: "var(--color-muted)",
+
+    primary: "var(--color-primary)",
+    primaryHover: "var(--color-primary-hover)",
+    active: "var(--color-active)",
+
+    success: "var(--color-success)",
+    danger: "var(--color-danger)",
+    warning: "var(--color-warning)",
+  },
+  shadow: {
+    sm: "var(--shadow-sm)",
+    md: "var(--shadow-md)",
   },
   radius: {
-    md: "12px",
+    md: "var(--radius-md)",
   },
-} as const;
-
-export type AppTheme = typeof theme;
+  transition: {
+    normal: "var(--transition-normal)",
+  },
+} satisfies AppTheme;

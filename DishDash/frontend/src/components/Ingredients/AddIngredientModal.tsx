@@ -254,6 +254,7 @@ export function AddIngredientModal({ isOpen, onClose, onSubmit, error: externalE
 							...payload,
 							ingredient: { ...payload.ingredient, name: e.target.value },
 						})}
+						autoComplete="off"
 					/>
 				</FormGroup>
 
@@ -277,6 +278,7 @@ export function AddIngredientModal({ isOpen, onClose, onSubmit, error: externalE
 						}
 					}}
 						required
+						autoComplete="off"
 					/>
 				</FormGroup>
 
