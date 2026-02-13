@@ -72,11 +72,11 @@ const FoodoraButton = styled.button`
   opacity: 1;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, background-color 0.2s ease;
 
-  &:hover {
-    transform: scale(0);
-    opacity: 0;
-    background-color: var(--color-accent-hover);
-  }
+  // &:hover {
+  //   transform: scale(0);
+  //   opacity: 0;
+  //   background-color: var(--color-accent-hover);
+  // }
 
   &:disabled {
     background-color: #cccccc;
