@@ -1,6 +1,14 @@
 import { BASE_URL } from "./config";
 import type { SearchResult } from "../types/search";
+import type { Recipe } from "../types/recipe";
 import type { RecipeDetails, SearchFilters } from "./types";
+
+export async function getAllRecipes(): Promise<Recipe[]> {
+  const res = await fetch(`${BASE_URL}/recipes`);
+  if (!res.ok) throw new Error(`get recipes failed with ${res.status}`);
+  return res.json();
+}
+
 
 // Get all recipes on page load
 export async function getRecipes(): Promise<SearchResult[]> {
