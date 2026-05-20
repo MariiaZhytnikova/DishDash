@@ -42,22 +42,6 @@ The app is designed as a scalable product, with future plans for personalization
   Automatically generate a shopping list for missing ingredients from selected recipes.  
   Items can be checked off while shopping.
 
-## 🧩 Future Implementations
-
-- **Smart Expiration Awareness** (in progress)
-- **Accounts Management**
-- **Family Access**
-- **Smart Substitutions**
-- **AI-Powered Suggestions**
-- **Menu Generator**
-- **Random Theme Menu** (Italian, Vegetarian, Quick 20-min meals, etc.) 
-- **Nutrition Tracking** (calories & macros)
-- **Delivery Option**
-- **Family Sharing**
-- **Share Recipes**
-- **QR code scanning**
-- **Receipt Scanning from Grocery Stores**
-
 ## 🛠️ Tech Stack
 
 - **Frontend:** React, TypeScript
