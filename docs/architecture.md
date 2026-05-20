@@ -89,11 +89,4 @@ Communicates with the deployed backend API
 ## Scalability Considerations
 
 The current architecture allows future extensions, including:
-
-- User accounts and authentication
-- Use Database to store data
-- Family and shared access
-- Nutrition tracking and analytics
-- AI-powered recommendation logic
-
 Dish Dash uses a simple and scalable client–server architecture.
